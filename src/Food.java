@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Food {
     private String name;
     private float caloriesPer100g;
@@ -10,6 +12,15 @@ public class Food {
         this.isVegan = isVegan;
         this.type = type;
     }
+
+    public void foodContainer(){
+        ArrayList<Food> allFoods = new ArrayList<>();
+        allFoods.add(new Food("Carrot", 41, true, FoodType.Recipe));
+        allFoods.add(new Food("Beef", 250, false, FoodType.Protein));
+        allFoods.add(new Food("Rice", 130, true, FoodType.Carb));
+        allFoods.add(new Food("Cocoa Butter", 884, true, FoodType.Fat));
+    }
+
 
     public boolean isVegan() {
         return isVegan;
