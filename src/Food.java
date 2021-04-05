@@ -13,8 +13,8 @@ public class Food {
         this.type = type;
     }
 
+    //TODO MÅ DISKUTERE om container skal i denne klassen eller i en annen, evt. i FoodTest i stedet.
     public void foodContainer(){
-        //TODO MÅ DISKUTERE om container skal i denne klassen eller i en annen, evt. i FoodTest i stedet.
         ArrayList<Food> allFoods = new ArrayList<>();
         allFoods.add(new Food("Carrot", 41, true, FoodType.Recipe));
         allFoods.add(new Food("Beef", 250, false, FoodType.Protein));
