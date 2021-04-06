@@ -1,4 +1,5 @@
 public abstract class Diet {
+
     private int daysDuration;
     private String purpose;
     private Food[] allowedFood;
@@ -14,7 +15,6 @@ public abstract class Diet {
     public int getDaysDuration() {
         return daysDuration;
     }
-
     public void setDaysDuration(int daysDuration) {
         this.daysDuration = daysDuration;
     }
@@ -22,7 +22,6 @@ public abstract class Diet {
     public String getPurpose() {
         return purpose;
     }
-
     public void setPurpose(String purpose) {
         this.purpose = purpose;
     }
@@ -30,7 +29,6 @@ public abstract class Diet {
     public Food[] getAllowedFood() {
         return allowedFood;
     }
-
     public void setAllowedFood(Food[] allowedFood) {
         this.allowedFood = allowedFood;
     }
@@ -38,17 +36,12 @@ public abstract class Diet {
     public boolean isVegan() {
         return isVegan;
     }
-
     public void setVegan(boolean vegan) {
         isVegan = vegan;
     }
 
-    public String writeDuration() {
-        return "";
-    }
+    public abstract String writeDuration();
 
-    public String writeAllowedFood() {
-        return "";
-    }
+    public abstract String writeAllowedFood();
 
 }
