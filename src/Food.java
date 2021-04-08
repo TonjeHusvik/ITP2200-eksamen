@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Food {
     private String name;
     private float caloriesPer100g;
@@ -10,6 +12,7 @@ public class Food {
         this.isVegan = isVegan;
         this.type = type;
     }
+
 
     public boolean isVegan() {
         return isVegan;
@@ -41,5 +44,13 @@ public class Food {
 
     public void setType(FoodType type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return  "name: " + name +
+                ", calories per 100g: " + caloriesPer100g +
+                ", is it vegan? " + isVegan +
+                ", type: " + type + "\n";
     }
 }
