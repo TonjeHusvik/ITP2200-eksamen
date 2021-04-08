@@ -50,5 +50,4 @@ public abstract class Diet {
     public String writeAllowedFood() {
         return "";
     }
-
 }
