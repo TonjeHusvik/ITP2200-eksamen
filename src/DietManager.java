@@ -1,6 +1,6 @@
 public class DietManager {
     public boolean areCompatible(Person p, Diet d) {
-
+        
         return false;
     }
 
