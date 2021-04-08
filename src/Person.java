@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Person {
     private Food food;
     private Food[] allergies;
@@ -9,6 +11,11 @@ public class Person {
         this.allergies = allergies;
         this.diet = diet;
         this.weight = weight;
+    }
+
+    public void allergies() {
+        ArrayList<Food> allAllergies = new ArrayList<>();
+        allergies = new Food[0];
     }
 
     public Food getFood() {
