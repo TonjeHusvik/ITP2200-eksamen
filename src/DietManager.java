@@ -1,7 +1,11 @@
 public class DietManager {
     public boolean areCompatible(Person p, Diet d) {
-        //Given a Person and a Diet, return true if they are compatible 
-        System.out.println("hei");
+        //Given a Person and a Diet, return true if they are compatible, false otherwise.
+        String compatible;
+        if(){
+
+        }
+
         return false;
     }
 
