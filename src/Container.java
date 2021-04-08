@@ -16,6 +16,8 @@ public class Container {
 
     public static void loadDiets() {
         System.out.println("Loading diets...");
+        Diet veganDiet1 = new VeganDiet(30, );
+
     }
 
     public static void loadFoods() {
