@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public abstract class Diet {
     private int daysDuration;
     private String purpose;
-    private ArrayList <Food> allowedFood;
+    private ArrayList<Food> allowedFood;
     private boolean isVegan;
 
     public Diet(int daysDuration, String purpose, ArrayList<Food> allowedFood, boolean isVegan) {
@@ -29,11 +29,11 @@ public abstract class Diet {
         this.purpose = purpose;
     }
 
-    public ArrayList <Food> getAllowedFood() {
+    public ArrayList<Food> getAllowedFood() {
         return allowedFood;
     }
 
-    public void setAllowedFood(ArrayList <Food> allowedFood) {
+    public void setAllowedFood(ArrayList<Food> allowedFood) {
         this.allowedFood = allowedFood;
     }
 
@@ -53,4 +53,4 @@ public abstract class Diet {
         //Denne metoden skal printe ut
         return "The following food is allowed in this Diet diet: Arralist ";
     }
-
+}
