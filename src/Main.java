@@ -49,6 +49,7 @@ public class Main {
 
     private static void showFoods() {
         System.out.println("FOODS");
+        Container.loadFoods();
     }
 
 

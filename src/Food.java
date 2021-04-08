@@ -13,15 +13,6 @@ public class Food {
         this.type = type;
     }
 
-    //TODO MÅ DISKUTERE om container skal i denne klassen eller i en annen, evt. i FoodTest i stedet.
-    public void foodContainer(){
-        ArrayList<Food> allFoods = new ArrayList<>();
-        allFoods.add(new Food("Carrot", 41, true, FoodType.Recipe));
-        allFoods.add(new Food("Beef", 250, false, FoodType.Protein));
-        allFoods.add(new Food("Rice", 130, true, FoodType.Carb));
-        allFoods.add(new Food("Cocoa Butter", 884, true, FoodType.Fat));
-    }
-
 
     public boolean isVegan() {
         return isVegan;
@@ -53,5 +44,13 @@ public class Food {
 
     public void setType(FoodType type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return  "name: " + name +
+                ", calories per 100g: " + caloriesPer100g +
+                ", is it vegan? " + isVegan +
+                ", type: " + type + "\n";
     }
 }
