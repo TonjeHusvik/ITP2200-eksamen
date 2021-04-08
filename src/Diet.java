@@ -27,7 +27,7 @@ public abstract class Diet {
         this.purpose = purpose;
     }
 
-    public Food[] getAllowedFood() {
+    public Food[gk getAllowedFood() {
         return allowedFood;
     }
 
