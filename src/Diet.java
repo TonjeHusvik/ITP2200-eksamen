@@ -46,11 +46,21 @@ public abstract class Diet {
     }
 
     public String writeDuration() {
-        return "";
+        int days = getDaysDuration();
+        int years = days / 365;
+        int weeks = (days % 365) / 7;
+        days = (days % 365) % 7;
+
+        return "This diet lasts for: " + "\r\n" + years + " year/s" + "\r\n" +
+                weeks + " week/s" + "\r\n" + days + " day/s";
     }
 
-    public String writeAllowedFood(Diet diet) {
-        //Denne metoden skal printe ut
-        return "The following food is allowed in this Diet diet: Arralist ";
+    //Baserer seg på at toString-metoden i Food-klassen er overridet
+    public String writeAllowedFood() {
+        String result = "";
+        for (int i = 0; i < getAllowedFood().length; ++i) {
+            result += getAllowedFood()[i].toString() + "\r\n";
+        }
+        return result;
     }
 }

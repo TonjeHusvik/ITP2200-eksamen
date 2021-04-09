@@ -48,9 +48,6 @@ public class Food {
 
     @Override
     public String toString() {
-        return  "name: " + name +
-                ", calories per 100g: " + caloriesPer100g +
-                ", is it vegan? " + isVegan +
-                ", type: " + type + "\n";
+        return name + " is allowed.";
     }
 }
