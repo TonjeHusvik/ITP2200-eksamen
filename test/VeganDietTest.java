@@ -29,7 +29,7 @@ public class VeganDietTest {
 
     @Test
     public void testVegan() {
-        for (int i = 0; i < allowedInVegan.size(); i++);{
+        for (int i = 0; i < allowedInVegan.size(); i++){
             System.out.println(allowedInVegan.get(i));
         }
 
