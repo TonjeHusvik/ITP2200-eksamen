@@ -4,7 +4,7 @@ public class LowCarbDiet extends Diet{
     private float minWeightKg;
 
     public LowCarbDiet(int daysDuration, String purpose,
-                       ArrayList<Food> allowedFood,
+                       Food allowedFood,
                        boolean isVegan, float minWeightKg) {
         super(daysDuration, purpose, allowedFood, isVegan);
         this.minWeightKg = minWeightKg;
