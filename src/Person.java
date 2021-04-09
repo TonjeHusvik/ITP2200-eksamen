@@ -13,10 +13,6 @@ public class Person {
         this.weight = weight;
     }
 
-    public void allergies() {
-        ArrayList<Food> allAllergies = new ArrayList<>();
-        allergies = new Food[0];
-    }
 
     public Food getFood() {
         return food;
