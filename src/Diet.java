@@ -3,7 +3,11 @@ import java.util.Arrays;
 public abstract class Diet {
     private int daysDuration;
     private String purpose;
+<<<<<<< HEAD
     private Food[] allowedFood;
+=======
+    private ArrayList<Food> allowedFood;
+>>>>>>> origin/main
     private boolean isVegan;
 
     public Diet(int daysDuration, String purpose, Food[] allowedFood, boolean isVegan) {
@@ -29,11 +33,19 @@ public abstract class Diet {
         this.purpose = purpose;
     }
 
+<<<<<<< HEAD
     public Food[] getAllowedFood() {
         return allowedFood;
     }
 
     public void setAllowedFood(Food[] allowedFood) {
+=======
+    public ArrayList<Food> getAllowedFood() {
+        return allowedFood;
+    }
+
+    public void setAllowedFood(ArrayList<Food> allowedFood) {
+>>>>>>> origin/main
         this.allowedFood = allowedFood;
     }
 
@@ -54,6 +66,7 @@ public abstract class Diet {
         return "This diet lasts for: " + "\r\n" + years + " year/s" + "\r\n" +
                 weeks + " week/s" + "\r\n" + days + " day/s";
     }
+<<<<<<< HEAD
 
     //Baserer seg på at toString-metoden i Food-klassen er overridet
     public String writeAllowedFood() {
@@ -64,4 +77,6 @@ public abstract class Diet {
         return result;
     }
 
+=======
+>>>>>>> origin/main
 }

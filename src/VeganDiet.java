@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 import java.util.Vector;
+=======
+import java.util.ArrayList;
+>>>>>>> origin/main
 
 public class VeganDiet extends Diet{
     private float minWeightKg;
 
-    public VeganDiet(int daysDuration, String purpose, Food[] allowedFood, boolean isVegan, float minWeightKg) {
+
+    public VeganDiet(int daysDuration, String purpose,
+                     ArrayList<Food> allowedFood,
+                     boolean isVegan, float minWeightKg) {
         super(daysDuration, purpose, allowedFood, isVegan);
         this.minWeightKg = minWeightKg;
     }

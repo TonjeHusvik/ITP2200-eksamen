@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import javax.naming.Name;
+=======
+import java.util.ArrayList;
+>>>>>>> origin/main
 
 public class Food {
     private String name;
@@ -12,6 +16,7 @@ public class Food {
         this.isVegan = isVegan;
         this.type = type;
     }
+
 
     public boolean isVegan() {
         return isVegan;
@@ -47,6 +52,13 @@ public class Food {
 
     @Override
     public String toString() {
+<<<<<<< HEAD
         return name + " is allowed.";
+=======
+        return  "name: " + name +
+                ", calories per 100g: " + caloriesPer100g +
+                ", is it vegan? " + isVegan +
+                ", type: " + type + "\n";
+>>>>>>> origin/main
     }
 }
