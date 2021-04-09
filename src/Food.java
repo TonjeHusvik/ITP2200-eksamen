@@ -1,3 +1,5 @@
+import javax.naming.Name;
+
 public class Food {
     private String name;
     private float caloriesPer100g;
@@ -41,5 +43,10 @@ public class Food {
 
     public void setType(FoodType type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return name + " is allowed.";
     }
 }
