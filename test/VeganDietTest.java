@@ -62,9 +62,8 @@ public class VeganDietTest {
 
     @Test
     public void testVegan2() {
-        VeganDiet veganDiet1 = new VeganDiet(40, "Test", allowedInVegan.get(1), true, 1);
+        VeganDiet veganDiet1 = new VeganDiet(40, "Test", allowedInVegan, true, 1);
 
-        assertTrue(veganDiet1.isVegan());
-        System.out.println(veganDiet1.isVegan());
+        System.out.println(veganDiet1.writeAllowedFood());
     }
 }

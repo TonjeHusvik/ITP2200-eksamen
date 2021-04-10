@@ -5,7 +5,7 @@ public class FlexitarianDiet extends Diet{
     private Food preferredMeat;
 
     public FlexitarianDiet(int daysDuration, String purpose,
-                           Food allowedFood, boolean isVegan,
+                           ArrayList<Food> allowedFood, boolean isVegan,
                            float maxMeatGramsPerWeek, Food preferredMeat) {
         super(daysDuration, purpose, allowedFood, isVegan);
         this.maxMeatGramsPerWeek = maxMeatGramsPerWeek;
