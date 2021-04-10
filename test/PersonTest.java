@@ -22,8 +22,10 @@ public class PersonTest {
         Person person1 = new Person(new Food("Meatloaf", 400, false, FoodType.Fat));
         VeganDiet veganDiet = new VeganDiet("Vegan diet", 20, "health", allowedInVegan,true,20);
 
-        if (!person1.getFood().isVegan() && veganDiet.isVegan()){
-            System.out.println("This person's favouriteFood is " + person1.getFood().getName() + " and cannot follow a vegan diet.");
+        assertFalse("bla", !person1.getFood().isVegan() && veganDiet.isVegan());
+
+        //if (!person1.getFood().isVegan() && veganDiet.isVegan()){
+            //System.out.println("This person's favouriteFood is " + person1.getFood().getName() + " and cannot follow a vegan diet.");
             //throw new IllegalArgumentException("This person's favouriteFood is " + person1.getFood().getName() + " and cannot follow a vegan diet.");
         }
 
