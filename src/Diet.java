@@ -3,10 +3,10 @@ import java.util.ArrayList;
 public abstract class Diet {
     private int daysDuration;
     private String purpose;
-    private ArrayList<Food> allowedFood;
+    private Food allowedFood;
     private boolean isVegan;
 
-    public Diet(int daysDuration, String purpose, ArrayList<Food> allowedFood, boolean isVegan) {
+    public Diet(int daysDuration, String purpose, Food allowedFood, boolean isVegan) {
         this.daysDuration = daysDuration;
         this.purpose = purpose;
         this.allowedFood = allowedFood;
@@ -29,11 +29,11 @@ public abstract class Diet {
         this.purpose = purpose;
     }
 
-    public ArrayList<Food> getAllowedFood() {
+    public Food getAllowedFood() {
         return allowedFood;
     }
 
-    public void setAllowedFood(ArrayList<Food> allowedFood) {
+    public void setAllowedFood(Food allowedFood) {
         this.allowedFood = allowedFood;
     }
 
@@ -56,11 +56,11 @@ public abstract class Diet {
     }
 
     //Baserer seg på at toString-metoden i Food-klassen er overridet
-    public String writeAllowedFood() {
+/*    public String writeAllowedFood() {
         String result = "";
         for (int i = 0; i < getAllowedFood().size(); ++i) {
             result += getAllowedFood().get(i).toString() + "\r\n";
         }
         return result;
-    }
+    }*/
 }
