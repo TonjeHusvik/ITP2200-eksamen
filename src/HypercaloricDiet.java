@@ -4,10 +4,10 @@ public class HypercaloricDiet extends Diet{
     private float maxWeightKg;
     private float minCaloriesPerDay;
 
-    public HypercaloricDiet(int daysDuration, String purpose,
-                            Food allowedFood, boolean isVegan,
+    public HypercaloricDiet(String name, int daysDuration, String purpose,
+                            ArrayList<Food> allowedFood, boolean isVegan,
                             float maxWeightKg, float minCaloriesPerDay) {
-        super(daysDuration, purpose, allowedFood, isVegan);
+        super(name, daysDuration, purpose, allowedFood, isVegan);
         this.maxWeightKg = maxWeightKg;
         this.minCaloriesPerDay = minCaloriesPerDay;
     }
