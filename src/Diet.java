@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public abstract class Diet {
     private int daysDuration;
@@ -63,16 +64,13 @@ public abstract class Diet {
         int balance = days % 365;
         int months = balance / 30;
         days = balance % 30;
-        result =  "This " + d.getName() + " lasts for " + years + " years, " + months + " months, and " + days + " days";
+        result =  "This " + d.getName() + " lasts for " + years + " years, " + months + " months and " + days + " days";
         return result;
     }
 
-    //Baserer seg på at toString-metoden i Food-klassen er overridet
-    public String writeAllowedFood() {
+    public String writeAllowedFood(Diet d) {
         String result = "";
-        for (int i = 0; i < getAllowedFood().size(); ++i) {
-            result += getAllowedFood().get(i).toString() + "\r\n";
-        }
+        result = "The following food is allowed in this " + d.getName() +": "+ allowedFood;
         return result;
     }
 }

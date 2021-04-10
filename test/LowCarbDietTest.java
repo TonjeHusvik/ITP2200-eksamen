@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> de26919943ec6ed55890e4fe700e47365362829d
 import org.junit.Before;
 import org.junit.Test;
 
@@ -46,14 +49,22 @@ public class LowCarbDietTest {
 
         Person JACK = new Person(new Food("Chicken", 130, false, FoodType.Protein),
                 jacksAllergies,
+<<<<<<< HEAD
                                new LowCarbDiet("LowcarbDiet", 30, "Health", allowedLowCarbFood, false, 50),
+=======
+                               new LowCarbDiet("LowCarbDiet",30, "Health", allowedLowCarbFood, false, 50),
+>>>>>>> de26919943ec6ed55890e4fe700e47365362829d
                                79);
 
         }
 
     @Test
     public void writeAllowedFoodTest(){
+<<<<<<< HEAD
         LowCarbDiet lowCarbD1 = new LowCarbDiet("LowcarbDiet", 30, "Health", allowedLowCarbFood, false, 50);
+=======
+        LowCarbDiet lowCarbD1 = new LowCarbDiet("LowCarbDiet",30, "Health", allowedLowCarbFood, false, 50);
+>>>>>>> de26919943ec6ed55890e4fe700e47365362829d
 
         System.out.println(allowedLowCarbFood.toString());
         //System.out.println("The following food is allowed in this LowCarbDiet: "  + lowCarbD1.writeAllowedFood());

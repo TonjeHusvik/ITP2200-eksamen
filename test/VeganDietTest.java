@@ -31,9 +31,8 @@ public class VeganDietTest {
 
     }
 
-    // returnerer antall som er satt true av allowedInVegan arrayet
-/*    @Test*/
-/*    public void testVegan() {
+/*    @Test
+    public void testVegan() {
 
         for (int i = 0; i < allowedInVegan.size(); i++){
             System.out.println(allowedInVegan.get(i));
@@ -50,9 +49,9 @@ public class VeganDietTest {
                 System.out.println(veganDiet1.isVegan());
             }
         }
-    }*/
+    }
 
-/*    @Test
+    @Test
     public void testVegan2() {
         VeganDiet veganDiet1 = new VeganDiet(40, "Test", allowedInVegan, true, 1);
 
@@ -61,11 +60,33 @@ public class VeganDietTest {
     }*/
 
     @Test
-    public void testDurationOfAnDiet() {
-
+    public void requirement3_a() {
         VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 400, "Save the planet!", allowedInVegan, true, 2);
 
-        // 400 dager skal returnere 1 år, 1 mnd 5 dager ish.
-        System.out.println(veganDiet1.writeDuration(veganDiet1));
+        String result = veganDiet1.writeDuration(veganDiet1);
+        assertEquals("This VeganDiet lasts for 1 years, 1 months and 5 days", result);
+    }
+
+
+    @Test
+    // Testing intentionally wrong
+    public void requirement3_a1() {
+        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 500, "Save the planet!", allowedInVegan, true, 2);
+        // returning 1 years, , 4 months and 15 days
+        String result = veganDiet1.writeDuration(veganDiet1);
+        assertEquals("This VeganDiet lasts for 1 years, 1 months and 5 days", result);
+    }
+
+
+    @Test
+    public void requirement3_b() {
+        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 70, "Save the earth.", allowedInVegan, true, 3);
+
+        String result = veganDiet1.writeAllowedFood(veganDiet1)
+                        .replace("[",  "")
+                        .replace("]", "");
+
+        assertEquals("The following food is allowed in this VeganDiet: Rice, Salad, Tofu, Beans, Broccoli", result);
+        System.out.println(result);
     }
 }
