@@ -36,6 +36,16 @@ public class LowCarbDietTest {
         }
 
     @Test
+    public void writeAllowedFoodTest(){
+        LowCarbDiet lowCarbD1 = new LowCarbDiet(30, "Health", allowedLowCarbFood, false, 50);
+
+        System.out.println(allowedLowCarbFood.toString());
+        //System.out.println("The following food is allowed in this LowCarbDiet: "  + lowCarbD1.writeAllowedFood());
+        //assertEquals(lowCarbD1.writeAllowedFood(), allowedLowCarbFood.toString());
+        assertTrue(allowedLowCarbFood);
+    }
+
+    @Test
     public void getMinWeightKg() {
     }
 
