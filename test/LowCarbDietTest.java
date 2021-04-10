@@ -1,4 +1,4 @@
-/*
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -32,14 +32,14 @@ public class LowCarbDietTest {
 
         Person JACK = new Person(new Food("Chicken", 130, false, FoodType.Protein),
                 jacksAllergies,
-                               new LowCarbDiet(30, "Health", allowedLowCarbFood, false, 50),
+                               new LowCarbDiet("LowcarbDiet", 30, "Health", allowedLowCarbFood, false, 50),
                                79);
 
         }
 
     @Test
     public void writeAllowedFoodTest(){
-        LowCarbDiet lowCarbD1 = new LowCarbDiet(30, "Health", allowedLowCarbFood, false, 50);
+        LowCarbDiet lowCarbD1 = new LowCarbDiet("LowcarbDiet", 30, "Health", allowedLowCarbFood, false, 50);
 
         System.out.println(allowedLowCarbFood.toString());
         //System.out.println("The following food is allowed in this LowCarbDiet: "  + lowCarbD1.writeAllowedFood());
@@ -53,4 +53,4 @@ public class LowCarbDietTest {
     @Test
     public void setMinWeightKg() {
     }
-}*/
+}
