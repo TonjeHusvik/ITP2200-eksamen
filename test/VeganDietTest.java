@@ -49,7 +49,6 @@ public class VeganDietTest {
 
         for (Food f : allowedInVegan) {
 
-
             if (f.isVegan()) {
 
                 VeganDiet veganDiet1 = new VeganDiet(30, "Test", f, true, 1);
