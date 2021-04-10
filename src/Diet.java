@@ -63,7 +63,7 @@ public abstract class Diet {
         int balance = days % 365;
         int months = balance / 30;
         days = balance % 30;
-        result =  "This " + d.getName() + " lasts for " + years + " years, " + months + " months, and " + days + " days";
+        result =  "This " + d.getName() + " lasts for " + years + " years, " + months + " months and " + days + " days";
         return result;
     }
 
@@ -71,7 +71,7 @@ public abstract class Diet {
     public String writeAllowedFood() {
         String result = "";
         for (int i = 0; i < getAllowedFood().size(); ++i) {
-            result += getAllowedFood().get(i).toString() + "\r\n";
+            result += getAllowedFood().get(i).toString() + result;
         }
         return result;
     }
