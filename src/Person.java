@@ -13,6 +13,9 @@ public class Person {
         this.weight = weight;
     }
 
+    public Person(Food food) {
+        this.food = food;
+    }
 
     public Food getFood() {
         return food;
