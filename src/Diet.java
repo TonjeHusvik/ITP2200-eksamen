@@ -71,11 +71,8 @@ public abstract class Diet {
     //Baserer seg på at toString-metoden i Food-klassen er overridet
 
     public String writeAllowedFood(Diet d) {
-
         String result = "";
-        for (int i = 0; i < getAllowedFood().size(); i++) {
-            result = "The following food is allowed in this " + d.getName() +": "+ allowedFood;
-        }
+        result = "The following food is allowed in this " + d.getName() +": "+ allowedFood;
         return result;
     }
 
