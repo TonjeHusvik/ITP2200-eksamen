@@ -77,11 +77,16 @@ public class VeganDietTest {
         assertEquals("This VeganDiet lasts for 1 years, 1 months and 5 days", result);
     }
 
+
     @Test
     public void requirement3_b() {
         VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 70, "Save the earth.", allowedInVegan, true, 3);
 
-        String result = veganDiet1.writeAllowedFood();
-        assertEquals("The following food is allowed in this VeganDiet: Rice, Salad, Tofu Beans Broccoli", result);
+        String result = veganDiet1.writeAllowedFood(veganDiet1)
+                        .replace("[",  "")
+                        .replace("]", "");
+
+        assertEquals("The following food is allowed in this VeganDiet: Rice, Salad, Tofu, Beans, Broccoli", result);
+        System.out.println(result);
     }
 }
