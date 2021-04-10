@@ -48,6 +48,6 @@ public class Food {
 
     @Override
     public String toString() {
-        return name + " is allowed.";
+        return name + "\r\n";
     }
 }
