@@ -34,30 +34,12 @@ public class FlexitarianDietTest {
         Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Non-vegan protein food", allowedInFlexitarian, false, 8000, tomahawk);
 
-            if(flexitarianDiet1.getPreferredMeat().isVegan()){
-                throw new IllegalArgumentException("The preffered meat in FlexitarianDiet is VEGAN! DO NOT EAT");
-            } else if (tomahawk.getType() != FoodType.Protein) {
-                throw new IllegalArgumentException("The preffered meat in FlexitarianDiet is NOT of FoodType Protein, DO NOT EAT");
-            } else {
-                System.out.println("The preffered meat in FlexitarianDiet is not vegan, EAT! :D");
-            }
-
-        /* for (Food flex: flexitarianDiet1.getAllowedFood()) {
-            if( (!flex.isVegan() ) && flex.getType(FoodType.Protein)){
-
-                assertTrue(flex.isVegan());
-
-            }else{
-                System.out.println("false");
->>>>>>> 6fea9d7b6c6e3f3a3fba6acf9a6fcc928c072b8a
-            }
-
-
-         */
-
-        /*
-        String result = flexiterianDiet1.writeDuration(flexiterianDiet1);
-        assertEquals("", result); */
+        if(flexitarianDiet1.getPreferredMeat().isVegan()){
+            throw new IllegalArgumentException("The preffered meat in FlexitarianDiet is VEGAN! DO NOT EAT");
+        } else if (tomahawk.getType() != FoodType.Protein) {
+            throw new IllegalArgumentException("The preffered meat in FlexitarianDiet is NOT of FoodType Protein, DO NOT EAT");
+        } else {
+            System.out.println("The preffered meat in FlexitarianDiet is not vegan, EAT! :D");
+        }
     }
-
 }
