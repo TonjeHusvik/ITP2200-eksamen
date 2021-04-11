@@ -89,10 +89,9 @@ public class VeganDietTest {
         VeganDiet person1VeganDiet = new VeganDiet("Person1 VeganDiet", 90, "Gotta loose some weight", allowedInVegan, true, 50);
 
         Person person1 = new Person(person1FavouriteFood, person1Allergies, person1VeganDiet, 90);
-
         DietManager dietManager = new DietManager();
-        dietManager.areCompatible(person1, person1VeganDiet);
 
         assertTrue(dietManager.areCompatible(person1, person1VeganDiet));
     }
+
 }

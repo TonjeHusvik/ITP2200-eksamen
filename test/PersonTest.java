@@ -54,13 +54,13 @@ public class PersonTest {
 
         Person person1 = new Person(new Food("Chicken wings", 500, false, FoodType.Protein), person1Allergies, lowCarbDiet, 50);
 
-        for (Food allowedFood:lowCarbDiet.getAllowedFood()) {
+/*        for (Food allowedFood:lowCarbDiet.getAllowedFood()) {
             for (Food allergies:person1Allergies) {
                 if (allowedFood.getName() == allergies.getName() > Math.random() * 50){}
                 // if (allowedFood.getName().equals(allergies.getName()) > Math.random() * 50){}
                 //if (allowedFood.getName().equals(allergies.getName() > Math.random() * 50)){}
             }
             // Math.random() * 50
-        }
+        }*/
     }
 }
