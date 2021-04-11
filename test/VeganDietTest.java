@@ -11,13 +11,7 @@ public class VeganDietTest {
     ArrayList<Food> allowedInVegan = new ArrayList<>();
     ArrayList<Food> person1FavouriteFood = new ArrayList<>();
 
-
     @Before
-    public void loadIn(){
-        addVeganFoods();
-    }
-
-    @Test
     public void addVeganFoods() {
         Food veganFood1 = new Food("Rice", 130, true, FoodType.Carb);
         Food veganFood2 = new Food("Salad", 20, true, FoodType.Recipe);
@@ -85,7 +79,7 @@ public class VeganDietTest {
         Food[] person1Allergies = new Food[2];
         person1Allergies[0] = new Food("Walnuts", 654, true, FoodType.Fat);
         person1Allergies[1] = new Food("Kiwi", 61, true, FoodType.Fiber);
-        Food person1FavouriteFood = new Food("Hamburger", 295, false, FoodType.Recipe);
+        Food person1FavouriteFood = new Food("Hamburger", 295, true, FoodType.Recipe);
         VeganDiet person1VeganDiet = new VeganDiet("Person1 VeganDiet", 90, "Gotta loose some weight", allowedInVegan, true, 50);
 
         Person person1 = new Person(person1FavouriteFood, person1Allergies, person1VeganDiet, 90);

@@ -13,7 +13,7 @@ public class LowCarbDietTest {
 
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         Food lowCarbFood1 = new Food("Cauliflower rice", 23, true, FoodType.Protein);
         Food lowCarbFood2 = new Food("Salad", 20, true, FoodType.Fiber);
         Food lowCarbFood3 = new Food("Tofu", 200, true, FoodType.Protein);
