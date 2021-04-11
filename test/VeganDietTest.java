@@ -11,13 +11,7 @@ public class VeganDietTest {
     ArrayList<Food> allowedInVegan = new ArrayList<>();
     ArrayList<Food> person1FavouriteFood = new ArrayList<>();
 
-
     @Before
-    public void loadIn(){
-        addVeganFoods();
-    }
-
-    @Test
     public void addVeganFoods() {
         Food veganFood1 = new Food("Rice", 130, true, FoodType.Carb);
         Food veganFood2 = new Food("Salad", 20, true, FoodType.Recipe);
