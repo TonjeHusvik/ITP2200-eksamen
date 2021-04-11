@@ -20,6 +20,11 @@ public class Person {
         this.favouriteFood = favouriteFood;
     }
 
+    public Person (Diet diet){
+        this.diet = diet;
+    }
+
+
     public Food getFavouriteFood() {
         return favouriteFood;
     }
