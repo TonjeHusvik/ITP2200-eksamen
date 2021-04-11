@@ -6,8 +6,8 @@ public class Person {
     private Diet diet;
     private float weight;
 
-    public Person(Food food, Food[] allergies, Diet diet, float weight) {
-        this.food = food;
+    public Person(Food favouriteFood, Food[] allergies, Diet diet, float weight) {
+        this.food = favouriteFood;
         this.allergies = allergies;
         this.diet = diet;
         this.weight = weight;
