@@ -2,7 +2,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
@@ -34,10 +33,10 @@ public class PersonTest {
         Person person1 = new Person(new Food("Meatloaf", 400, false, FoodType.Fat));
         VeganDiet veganDiet = new VeganDiet("Vegan diet", 20, "health", allowedInVegan,true,20);
 
-        if (!person1.getFood().isVegan() && veganDiet.isVegan()){
-            assertTrue("This person cannot follow this diet", !person1.getFood().isVegan() && veganDiet.isVegan());
+        if (!person1.getFavouriteFood().isVegan() && veganDiet.isVegan()){
+            assertTrue("This person cannot follow this diet", !person1.getFavouriteFood().isVegan() && veganDiet.isVegan());
         }else{
-            throw new IllegalArgumentException("This person's favouriteFood is " + person1.getFood().getName() + " and can follow this diet.");
+            throw new IllegalArgumentException("This person's favouriteFood is " + person1.getFavouriteFood().getName() + " and can follow this diet.");
         }
     }
 
