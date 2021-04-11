@@ -9,6 +9,7 @@ import static org.junit.Assert.*;
 
 public class VeganDietTest {
     ArrayList<Food> allowedInVegan = new ArrayList<>();
+    ArrayList<Food> person1FavouriteFood = new ArrayList<>();
 
 
     @Before
@@ -29,6 +30,11 @@ public class VeganDietTest {
         allowedInVegan.add(veganFood3);
         allowedInVegan.add(veganFood4);
         allowedInVegan.add(veganFood5);
+
+        Food[] person1Allergies = new Food[2];
+        person1Allergies[0] = new Food("Walnuts", 654, true, FoodType.Fat);
+        person1Allergies[1] = new Food("Kiwi", 61, true, FoodType.Fiber);
+
     }
 
     @Test
@@ -71,5 +77,22 @@ public class VeganDietTest {
                         .replace("]", "");
         assertEquals("The following food is allowed in this VeganDiet: Rice, Salad, Tofu, Beans, Broccoli", result);
         System.out.println(result);
+    }
+
+    // TODO Given a Person and a Diet, return true if they are compatible, false otherwise
+    @Test
+    public void requirement4_a() {
+        Food[] person1Allergies = new Food[2];
+        person1Allergies[0] = new Food("Walnuts", 654, true, FoodType.Fat);
+        person1Allergies[1] = new Food("Kiwi", 61, true, FoodType.Fiber);
+        Food person1FavouriteFood = new Food("Hamburger", 295, false, FoodType.Recipe);
+        VeganDiet person1VeganDiet = new VeganDiet("Person1 VeganDiet", 90, "Gotta loose some weight", allowedInVegan, true, 50);
+
+        Person person1 = new Person(person1FavouriteFood, person1Allergies, person1VeganDiet, 90);
+
+        DietManager dietManager = new DietManager();
+        dietManager.areCompatible(person1, person1VeganDiet);
+
+        assertTrue(dietManager.areCompatible(person1, person1VeganDiet));
     }
 }
