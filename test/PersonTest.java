@@ -15,8 +15,16 @@ public class PersonTest {
         allowedInVegan.add(veganFood1);
 
         Food lowCarbFood1 = new Food("Bacon", 10, false, FoodType.Fat);
+        Food lowCarbFood2 = new Food("Milk", 10, false, FoodType.Fat);
+        Food lowCarbFood3 = new Food("Bacon", 10, false, FoodType.Fat);
+        Food lowCarbFood4 = new Food("Bacon", 10, false, FoodType.Fat);
+        Food lowCarbFood5 = new Food("Bacon", 10, false, FoodType.Fat);
         allowedInLowCarb.add(lowCarbFood1);
-        LowCarbDiet lowCarbDiet = new LowCarbDiet("Low carb diet", 20, "weight loss", allowedInLowCarb, false, 80);
+        allowedInLowCarb.add(lowCarbFood2);
+        allowedInLowCarb.add(lowCarbFood3);
+        allowedInLowCarb.add(lowCarbFood4);
+        allowedInLowCarb.add(lowCarbFood5);
+
     }
 
     // TODO a. If their favourite food is non-vegan, they cannot follow a vegan diet.
@@ -34,6 +42,15 @@ public class PersonTest {
 
     @Test
     public void requirement2_b(){
+        LowCarbDiet lowCarbDiet = new LowCarbDiet("Low carb diet", 20, "weight loss", allowedInLowCarb, false, 80);
+
+        Food[] person1Allergies = new Food[4];
+        person1Allergies[0] = new Food("Apple", 35, true, FoodType.Fiber);
+        person1Allergies[1] = new Food("Shellfish", 500, false, FoodType.Recipe);
+        person1Allergies[2] = new Food("Milk", 35, true, FoodType.Fiber);
+        person1Allergies[3] = new Food("Peanuts", 500, false, FoodType.Recipe);
+
+        Person person1 = new Person(new Food("Chicken wings", 500, false, FoodType.Protein), new Food[4], lowCarbDiet, 50);
 
     }
 }
