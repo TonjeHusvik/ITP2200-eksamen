@@ -31,8 +31,8 @@ public class LowCarbDietTest {
 
         Food lowCarbFoodVegan1 = new Food("Apple", 30, true, FoodType.Fiber);
         Food lowCarbFoodVegan2 = new Food("Orange", 50, true, FoodType.Fiber);
-        Food lowCarbFoodVegan3 = new Food("Seitan", 200, false, FoodType.Recipe);
-        Food lowCarbFoodVegan4 = new Food("Bread", 400, false, FoodType.Carb);
+        Food lowCarbFoodVegan3 = new Food("Seitan", 200, true, FoodType.Recipe);
+        Food lowCarbFoodVegan4 = new Food("Bread", 400, true, FoodType.Carb);
         Food lowCarbFoodVegan5 = new Food("Lentils", 250, true, FoodType.Protein);
         allowedLowCarbFoodVegan.add(lowCarbFoodVegan1);
         allowedLowCarbFoodVegan.add(lowCarbFoodVegan2);
@@ -47,14 +47,7 @@ public class LowCarbDietTest {
 
         }
 
-    @Test
-    public void writeAllowedFoodTest(){
-        LowCarbDiet lowCarbD1 = new LowCarbDiet("LowcarbDiet", 30, "Health", allowedLowCarbFood, false, 50);
 
-        System.out.println(allowedLowCarbFood.toString());
-        //System.out.println("The following food is allowed in this LowCarbDiet: "  + lowCarbD1.writeAllowedFood());
-        //assertEquals(lowCarbD1.writeAllowedFood(), allowedLowCarbFood.toString());
-    }
     //TODO a. If a diet contains any non-vegan food, it is considered not vegan (i.e., isVegan = false).
     @Test
     public void  requirement1_a(){
@@ -78,13 +71,40 @@ public class LowCarbDietTest {
         }
     }
 
-
-
     @Test
-    public void getMinWeightKg() {
+    public void requirment1_d (){
+
     }
 
     @Test
-    public void setMinWeightKg() {
+    public void requirement3_b() {
+        LowCarbDiet lowCarbDiet1 = new LowCarbDiet("LowcarbDiet", 90, "Loose weight", allowedLowCarbFood, false, 50);
+
+        String result = lowCarbDiet1.writeAllowedFood(lowCarbDiet1)
+                .replace("[",  "")
+                .replace("]", "");
+
+        assertEquals("The following food is allowed in this LowcarbDiet: Cauliflower rice, Salad, Tofu, Fish, Broccoli", result);
+        System.out.println(result);
     }
+
+    @Test
+    public void requirement3_a() {
+        LowCarbDiet lowCarbDiet1 = new LowCarbDiet("LowcarbDiet", 730, "Loose weight", allowedLowCarbFood, true, 50);
+
+        String result = lowCarbDiet1.writeDuration(lowCarbDiet1);
+        assertEquals("This LowcarbDiet lasts for 2 years, 0 months and 0 days", result);
+    }
+
+
+  /*  @Test
+    // Testing intentionally wrong
+    public void requirement3_a1() {
+        LowCarbDiet lowCarbDiet1 = new LowCarbDiet("LowcarbDiet", 30, "Loose weight", allowedLowCarbFood, true, 50);
+        // returning 0 years, 1 months and 0 days
+        String result = lowCarbDiet1.writeDuration(lowCarbDiet1);
+        assertEquals("This LowCarbDiet lasts for 1 years, 1 months and 5 days", result);
+    }*/
+
+
 }
