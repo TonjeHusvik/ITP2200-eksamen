@@ -56,7 +56,9 @@ public class PersonTest {
 
         for (Food allowedFood:lowCarbDiet.getAllowedFood()) {
             for (Food allergies:person1Allergies) {
-                if ()
+                if (allowedFood.getName() == allergies.getName() > Math.random() * 50){}
+                // if (allowedFood.getName().equals(allergies.getName()) > Math.random() * 50){}
+                //if (allowedFood.getName().equals(allergies.getName() > Math.random() * 50)){}
             }
             // Math.random() * 50
         }
