@@ -1,33 +1,31 @@
-import java.util.ArrayList;
-
 public class Person {
-    private Food food;
+    private Food favouriteFood;
     private Food[] allergies;
     private Diet diet;
     private float weight;
 
     public Person(Food favouriteFood, Food[] allergies, Diet diet, float weight) {
-        this.food = favouriteFood;
+        this.favouriteFood = favouriteFood;
         this.allergies = allergies;
         this.diet = diet;
         this.weight = weight;
     }
 
-    public Person(Food food) {
-        this.food = food;
+    public Person(Food favouriteFood) {
+        this.favouriteFood = favouriteFood;
     }
 
-    public Person(Food food, Diet diet) {
+    public Person(Food favouriteFood, Diet diet) {
         this.diet = diet;
-        this.food = food;
+        this.favouriteFood = favouriteFood;
     }
 
-    public Food getFood() {
-        return food;
+    public Food getFavouriteFood() {
+        return favouriteFood;
     }
 
-    public void setFood(Food food) {
-        this.food = food;
+    public void setFavouriteFood(Food favouriteFood) {
+        this.favouriteFood = favouriteFood;
     }
 
     public Food[] getAllergies() {
