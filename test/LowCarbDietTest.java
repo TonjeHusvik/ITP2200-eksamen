@@ -30,8 +30,8 @@ public class LowCarbDietTest {
         jacksAllergies[1] = new Food("Chocolate", 500, false, FoodType.Recipe);
 
         Food lowCarbFoodVegan1 = new Food("Apple", 30, true, FoodType.Fiber);
-        Food lowCarbFoodVegan2 = new Food("Orange", 50, true, FoodType.Fiber);
-        Food lowCarbFoodVegan3 = new Food("Seitan", 200, true, FoodType.Recipe);
+        Food lowCarbFoodVegan2 = new Food("Orange", 50, true, FoodType.Carb);
+        Food lowCarbFoodVegan3 = new Food("Seitan", 200, true, FoodType.Carb);
         Food lowCarbFoodVegan4 = new Food("Bread", 400, true, FoodType.Carb);
         Food lowCarbFoodVegan5 = new Food("Lentils", 250, true, FoodType.Protein);
         allowedLowCarbFoodVegan.add(lowCarbFoodVegan1);
@@ -75,11 +75,23 @@ public class LowCarbDietTest {
     @Test
     public void requirment1_e (){
         LowCarbDiet lowCarbD1 = new LowCarbDiet("LowcarbDiet", 90, "Loose 10 kg", allowedLowCarbFoodVegan, false, 50);
-        for (int i = 0; i < lowCarbD1.getAllowedFood().size(); i++) {
-            if(i<0){
+        int teller = 0;
+
+        for ( Food f : lowCarbD1.getAllowedFood()) {
+            if (f.getType().equals(FoodType.Carb)){
+                teller = teller+1;
+                System.out.println(teller);
+
+                if(teller <= 2){
+                    System.out.println("sec if");
+                }
+
 
             }
+
         }
+
+
 
         
     }
