@@ -51,23 +51,30 @@ public class PersonTest {
         person1Allergies[2] = new Food("Pork", 35, true, FoodType.Fiber);
         person1Allergies[3] = new Food("Peanuts", 500, false, FoodType.Recipe);
 
-        Person person1 = new Person(new Food("Chicken wings", 500, false, FoodType.Protein), person1Allergies, lowCarbDiet, 50);
+        //Person person1 = new Person(new Food("Chicken wings", 500, false, FoodType.Protein), person1Allergies, lowCarbDiet, 50);
 
         for (Food allowedFood:lowCarbDiet.getAllowedFood()) {
             for (Food allergies:person1Allergies) {
                 if(allowedFood.getName().equals(allergies.getName())){
-                    if (Math.random() > 0.5){
-                        assertFalse();
+                    if (Math.random() <= 0.5){
+                        assertTrue(allowedFood.getName().equals(allergies.getName()));
                     }
                 }
             }
         }
+
+        /*
+        for (Food allowedFood:lowCarbDiet.getAllowedFood()) {
+            for (Food allergies:person1Allergies) {
+                if (Math.random() <= 0.5){
+                    assertEquals(allowedFood.getName(), allergies.getName());
+                }
+            }
+        }
+        */
     }
 
 
 
 
 }
-//if (allowedFood.getName() == allergies.getName() > Math.random() * 50){}
-//if (allowedFood.getName().equals(allergies.getName()) > Math.random() * 50){}
-//if (allowedFood.getName().equals(allergies.getName() > Math.random() * 50)){}
