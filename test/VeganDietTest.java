@@ -37,16 +37,25 @@ public class VeganDietTest {
         ArrayList<Food> allowedInVeganWithOneImposterFood = new ArrayList<>();
         Food veganFood1 = new Food("Rice", 130, true, FoodType.Carb);
         Food veganImposter = new Food("Chicken fillet", 165, false, FoodType.Protein);
-
         allowedInVeganWithOneImposterFood.add(veganFood1);
         allowedInVeganWithOneImposterFood.add(veganImposter);
 
         VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet of Rice and Chicken Filet",
                 allowedInVeganWithOneImposterFood, true, 50);
 
-        String imposterFood = veganDiet1.getAllowedFood();
+        for (Food f: veganDiet1.getAllowedFood()) {
+            if (!f.isVegan() == f.isVegan()) {
+                assertFalse("isVegan = true", f.isVegan());
+            } else if (f.isVegan()) {
+                assertTrue("isVegan = false", f.isVegan());
+            }
+        }
 
-        assertTrue(!allowedInVeganWithOneImposterFood.containsAll());
+
+
+        /*String imposterFood = allowedInVeganWithOneImposterFood.get();
+
+        System.out.println(imposterFood);*/
     }
 
 /*
