@@ -14,7 +14,7 @@ public class VeganDietTest {
     @Before
     public void addVeganFoods() {
         Food veganFood1 = new Food("Rice", 130, true, FoodType.Carb);
-        Food veganFood2 = new Food("Salad", 20, true, FoodType.Recipe);
+        Food veganFood2 = new Food("Salad", 20, false, FoodType.Recipe);
         Food veganFood3 = new Food("Tofu", 200, true, FoodType.Protein);
         Food veganFood4 = new Food("Beans", 130, true, FoodType.Carb);
         Food veganFood5 = new Food("Broccoli", 20, true, FoodType.Fiber);
@@ -30,17 +30,13 @@ public class VeganDietTest {
         person1Allergies[1] = new Food("Kiwi", 61, true, FoodType.Fiber);
     }
 
+    // IKKE FERDIG
     @Test
     public void requirement1_a() {
-        for (Food f : allowedInVegan) {
-            if (f.isVegan()) {
-                VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet to try something new",
-                        allowedInVegan, true, 50);
+        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet to try something new",
+                allowedInVegan, true, 50);
 
-                assertTrue(veganDiet1.isVegan());
-                System.out.println(veganDiet1.isVegan());
-            }
-        }
+        assertTrue(veganDiet1.isVegan());
     }
 
     @Test
