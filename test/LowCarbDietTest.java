@@ -71,9 +71,14 @@ public class LowCarbDietTest {
         }
     }
 
+    //TODO The maximum carb-type foods that can be included in a LowCarbDiet is two.
     @Test
-    public void requirment1_d (){
+    public void requirment1_e (){
+        LowCarbDiet lowCarbD1 = new LowCarbDiet("LowcarbDiet", 90, "Loose 10 kg", allowedLowCarbFoodVegan, false, 50);
+        for (Food f : lowCarbD1.getAllowedFood()){
+            /*if(f.getType().)*/
 
+        }
     }
 
     @Test
