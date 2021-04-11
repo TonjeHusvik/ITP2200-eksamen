@@ -75,10 +75,13 @@ public class LowCarbDietTest {
     @Test
     public void requirment1_e (){
         LowCarbDiet lowCarbD1 = new LowCarbDiet("LowcarbDiet", 90, "Loose 10 kg", allowedLowCarbFoodVegan, false, 50);
-        for (Food f : lowCarbD1.getAllowedFood()){
-            /*if(f.getType().)*/
+        for (int i = 0; i < lowCarbD1.getAllowedFood().size(); i++) {
+            if(i<0){
 
+            }
         }
+
+        
     }
 
     @Test
