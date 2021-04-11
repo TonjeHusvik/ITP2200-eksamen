@@ -53,25 +53,22 @@ public class PersonTest {
 
         //Person person1 = new Person(new Food("Chicken wings", 500, false, FoodType.Protein), person1Allergies, lowCarbDiet, 50);
 
+        int teller = 0;
+
+
         for (Food allowedFood:lowCarbDiet.getAllowedFood()) {
             for (Food allergies:person1Allergies) {
-                if(allowedFood.getName().equals(allergies.getName())){
-                    if (Math.random() <= 0.5){
+                if (allowedFood.getName().equals(allergies.getName())){
+                    teller = teller+1; // counter matches
+                    System.out.println(teller);
+
+                    if (teller >= lowCarbDiet.getAllowedFood().size()/2){
                         assertTrue(allowedFood.getName().equals(allergies.getName()));
+
                     }
                 }
             }
         }
-
-        /*
-        for (Food allowedFood:lowCarbDiet.getAllowedFood()) {
-            for (Food allergies:person1Allergies) {
-                if (Math.random() <= 0.5){
-                    assertEquals(allowedFood.getName(), allergies.getName());
-                }
-            }
-        }
-        */
     }
 
 
