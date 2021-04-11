@@ -17,6 +17,11 @@ public class Person {
         this.food = food;
     }
 
+    public Person(Food food, Diet diet) {
+        this.diet = diet;
+        this.food = food;
+    }
+
     public Food getFood() {
         return food;
     }
