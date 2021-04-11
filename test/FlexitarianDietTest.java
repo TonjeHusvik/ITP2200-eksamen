@@ -42,6 +42,18 @@ public class FlexitarianDietTest {
                 System.out.println("The preffered meat in FlexitarianDiet is not vegan, EAT! :D");
             }
 
+        /* for (Food flex: flexitarianDiet1.getAllowedFood()) {
+            if( (!flex.isVegan() ) && flex.getType(FoodType.Protein)){
+
+                assertTrue(flex.isVegan());
+
+            }else{
+                System.out.println("false");
+>>>>>>> 6fea9d7b6c6e3f3a3fba6acf9a6fcc928c072b8a
+            }
+
+
+         */
 
         /*
         String result = flexiterianDiet1.writeDuration(flexiterianDiet1);
