@@ -70,6 +70,7 @@ public abstract class Diet {
 
     public String writeAllowedFood(Diet d) {
         String result = "";
+
         result = "The following food is allowed in this " + d.getName() +": "+ allowedFood;
         return result;
     }
