@@ -28,15 +28,14 @@ public class VeganDietTest {
         Food[] person1Allergies = new Food[2];
         person1Allergies[0] = new Food("Walnuts", 654, true, FoodType.Fat);
         person1Allergies[1] = new Food("Kiwi", 61, true, FoodType.Fiber);
-
     }
 
     @Test
-    public void testVegan1() {
+    public void requirement1_a() {
         for (Food f : allowedInVegan) {
-
             if (f.isVegan()) {
-                VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Test", allowedInVegan, true, 1);
+                VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet to try something new",
+                        allowedInVegan, true, 50);
 
                 assertTrue(veganDiet1.isVegan());
                 System.out.println(veganDiet1.isVegan());
