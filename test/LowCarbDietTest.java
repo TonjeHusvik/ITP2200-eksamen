@@ -45,8 +45,8 @@ public class LowCarbDietTest {
         Food allowCarbFoodCarb2 = new Food("Chocolate", 550, true, FoodType.Carb);
         Food allowCarbFoodCarb3 = new Food("Sweet potato", 150, true, FoodType.Carb);
         allowedLowCarbFoodCarb.add(allowCarbFoodCarb1);
-        allowedLowCarbFoodCarb.add(allowCarbFoodCarb1);
-        allowedLowCarbFoodCarb.add(allowCarbFoodCarb1);
+        allowedLowCarbFoodCarb.add(allowCarbFoodCarb2);
+        allowedLowCarbFoodCarb.add(allowCarbFoodCarb3);
 
 
 
@@ -132,18 +132,29 @@ public class LowCarbDietTest {
     }
     @Test
     public void requirment1_e_true(){
-        //Denne går fordi det er kun to carb av food
+
         LowCarbDiet lowCarbDiet1 = new LowCarbDiet("Lowcarb Diet", 30, "Loose weight", allowedLowCarbFoodVegan, false, 50);
 
-        assertTrue(lowCarbDiet1.lowCarbRestriction1e() <= 2);
+        assertEquals(true, lowCarbDiet1.lowCarbRestriction1e());
     }
 
-    @Test
-    public void requirment1_e_false(){
+    /*requirment1_e_true Test - This test passes because allowedLowCarbFoodVegan arraylist only contains two FoodType.Carbs
+    *  if we were to change it to three Food objects with FoodType.Carb  */
+
+    @Test (expected = IllegalArgumentException.class)
+    public void requirment1_e_throw(){
+
         LowCarbDiet lowCarbDiet1 = new LowCarbDiet("Lowcarb Diet", 30, "Loose weight", allowedLowCarbFoodCarb, false, 50);
 
-        assertTrue(lowCarbDiet1.lowCarbRestriction1e() >3);
+        lowCarbDiet1.lowCarbRestriction1e();
     }
+
+    /*requirment1_e_throw Test - This test class expects an exception because the allowedLowCarbFoodCarb arraylist contains three FoodType.Carb
+    * If we were to remove the (expected = IllegalArgumentException.class) the test will throw an
+    * IllegalArgumentException. However, if we keep the (expected = IllegalArgumentException.class) syntax and
+    * change one of the the FoodType.Carb to another FoodType, the test will fail because it expects
+    * a IllegalArgumentException, and that won't be happening because the array contains the accepted amount
+    * of FoodType.Carb*/
 
 
   /*  @Test
