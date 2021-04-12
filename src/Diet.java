@@ -154,18 +154,19 @@ public abstract class Diet {
      * en test med mer enn 2 FT carb
      * en test med 2 eller mindre FT carb
      * ***/
-    public void lowCarbRestriction1e(LowCarbDiet d) throws IllegalArgumentException {
-
+    public int lowCarbRestriction1e() throws IllegalArgumentException {
         int i = 0;
+        for (Food f : getAllowedFood()) {
+            if (f.getType().equals(FoodType.Carb)) {
+                i = i + 1;
+                if (i > 2) {
 
-        for ( Food f : d.getAllowedFood()) {
-            if (f.getType().equals(FoodType.Carb)){
-                i = i+1;
-                if(i > 2){
                     throw new IllegalArgumentException("You can not have more than two types of carb in a lowcarb diet");
+
                 }
             }
         }
+        return i;
     }
 }
 
