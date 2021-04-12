@@ -29,7 +29,11 @@ public class FlexitarianDietTest {
         allowedInFlexitarian.add(flexitarianFood6);
     }
 
-    // TODO The preferred meat in a FlexitarianDiet MUST be non-vegan food of protein type.
+    /*** Requirement 1. d: THE PREFERRED MEAT IN A FLEXITARIANDIET MUST BE NON-VEGAN FOOD OF PROTEIN TYPE***/
+
+    // FIXME fiks return i metoden
+    // Test if preferred meat is non-vegan and FoodType is of Protein
+    // PASSED
     @Test
     public void requirement1_d () {
         Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein);
@@ -38,5 +42,26 @@ public class FlexitarianDietTest {
 
         assertFalse(Boolean.parseBoolean(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawk)));
         System.out.println(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawk));
+    }
+
+    // TODO Test if preferred meat is vegan and FoodType is not protein
+    // Test if preferred meat is vegan and FoodType is not protein 1_d_a
+    @Test
+    public void requirement1_d_a() {
+        // CODE
+    }
+
+    // TODO Test if preferred meat is vegan and FoodType is protein
+    // Test if preferred meat is vegan and FoodType is protein 1_d_b
+    @Test
+    public void requirement1_d_b() {
+        // CODE
+    }
+
+    // TODO Test if preferred meat is non-vegan and FoodType is not protein
+    // Test if preferred meat is non-vegan and FoodType is not protein 1_d_c
+    @Test
+    public void requirement1_d_c() {
+        // CODE
     }
 }

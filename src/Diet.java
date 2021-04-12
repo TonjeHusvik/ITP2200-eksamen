@@ -144,7 +144,7 @@ public abstract class Diet {
             } else if (d.getPreferredMeat().isVegan()) {
                 throw new IllegalArgumentException("The preferred meat in FlexitarianDiet is VEGAN! DO NOT EAT");
             } else
-                return "The preferred meat in FlexitarianDiet is not vegan, EAT! :D";
+                return null;
     }
 
 
