@@ -17,7 +17,7 @@ public class LowCarbDietTest {
         Food lowCarbFood1 = new Food("Cauliflower rice", 23, true, FoodType.Protein);
         Food lowCarbFood2 = new Food("Salad", 20, true, FoodType.Fiber);
         Food lowCarbFood3 = new Food("Tofu", 200, true, FoodType.Protein);
-        Food lowCarbFood4 = new Food("Fish", 130, false, FoodType.Protein);
+        Food lowCarbFood4 = new Food("Fish", 130, true, FoodType.Protein);
         Food lowCarbFood5 = new Food("Broccoli", 20, true, FoodType.Fiber);
         allowedLowCarbFood.add(lowCarbFood1);
         allowedLowCarbFood.add(lowCarbFood2);
@@ -30,7 +30,7 @@ public class LowCarbDietTest {
         jacksAllergies[1] = new Food("Chocolate", 500, false, FoodType.Recipe);
 
         Food lowCarbFoodVegan1 = new Food("Apple", 30, true, FoodType.Fiber);
-        Food lowCarbFoodVegan2 = new Food("Orange", 50, true, FoodType.Carb);
+        Food lowCarbFoodVegan2 = new Food("Orange", 50, true, FoodType.Fiber);
         Food lowCarbFoodVegan3 = new Food("Seitan", 200, true, FoodType.Carb);
         Food lowCarbFoodVegan4 = new Food("Bread", 400, true, FoodType.Carb);
         Food lowCarbFoodVegan5 = new Food("Lentils", 250, true, FoodType.Protein);
@@ -71,29 +71,36 @@ public class LowCarbDietTest {
         }
     }
 
-    //TODO The maximum carb-type foods that can be included in a LowCarbDiet is two.
+   //TODO The maximum carb-type foods that can be included in a LowCarbDiet is two.
     @Test
+    /*
     public void requirment1_e (){
         LowCarbDiet lowCarbD1 = new LowCarbDiet("LowcarbDiet", 90, "Loose 10 kg", allowedLowCarbFoodVegan, false, 50);
-        int teller = 0;
+        int i = 0;
 
         for ( Food f : lowCarbD1.getAllowedFood()) {
             if (f.getType().equals(FoodType.Carb)){
-                teller = teller+1;
-                System.out.println(teller);
-
-                if(teller <= 2){
-                    System.out.println("sec if");
+                i = i+1;
+                if(i >= 2){
+                    throw IllegalArgumentException();
                 }
-
-
             }
-
         }
+    }*/
 
+    public void requirment1_e (){
+        LowCarbDiet lowCarbD1 = new LowCarbDiet("LowcarbDiet", 90, "Loose 10 kg", allowedLowCarbFoodVegan, false, 50);
+        int i = 0;
 
-
-        
+        for ( Food f : lowCarbD1.getAllowedFood()) {
+            if (f.getType().equals(FoodType.Carb)){
+                i = i+1;
+                while (i <= 2){
+                    assertTrue("This lowcarb diet contains more than two carbbased foods",i > 2);
+                    break;
+                }
+            }
+        }
     }
 
     @Test
