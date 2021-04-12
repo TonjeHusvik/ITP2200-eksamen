@@ -15,7 +15,7 @@ public class HyperCaloricDietTest {
     @Test
     //Teste en diett hvor alt er vegan
     public void requirement1b_1(){
-    Diet d = new Diet();
+    HypercaloricDiet d = new HypercaloricDiet();
 
     }
 
