@@ -47,21 +47,21 @@ public class FlexitarianDietTest {
     // TODO Test if preferred meat is vegan and FoodType is not protein
     // Test if preferred meat is vegan and FoodType is not protein 1_d_a
     @Test
-    public void requirement1_d_a() {
+    public void requirement1_d_1() {
         // CODE
     }
 
     // TODO Test if preferred meat is vegan and FoodType is protein
     // Test if preferred meat is vegan and FoodType is protein 1_d_b
     @Test
-    public void requirement1_d_b() {
+    public void requirement1_d_2() {
         // CODE
     }
 
     // TODO Test if preferred meat is non-vegan and FoodType is not protein
     // Test if preferred meat is non-vegan and FoodType is not protein 1_d_c
     @Test
-    public void requirement1_d_c() {
+    public void requirement1_d_3() {
         // CODE
     }
 }
