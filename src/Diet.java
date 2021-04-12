@@ -74,13 +74,13 @@ public abstract class Diet {
         result = "The following food is allowed in this " + d.getName() +": "+ allowedFood;
         return result;
     }
-    /* Denne sjekker kun at dietten er vegan
+    /*** Rikke - Denne sjekker kun at dietten er vegan
     * Her må vi lage tre tester
     * d.isV = t & f.isV = t
     * d.isV = f & f.isV = t
     * d.isV = t & f.isV = f
     * d.isV = f & f.isV = f
-    * */
+    * ***/
     public void dietRestriction1a(Diet d) {
 
         for (Food f:d.getAllowedFood()) {
@@ -92,7 +92,7 @@ public abstract class Diet {
         }
 
     }
-    /***If a diet contains only vegan food, it is considered vegan, even if it is not a
+    /***Tonje - If a diet contains only vegan food, it is considered vegan, even if it is not a
     VeganDiet (e.g., it could be a LowCarbDiet).
 
     Denne sjekker at dietten inneholder vegansk mat og skal sjekke at d.isVegan blir til true
@@ -110,7 +110,7 @@ public abstract class Diet {
         }
     }
 
-    /*** A VeganDiet cannot contain non-vegan food.
+    /*** Joachim - A VeganDiet cannot contain non-vegan food.
      *
      * Her tester vi at en diett ikke kan kalle seg vegansk, hvis den i sitt allowed food array inneholder et non vegan objekt
      * En test hvor alle f.isvegan food objekter er true
@@ -124,7 +124,7 @@ public abstract class Diet {
             }
         }
     }
-    /*** The preferred meat in a FlexitarianDiet MUST be non-vegan food of protein type.
+    /*** Rune - The preferred meat in a FlexitarianDiet MUST be non-vegan food of protein type.
      *
      * EN hvor begge prefferdmeat ikke er vegan OG foodType er protein
      * En hvor prefferdMeat er vegan OG foodType ikke er protein
@@ -138,7 +138,7 @@ public abstract class Diet {
         }
     }
 
-    /***The maximum carb-type foods that can be included in a LowCarbDiet is two.
+    /***Julie - The maximum carb-type foods that can be included in a LowCarbDiet is two.
      * Her sjekker vi at man ikke kan ha mer enn to food objekter med FoodType.Carb hvis man vil ha en lowcarb diet
      *
      * en test med mer enn 2 FT carb
