@@ -1,3 +1,5 @@
+import java.time.Period;
+
 public class Person {
     private Food favouriteFood;
     private Food[] allergies;
@@ -60,5 +62,30 @@ public class Person {
 
     public void setWeight(float weight) {
         this.weight = weight;
+    }
+
+    //If their favorite food is non-vegan, they cannot follow a VeganDiet
+    public boolean personRestriction2a() {
+        if (!getFavouriteFood().isVegan()) {
+            return !getDiet().isVegan();
+        }
+        return getDiet().isVegan();
+    }
+
+    //They cannot follow a diet if they are allergic to 50% or more of the food allowed by the diet.
+    public void personRestriction2b() {
+
+    }
+
+    //If they weigh less than the limit set by the VeganDiet or the LowCarbDiet,
+    //they cannot be following these diets (for health reasons).
+    public void personRestriction2c() {
+
+    }
+
+    //If they weigh more than the limit set by the HypercaloricDiet,
+    //they cannot be following this diet (for health reasons).
+    public void personRestriction2d() {
+
     }
 }
