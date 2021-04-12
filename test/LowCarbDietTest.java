@@ -122,6 +122,21 @@ public class LowCarbDietTest {
         assertEquals("This LowcarbDiet lasts for 2 years, 0 months and 0 days", result);
     }
 
+    public void requirment1_e_true(){
+        //Denne går fordi det er kun to carb av food
+        LowCarbDiet lowCarbDiet1 = new LowCarbDiet("Lowcarb Diet", 30, "Loose weight", allowedLowCarbFoodVegan, false, 50);
+
+        assertTrue(lowCarbDiet1.lowCarbRestriction1e() <= 2);
+    }
+
+    /*@Test
+    public void requirment1_e_false(){
+        LowCarbDiet lowCarbDiet1 = new LowCarbDiet("Lowcarb Diet", 30, "Loose weight", allowedLowCarbFoodCarb, false, 50);
+
+
+        assertTrue(lowCarbDiet1.lowCarbRestriction1e());
+    }*/
+
 
   /*  @Test
     // Testing intentionally wrong
