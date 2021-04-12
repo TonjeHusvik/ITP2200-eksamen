@@ -43,11 +43,14 @@ public class VeganDietTest {
         VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet of Rice and Chicken Filet",
                 allowedInVeganWithOneImposterFood, true, 50);
 
-        for (Food f: veganDiet1.getAllowedFood()) {
-            if (!f.isVegan() == f.isVegan()) {
-                assertFalse("isVegan = true", f.isVegan());
-            } else if (f.isVegan()) {
-                assertTrue("isVegan = false", f.isVegan());
+
+
+        for (int i = 0; i < 2; i++) {
+            if (!veganDiet1.isVegan())  {
+                System.out.println(veganDiet1.isVegan());
+                assertFalse("isVegan = false", veganDiet1.isVegan());
+            } else if (veganDiet1.isVegan()) {
+                throw new IllegalArgumentException("This is vegan, so the test fails.");
             }
         }
 
