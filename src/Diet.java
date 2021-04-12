@@ -162,10 +162,8 @@ public abstract class Diet {
         for (Food f : getAllowedFood()) {
             if (f.getType().equals(FoodType.Carb)) {
                 i = i + 1;
-                if (i > 2) {
-
+                if (i >= 3) {
                     throw new IllegalArgumentException("You can not have more than two types of carb in a lowcarb diet");
-
                 }
             }
         }

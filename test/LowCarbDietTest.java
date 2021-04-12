@@ -10,6 +10,7 @@ import static org.junit.Assert.*;
 public class LowCarbDietTest {
     ArrayList <Food> allowedLowCarbFood = new ArrayList<>();
     ArrayList <Food> allowedLowCarbFoodVegan = new ArrayList<>();
+    ArrayList <Food> allowedLowCarbFoodCarb = new ArrayList<>();
 
 
     @Before
@@ -39,6 +40,14 @@ public class LowCarbDietTest {
         allowedLowCarbFoodVegan.add(lowCarbFoodVegan3);
         allowedLowCarbFoodVegan.add(lowCarbFoodVegan4);
         allowedLowCarbFoodVegan.add(lowCarbFoodVegan5);
+
+        Food allowCarbFoodCarb1 = new Food("Pasta", 245, true, FoodType.Carb);
+        Food allowCarbFoodCarb2 = new Food("Chocolate", 550, true, FoodType.Carb);
+        Food allowCarbFoodCarb3 = new Food("Sweet potato", 150, true, FoodType.Carb);
+        allowedLowCarbFoodCarb.add(allowCarbFoodCarb1);
+        allowedLowCarbFoodCarb.add(allowCarbFoodCarb1);
+        allowedLowCarbFoodCarb.add(allowCarbFoodCarb1);
+
 
 
         Person JACK = new Person(new Food("Chicken", 130, false, FoodType.Protein),
@@ -121,7 +130,7 @@ public class LowCarbDietTest {
         String result = lowCarbDiet1.writeDuration(lowCarbDiet1);
         assertEquals("This LowcarbDiet lasts for 2 years, 0 months and 0 days", result);
     }
-
+    @Test
     public void requirment1_e_true(){
         //Denne går fordi det er kun to carb av food
         LowCarbDiet lowCarbDiet1 = new LowCarbDiet("Lowcarb Diet", 30, "Loose weight", allowedLowCarbFoodVegan, false, 50);
@@ -129,13 +138,12 @@ public class LowCarbDietTest {
         assertTrue(lowCarbDiet1.lowCarbRestriction1e() <= 2);
     }
 
-    /*@Test
+    @Test
     public void requirment1_e_false(){
         LowCarbDiet lowCarbDiet1 = new LowCarbDiet("Lowcarb Diet", 30, "Loose weight", allowedLowCarbFoodCarb, false, 50);
 
-
-        assertTrue(lowCarbDiet1.lowCarbRestriction1e());
-    }*/
+        assertTrue(lowCarbDiet1.lowCarbRestriction1e() >3);
+    }
 
 
   /*  @Test
