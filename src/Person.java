@@ -20,6 +20,11 @@ public class Person {
         this.favouriteFood = favouriteFood;
     }
 
+    public Person(Diet diet, float weight) {
+        this.diet = diet;
+        this.weight = weight;
+    }
+
     public Person (Diet diet){
         this.diet = diet;
     }

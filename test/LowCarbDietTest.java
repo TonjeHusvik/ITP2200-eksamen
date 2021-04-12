@@ -51,7 +51,6 @@ public class LowCarbDietTest {
     //TODO a. If a diet contains any non-vegan food, it is considered not vegan (i.e., isVegan = false).
     @Test
     public void  requirement1_a(){
-
         LowCarbDiet lowCarbD1 = new LowCarbDiet("LowcarbDiet", 30, "Health", allowedLowCarbFood, false, 50);
         for (Food f: lowCarbD1.getAllowedFood()) {
             if(!f.isVegan()){
@@ -67,7 +66,7 @@ public class LowCarbDietTest {
         LowCarbDiet lowCarbD1 = new LowCarbDiet("LowcarbDiet", 30, "Health", allowedLowCarbFoodVegan, false, 50);
         for (Food f : lowCarbD1.getAllowedFood()) {
             Assertions.assertAll("Sjekker om alt er vegansk, yo",
-                    () -> assertEquals(true, f.isVegan()));
+                    () -> assertTrue("Her var ikke alt vegansk, nei!", f.isVegan()));
         }
     }
 

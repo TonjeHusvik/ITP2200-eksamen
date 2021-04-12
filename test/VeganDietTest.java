@@ -30,26 +30,39 @@ public class VeganDietTest {
         person1Allergies[1] = new Food("Kiwi", 61, true, FoodType.Fiber);
     }
 
+    // IKKE FERDIG IKKE FERDIG IKKE FERDIG IKKE FERDIG IKKE FERDIG IKKE FERDIG
+    // TODO If a diet contains any non-vegan food, it is considered not vegan (i.e., isVegan = false)
     @Test
     public void requirement1_a() {
-        for (Food f : allowedInVegan) {
-            if (f.isVegan()) {
-                VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet to try something new",
-                        allowedInVegan, true, 50);
+        ArrayList<Food> allowedInVeganWithOneImposterFood = new ArrayList<>();
+        Food veganFood1 = new Food("Rice", 130, true, FoodType.Carb);
+        Food veganImposter = new Food("Chicken fillet", 165, false, FoodType.Protein);
+        allowedInVeganWithOneImposterFood.add(veganFood1);
+        allowedInVeganWithOneImposterFood.add(veganImposter);
 
-                assertTrue(veganDiet1.isVegan());
-                System.out.println(veganDiet1.isVegan());
-            }
+        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet of Rice and Chicken Filet",
+                allowedInVeganWithOneImposterFood, true, 50);
+
+
         }
+
+
+
+        /*String imposterFood = allowedInVeganWithOneImposterFood.get();
+
+        System.out.println(imposterFood);*/
     }
 
+/*
     @Test
     public void testVegan2() {
         VeganDiet veganDiet1 = new VeganDiet("VeganDiet",40, "Test", allowedInVegan, true, 1);
 
+        if (veganDiet1.getAllowedFood() == veganDiet1.isVegan())
         assertTrue(veganDiet1.isVegan());
         System.out.println(veganDiet1.isVegan());
     }
+*/
 
     // TODO Write the duration of a diet in terms of years, months and days, eg., "This VeganDiet lasts for 2 years, 3 months and 5 days".
     @Test

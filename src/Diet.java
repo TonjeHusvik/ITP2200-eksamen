@@ -74,4 +74,45 @@ public abstract class Diet {
         result = "The following food is allowed in this " + d.getName() +": "+ allowedFood;
         return result;
     }
+
+    public void dietRestriction1a(Diet d) {
+        for (Food f : d.getAllowedFood()) {
+            if (!f.isVegan()) {
+                isVegan = false;
+                break;
+            }
+        }
+    }
+
+    public void dietRestriction1b(Diet d) {
+        for (Food f : d.getAllowedFood()) {
+            if (f.isVegan()) {
+                d.isVegan = true;
+            }
+        }
+    }
+
+    public void veganDietRestriction1c(VeganDiet d) throws IllegalArgumentException {
+        for (Food f : d.getAllowedFood()) {
+            if (!f.isVegan()) {
+                isVegan = false;
+                throw new IllegalArgumentException("All food in vegan diet must be vegan.");
+            }
+        }
+    }
+
+    public void flexDietRestriction1d(FlexitarianDiet d) throws IllegalArgumentException {
+        if (d.getPreferredMeat().isVegan() && d.getPreferredMeat().getType() != FoodType.Protein) {
+            throw new IllegalArgumentException("The preferred meat can't be vegan, and must be a protein");
+        }
+    }
+
+    public void lowCarbRestriction1e(LowCarbDiet d) throws IllegalArgumentException {
+        for (Food f : getAllowedFood()) {
+            if (f.getType() == FoodType.Carb) {
+
+            }
+        }
+    }
+
 }
