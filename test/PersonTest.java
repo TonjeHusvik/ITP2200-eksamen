@@ -18,12 +18,10 @@ public class PersonTest {
         Food lowCarbFood2 = new Food("Pork", 10, false, FoodType.Fat);
         Food lowCarbFood3 = new Food("Peanuts", 10, false, FoodType.Fat);
         Food lowCarbFood4 = new Food("Shellfish", 10, false, FoodType.Fat);
-        Food lowCarbFood5 = new Food("Potatoes", 10, false, FoodType.Fat);
         allowedInLowCarb.add(lowCarbFood1);
         allowedInLowCarb.add(lowCarbFood2);
         allowedInLowCarb.add(lowCarbFood3);
         allowedInLowCarb.add(lowCarbFood4);
-        allowedInLowCarb.add(lowCarbFood5);
 
     }
 
@@ -51,19 +49,20 @@ public class PersonTest {
         person1Allergies[2] = new Food("Pork", 35, true, FoodType.Fiber);
         person1Allergies[3] = new Food("Peanuts", 500, false, FoodType.Recipe);
 
-        //Person person1 = new Person(new Food("Chicken wings", 500, false, FoodType.Protein), person1Allergies, lowCarbDiet, 50);
+        Person person1 = new Person(new Food("Chicken wings", 500, false, FoodType.Protein), person1Allergies, lowCarbDiet, 50);
 
         int teller = 0;
-
+        double total = lowCarbDiet.getAllowedFood().size() + person1Allergies.length;
 
         for (Food allowedFood:lowCarbDiet.getAllowedFood()) {
             for (Food allergies:person1Allergies) {
                 if (allowedFood.getName().equals(allergies.getName())){
-                    teller = teller+1; // counter matches
+                    teller = teller+1; // teller antall allergier som matcher i dietten
                     System.out.println(teller);
 
-                    if (teller >= lowCarbDiet.getAllowedFood().size()/2){
-                        assertTrue(allowedFood.getName().equals(allergies.getName()));
+                    //if (teller >= lowCarbDiet.getAllowedFood().size()/2){ fungerer ikke?
+                    if (teller >= total/2){ // FUNGERER IKKE
+                        assertFalse(allowedFood.getName().equals(allergies.getName()));
 
                     }
                 }
