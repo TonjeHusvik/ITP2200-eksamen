@@ -1,5 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 import java.util.ArrayList;
 
@@ -84,13 +85,13 @@ public class PersonTest {
     @Test
     public void requirement2_c() {
         LowCarbDiet lowCarbDiet = new LowCarbDiet("Low carb diet", 20, "weight loss", allowedInLowCarb, false, 80);
-        VeganDiet veganDiet = new VeganDiet("Vegan diet", 20, "health", allowedInVegan,true,20);
-        Person lowWeightPerson = new Person(lowCarbDiet, 75);
+        VeganDiet veganDiet = new VeganDiet("Vegan diet", 20, "health", allowedInVegan,true,80);
+        Person lowWeightPerson = new Person(lowCarbDiet, 82);
 
-        if (lowWeightPerson.getWeight() < lowCarbDiet.getMinWeightKg() ||
-            lowWeightPerson.getWeight() < veganDiet.getMinWeightKg()) {
-            //do something
-        }
+        Assertions.assertAll("Checks if person can follow low carb or vegan diet based on weight",
+                () -> assertFalse("Person can follow this low carb diet", lowWeightPerson.getWeight() > lowCarbDiet.getMinWeightKg()),
+                () -> assertFalse("Person can follow this vegan diet", lowWeightPerson.getWeight() > veganDiet.getMinWeightKg())
+        );
     }
 
     // TODO 2d. Cannot follow HyperCaloricDiet if they weigh more than the limit in maxWeightKg
@@ -100,8 +101,6 @@ public class PersonTest {
                                                                     allowedInHyperCaloric, false, 100, 6000);
         Person highWeightPerson = new Person(hypercaloricDiet, 120);
 
-        if (highWeightPerson.getWeight() > hypercaloricDiet.getMaxWeightKg()) {
-            //do something
-        }
+        assertTrue("Person can follow this hypercaloric diet", highWeightPerson.getWeight() > hypercaloricDiet.getMaxWeightKg());
     }
 }
