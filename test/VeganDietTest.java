@@ -44,13 +44,8 @@ public class VeganDietTest {
                 allowedInVeganWithOneImposterFood, true, 50);
 
 
-        }
+        veganDiet1.dietRestriction1a(veganDiet1);
 
-
-
-        /*String imposterFood = allowedInVeganWithOneImposterFood.get();
-
-        System.out.println(imposterFood);*/
     }
 
 /*

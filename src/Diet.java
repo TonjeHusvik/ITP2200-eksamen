@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public abstract class Diet {
     private int daysDuration;
@@ -15,6 +14,7 @@ public abstract class Diet {
         this.isVegan = isVegan;
         this.name = name;
     }
+
 
     public String getName() {
         return name;
@@ -119,7 +119,7 @@ public abstract class Diet {
     public void veganDietRestriction1c(VeganDiet d) throws IllegalArgumentException {
         for (Food f : d.getAllowedFood()) {
             if (!f.isVegan()) {
-                d.isVegan = false;
+                /*d.isVegan = false;*/
                 throw new IllegalArgumentException("All food in vegan diet must be vegan.");
             }
         }
@@ -130,13 +130,23 @@ public abstract class Diet {
      * En hvor prefferdMeat er vegan OG foodType ikke er protein
      * En hvor PF er vegan Og FT er protein
      * En hvor PF ikke er vegan OG FT ikke er protein
-     *
-     * ***/
-    public void flexDietRestriction1d(FlexitarianDiet d) throws IllegalArgumentException {
-        if (d.getPreferredMeat().isVegan() || d.getPreferredMeat().getType() != FoodType.Protein) {
-            throw new IllegalArgumentException("The preferred meat can't be vegan, and must be a protein");
-        }
+     **
+     * @return*/
+
+    public static String flexDietRestriction1d(FlexitarianDiet d, Food f) {
+        /*if (d.getPreferredMeat().isVegan() || d.getPreferredMeat().getType() != FoodType.Protein) {
+            throw new IllegalArgumentException("The preferred meat can't be vegan, and must be a protein");*/
+
+            if((d.getPreferredMeat().isVegan() && f.getType() != FoodType.Protein)) {
+                throw new IllegalArgumentException("The preferred meat in FlexitarianDiet is not of FoodType PROTEIN and is VEGAN, don't eat!");
+            } else if (f.getType() != FoodType.Protein) {
+                throw new IllegalArgumentException("The preferred meat in FlexitarianDiet is NOT of FoodType Protein, DO NOT EAT");
+            } else if (d.getPreferredMeat().isVegan()) {
+                throw new IllegalArgumentException("The preferred meat in FlexitarianDiet is VEGAN! DO NOT EAT");
+            } else
+                return "The preferred meat in FlexitarianDiet is not vegan and is of FoodType Protein, ENJOY! =)";
     }
+
 
     /***Julie - The maximum carb-type foods that can be included in a LowCarbDiet is two.
      * Her sjekker vi at man ikke kan ha mer enn to food objekter med FoodType.Carb hvis man vil ha en lowcarb diet
@@ -157,7 +167,6 @@ public abstract class Diet {
             }
         }
     }
-
-    }
-
 }
+
+
