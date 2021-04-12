@@ -27,4 +27,5 @@ public class FlexitarianDiet extends Diet{
     public void setPreferredMeat(Food preferredMeat) {
         this.preferredMeat = preferredMeat;
     }
+
 }
