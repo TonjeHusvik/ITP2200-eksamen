@@ -63,5 +63,6 @@ public class FlexitarianDietTest {
     @Test
     public void requirement1_d_c() {
         // CODE
+        System.out.println("tester git");
     }
 }
