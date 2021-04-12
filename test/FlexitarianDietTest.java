@@ -57,7 +57,7 @@ public class FlexitarianDietTest {
     }
 
     // TODO Test if preferred meat is vegan and FoodType is protein
-    // Test if preferred meat is vegan and FoodType is protein 1_d_b
+    // Test if preferred meat is vegan and FoodType is protein 1_d_2
     @Test (expected = IllegalArgumentException.class)
     public void requirement1_d_2() {
         Food tomahawk = new Food("Tomahawk", 160, true, FoodType.Protein);
@@ -69,7 +69,7 @@ public class FlexitarianDietTest {
     }
 
     // TODO Test if preferred meat is non-vegan and FoodType is not protein
-    // Test if preferred meat is non-vegan and FoodType is not protein 1_d_c
+    // Test if preferred meat is non-vegan and FoodType is not protein 1_d_3
     @Test
     public void requirement1_d_3() {
         // CODE
