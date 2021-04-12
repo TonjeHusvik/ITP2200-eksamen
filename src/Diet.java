@@ -106,6 +106,7 @@ public abstract class Diet {
         for (Food f : getAllowedFood()) {
             if (f.isVegan()) {
                 isVegan = true;
+                return true;
             }
             throw new IllegalArgumentException();
         }
