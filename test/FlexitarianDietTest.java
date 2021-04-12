@@ -1,5 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 import java.util.ArrayList;
 
@@ -32,14 +33,10 @@ public class FlexitarianDietTest {
     @Test
     public void requirement1_d () {
         Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein);
-        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Non-vegan protein food", allowedInFlexitarian, false, 8000, tomahawk);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Non-vegan protein food",
+                                            allowedInFlexitarian, false, 8000, tomahawk);
 
-        if(flexitarianDiet1.getPreferredMeat().isVegan()){
-            throw new IllegalArgumentException("The preffered meat in FlexitarianDiet is VEGAN! DO NOT EAT");
-        } else if (tomahawk.getType() != FoodType.Protein) {
-            throw new IllegalArgumentException("The preffered meat in FlexitarianDiet is NOT of FoodType Protein, DO NOT EAT");
-        } else {
-            System.out.println("The preffered meat in FlexitarianDiet is not vegan, EAT! :D");
-        }
+        assertFalse(Boolean.parseBoolean(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawk)));
+        System.out.println(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawk));
     }
 }
