@@ -80,16 +80,29 @@ public class PersonTest {
         }
     }
 
-    // TODO 2c. Cannot follow VeganDiet or LowCarbDiet if they weigh less than the limit in minWeightKg
+    // TODO 2c1. Cannot follow VeganDiet or LowCarbDiet if they weigh less than the limit in minWeightKg
     @Test
-    public void requirement2_c() {
+    public void requirement2_c_1() {
+        LowCarbDiet lowCarbDiet = new LowCarbDiet("Low carb diet", 20, "weight loss", allowedInLowCarb, false, 80);
+        VeganDiet veganDiet = new VeganDiet("Vegan diet", 20, "health", allowedInVegan,true,80);
+        Person lowWeightPerson = new Person(lowCarbDiet, 79);
+
+        Assertions.assertAll("Checks if person can follow low carb or vegan diet based on weight",
+                () -> assertFalse("Person can follow this low carb diet", lowWeightPerson.getWeight() > lowCarbDiet.getMinWeightKg()),
+                () -> assertFalse("Person can follow this vegan diet", lowWeightPerson.getWeight() > veganDiet.getMinWeightKg())
+        );
+    }
+
+    //TODO 2d2. Can follow VeganDiet or LowCarbDiet of they weigh more than the min
+    @Test
+    public void requirement2_c_2() {
         LowCarbDiet lowCarbDiet = new LowCarbDiet("Low carb diet", 20, "weight loss", allowedInLowCarb, false, 80);
         VeganDiet veganDiet = new VeganDiet("Vegan diet", 20, "health", allowedInVegan,true,80);
         Person lowWeightPerson = new Person(lowCarbDiet, 82);
 
         Assertions.assertAll("Checks if person can follow low carb or vegan diet based on weight",
-                () -> assertFalse("Person can follow this low carb diet", lowWeightPerson.getWeight() > lowCarbDiet.getMinWeightKg()),
-                () -> assertFalse("Person can follow this vegan diet", lowWeightPerson.getWeight() > veganDiet.getMinWeightKg())
+                () -> assertFalse("Person cannot follow this low carb diet", lowWeightPerson.getWeight() < lowCarbDiet.getMinWeightKg()),
+                () -> assertFalse("Person cannot follow this vegan diet", lowWeightPerson.getWeight() < veganDiet.getMinWeightKg())
         );
     }
 

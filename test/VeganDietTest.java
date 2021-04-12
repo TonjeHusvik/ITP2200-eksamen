@@ -44,14 +44,6 @@ public class VeganDietTest {
                 allowedInVeganWithOneImposterFood, true, 50);
 
 
-
-        for (int i = 0; i < 2; i++) {
-            if (!veganDiet1.isVegan())  {
-                System.out.println(veganDiet1.isVegan());
-                assertFalse("isVegan = false", veganDiet1.isVegan());
-            } else if (veganDiet1.isVegan()) {
-                throw new IllegalArgumentException("This is vegan, so the test fails.");
-            }
         }
 
 

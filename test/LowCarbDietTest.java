@@ -17,7 +17,7 @@ public class LowCarbDietTest {
         Food lowCarbFood1 = new Food("Cauliflower rice", 23, true, FoodType.Protein);
         Food lowCarbFood2 = new Food("Salad", 20, true, FoodType.Fiber);
         Food lowCarbFood3 = new Food("Tofu", 200, true, FoodType.Protein);
-        Food lowCarbFood4 = new Food("Fish", 130, false, FoodType.Protein);
+        Food lowCarbFood4 = new Food("Fish", 130, true, FoodType.Protein);
         Food lowCarbFood5 = new Food("Broccoli", 20, true, FoodType.Fiber);
         allowedLowCarbFood.add(lowCarbFood1);
         allowedLowCarbFood.add(lowCarbFood2);
@@ -51,7 +51,6 @@ public class LowCarbDietTest {
     //TODO a. If a diet contains any non-vegan food, it is considered not vegan (i.e., isVegan = false).
     @Test
     public void  requirement1_a(){
-
         LowCarbDiet lowCarbD1 = new LowCarbDiet("LowcarbDiet", 30, "Health", allowedLowCarbFood, false, 50);
         for (Food f: lowCarbD1.getAllowedFood()) {
             if(!f.isVegan()){
