@@ -74,14 +74,23 @@ public abstract class Diet {
         result = "The following food is allowed in this " + d.getName() +": "+ allowedFood;
         return result;
     }
-
+    /* Denne sjekker kun at dietten er vegan
+    * Her må vi lage tre tester
+    * d.isV = t & f.isV = t
+    * d.isV = f & f.isV = t
+    * d.isV = t & f.isV = f
+    * d.isV = f & f.isV = f
+    * */
     public void dietRestriction1a(Diet d) {
-        for (Food f : d.getAllowedFood()) {
-            if (!f.isVegan()) {
-                isVegan = false;
-                break;
+
+        for (Food f:d.getAllowedFood()) {
+            if (d.isVegan && f.isVegan()){
+                System.out.println("True, this diet is vegan");
+            }else{
+                System.out.println("False, this diet is not vegan");
             }
         }
+
     }
 
     public void dietRestriction1b(Diet d) {
