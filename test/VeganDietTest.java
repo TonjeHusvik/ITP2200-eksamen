@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Assertions;
 
 import static org.junit.Assert.*;
-
+/*
 public class VeganDietTest {
     ArrayList<Food> allowedInVegan = new ArrayList<>();
     ArrayList<Food> person1FavouriteFood = new ArrayList<>();
@@ -30,6 +30,9 @@ public class VeganDietTest {
         person1Allergies[1] = new Food("Kiwi", 61, true, FoodType.Fiber);
     }
 
+ */
+
+    /*
     // IKKE FERDIG IKKE FERDIG IKKE FERDIG IKKE FERDIG IKKE FERDIG IKKE FERDIG
     // TODO If a diet contains any non-vegan food, it is considered not vegan (i.e., isVegan = false)
     @Test
@@ -46,7 +49,7 @@ public class VeganDietTest {
 
         veganDiet1.dietRestriction1a(veganDiet1);
 
-    }
+    }*/
 
 /*
     @Test
@@ -60,16 +63,16 @@ public class VeganDietTest {
 */
 
     // TODO Write the duration of a diet in terms of years, months and days, eg., "This VeganDiet lasts for 2 years, 3 months and 5 days".
-    @Test
+    /*@Test
     public void requirement3_a() {
         VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 400, "Save the planet!", allowedInVegan, true, 2);
 
         String result = veganDiet1.writeDuration(veganDiet1);
         assertEquals("This VeganDiet lasts for 1 years, 1 months and 5 days", result);
-    }
+    }*/
 
     // TODO Write the allowed food, e.g., "The following food is allowed in this FlexitarianDiet: Salad, Soup, Apple, Strawberry, Salmon".
-    @Test
+   /* @Test
     public void requirement3_b() {
         VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 70, "Save the earth.", allowedInVegan, true, 50);
 
@@ -94,5 +97,4 @@ public class VeganDietTest {
 
         assertTrue(dietManager.areCompatible(person1, person1VeganDiet));
     }
-
-}
+*/

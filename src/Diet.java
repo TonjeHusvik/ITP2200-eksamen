@@ -116,13 +116,16 @@ public abstract class Diet {
      * En test hvor alle f.isvegan food objekter er true
      * En test med en eller fler food objekter som ikke er isVegan
      * ***/
-    public void veganDietRestriction1c(VeganDiet d) throws IllegalArgumentException {
-        for (Food f : d.getAllowedFood()) {
+    public boolean veganDietRestriction1c() {
+        for (Food f : getAllowedFood()) {
             if (!f.isVegan()) {
-                /*d.isVegan = false;*/
-                throw new IllegalArgumentException("All food in vegan diet must be vegan.");
+                isVegan = false;
+                System.out.println("This diet contains non-vegan food");
+                return false;
             }
         }
+        System.out.println("This diet is vegan");
+        return true;
     }
     /*** Rune - The preferred meat in a FlexitarianDiet MUST be non-vegan food of protein type.
      *
@@ -131,7 +134,7 @@ public abstract class Diet {
      * En hvor PF er vegan Og FT er protein
      * En hvor PF ikke er vegan OG FT ikke er protein
      **
-     * @return*/
+     * ***/
 
     public static String flexDietRestriction1d(FlexitarianDiet d, Food f) {
         /*if (d.getPreferredMeat().isVegan() || d.getPreferredMeat().getType() != FoodType.Protein) {
