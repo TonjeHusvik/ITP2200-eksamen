@@ -48,7 +48,12 @@ public class FlexitarianDietTest {
     // Test if preferred meat is vegan and FoodType is not protein 1_d_a
     @Test
     public void requirement1_d_1() {
-        // CODE
+        Food tomahawk = new Food("Tomahawk", 160, true, FoodType.Carb);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try vegan protein meat!",
+                allowedInFlexitarian, false, 8000, tomahawk);
+
+
+        System.out.println(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawk));
     }
 
     // TODO Test if preferred meat is vegan and FoodType is protein
