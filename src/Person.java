@@ -1,5 +1,3 @@
-import java.time.Period;
-
 public class Person {
     private Food favouriteFood;
     private Food[] allergies;
@@ -97,7 +95,18 @@ public class Person {
 
     //If they weigh more than the limit set by the HypercaloricDiet,
     //they cannot be following this diet (for health reasons).
-    public void personRestriction2d() {
-
+    /*TEST:
+        - If person weight more than the limit
+        - If person weight less than the limit
+    */
+    public boolean personRestriction2d(HypercaloricDiet h) {
+        if(getWeight() > h.getMaxWeightKg()){
+            //throw new IllegalArgumentException();
+            System.out.println("Cant follow this diet because of health reasons.");
+            return false;
+        }else{
+            System.out.println("Can follow this diet.");
+            return true;
+        }
     }
 }
