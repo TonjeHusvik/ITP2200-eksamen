@@ -85,8 +85,14 @@ public class Person {
 
     //If they weigh less than the limit set by the VeganDiet or the LowCarbDiet,
     //they cannot be following these diets (for health reasons).
-    public void personRestriction2c() {
+    public boolean personRestriction2c_1(VeganDiet d) throws IllegalArgumentException {
 
+        if(getWeight() < d.getMinWeightKg()){
+            throw new IllegalArgumentException("ERROR! You cannot follow a vegan diet if you weigh less than the minimum weight requerement");
+        }
+        else{
+            return true;
+        }
     }
 
     //If they weigh more than the limit set by the HypercaloricDiet,
