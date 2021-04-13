@@ -14,7 +14,7 @@ public class FlexitarianDietTest {
 
     @Before
     public void setUp() {
-        Food flexitarianFood1 = new Food("Tomahawk", 160, false, FoodType.Protein);
+        Food flexitarianFood1 = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
         Food flexitarianFood2 = new Food("Tofu", 76, true, FoodType.Protein);
         Food flexitarianFood3 = new Food("Green peas", 81, true, FoodType.Protein);
         Food flexitarianFood4 = new Food("Trout", 140, false, FoodType.Protein);
@@ -36,48 +36,83 @@ public class FlexitarianDietTest {
     // PASSED
     @Test
     public void requirement1_d () {
-        Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein);
+        Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Non-vegan protein food",
-                                            allowedInFlexitarian, false, 8000, tomahawk);
+                                            allowedInFlexitarian, false, 8000, tomahawkSteak);
 
-        assertFalse(Boolean.parseBoolean(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawk)));
-        System.out.println(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawk));
+        assertFalse(Boolean.parseBoolean(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak)));
+        System.out.println(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak));
     }
 
     // Test if preferred meat is vegan and FoodType is not protein
     // PASSED
     @Test (expected = IllegalArgumentException.class)
     public void requirement1_d_1() {
-        Food tomahawk = new Food("Tomahawk", 160, true, FoodType.Carb);
-        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try vegan protein meat!",
-                allowedInFlexitarian, false, 8000, tomahawk);
+        Food tomahawkSteak = new Food("Tomahawk Steak", 160, true, FoodType.Carb);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try vegan and non-protein foodtype",
+                allowedInFlexitarian, false, 8000, tomahawkSteak);
 
         System.out.println("The preferred meat in FlexitarianDiet is not of FoodType PROTEIN and is VEGAN, DO NOT EAT");
-        assertFalse(Boolean.parseBoolean(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawk)));
+        assertFalse(Boolean.parseBoolean(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak)));
     }
 
     // Test if preferred meat is vegan and FoodType is protein
     // PASSED
     @Test (expected = IllegalArgumentException.class)
     public void requirement1_d_2() {
-        Food tomahawk = new Food("Tomahawk", 160, true, FoodType.Protein);
-        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try vegan protein meat!",
-                allowedInFlexitarian, false, 8000, tomahawk);
+        Food tomahawkSteak = new Food("Tomahawk Steak", 160, true, FoodType.Protein);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try vegan and protein foodtype",
+                allowedInFlexitarian, false, 8000, tomahawkSteak);
 
         System.out.println("The preferred meat in FlexitarianDiet is VEGAN! DO NOT EAT");
-        assertFalse(Boolean.parseBoolean(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawk)));
+        assertFalse(Boolean.parseBoolean(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak)));
     }
 
     // Test if preferred meat is non-vegan and FoodType is not protein
     // PASSED
     @Test (expected = IllegalArgumentException.class)
     public void requirement1_d_3() {
-        Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Carb);
-        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try vegan protein meat!",
-                allowedInFlexitarian, false, 8000, tomahawk);
+        Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Carb);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try non-vegan and non-protein foodtype",
+                allowedInFlexitarian, false, 8000, tomahawkSteak);
 
         System.out.println("The preferred meat in FlexitarianDiet is NOT of FoodType Protein! DO NOT EAT");
+        assertFalse(Boolean.parseBoolean(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak)));
+    }
 
-        assertTrue(Boolean.parseBoolean(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawk)));
+    /*-----------------------------------------------------------------------------------------------------------------*/
+    /*-----------------------------------------------------------------------------------------------------------------*/
+    /*-----------------------------------------------------------------------------------------------------------------*/
+
+
+    /*** Requirement 3. a: Write the duration of a diet in terms of years, months and days, e.g.,
+     “This VeganDiet lasts for 2 years, 3 months and 5 days”***/
+
+    // MAIN TASK: Write the duration of a diet in terms of years, months and days, e.g.,
+    //     “This VeganDiet lasts for 2 years, 3 months and 5 days”
+
+    // TODO Write the duration of a diet in terms of years, months and days, eg., "This VeganDiet lasts for 2 years, 3 months and 5 days".
+    @Test
+    public void requirement3_a() {
+        Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("VeganDiet", 400, "What is the duration of this diet?",
+                allowedInFlexitarian, true, 3000, tomahawkSteak);
+
+        String result = flexitarianDiet1.writeDuration(flexitarianDiet1);
+        assertEquals("This VeganDiet lasts for 1 years, 1 months and 5 days", result);
+    }
+
+// TODO Write the allowed food, e.g., "The following food is allowed in this FlexitarianDiet: Salad, Soup, Apple, Strawberry, Salmon".
+    @Test
+    public void requirement3_b() {
+        Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("VeganDiet", 400, "What is the duration of this diet?",
+                allowedInFlexitarian, true, 3000, tomahawkSteak);
+
+        String result = flexitarianDiet1.writeAllowedFood(flexitarianDiet1)
+                        .replace("[",  "")
+                        .replace("]", "");
+        assertEquals("The following food is allowed in this VeganDiet: Tomahawk Steak, Tofu, Green peas, Trout, Butter, Rice", result);
+        System.out.println(result);
     }
 }
