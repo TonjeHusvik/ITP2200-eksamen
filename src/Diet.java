@@ -68,6 +68,7 @@ public abstract class Diet {
         return result;
     }
 
+
     public String writeDurationInDays(Diet d) {
         String result = "";
 

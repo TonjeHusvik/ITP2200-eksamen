@@ -138,7 +138,7 @@ public class FlexitarianDietTest {
         assertEquals("This VeganDiet lasts for 1 years", result);
     }
 
-// TODO Write the allowed food, e.g., "The following food is allowed in this FlexitarianDiet: Salad, Soup, Apple, Strawberry, Salmon".
+    // TODO Write the allowed food, e.g., "The following food is allowed in this FlexitarianDiet: Salad, Soup, Apple, Strawberry, Salmon".
     @Test
     public void requirement3_b() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
