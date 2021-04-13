@@ -56,28 +56,35 @@ public abstract class Diet {
         isVegan = vegan;
     }
 
+
     public String writeDuration(Diet d) {
         String result = "";
 
         int days = daysDuration;
         int years = days / 365;
-        int balance = days % 365;
-        int months = balance / 30;
-        days = balance % 30;
+        int equivalence = days % 365;
+        int months = equivalence / 30;
+        days = equivalence % 30;
         result = "This " + d.getName() + " lasts for " + years + " years, " + months + " months and " + days + " days";
         return result;
     }
 
-    //FIXME må fikses med kun day output, Rune
     public String writeDurationInDays(Diet d) {
         String result = "";
 
         int days = daysDuration;
-        int years = days / 365;
-        int balance = days % 365;
-        int months = balance / 30;
-        days = balance % 30;
         result = "This " + d.getName() + " lasts for " + days + " days";
+        return result;
+    }
+
+    public String writeDurationInMonths(Diet d) {
+        String result = "";
+
+        int days = daysDuration;
+        int equivalence = days % 365;
+        int months = equivalence / 30;
+        months = equivalence % 12;
+        result = "This " + d.getName() + " lasts for " + months + " months";
         return result;
     }
 
@@ -181,6 +188,16 @@ public abstract class Diet {
         }
         return true;
     }
+
+    //FIXME Joachim
+/*    //Test både med allergi 50% eller mer, og under
+    public boolean personRestriction2b(Person p, Diet d) throws IllegalArgumentException {
+        d.getAllowedFood().retainAll(p.getAllergies());
+        if(p.getAllergies().size() >= (d.getAllowedFood().size()/2)) {
+            throw new IllegalArgumentException();
+        }
+        return true;
+    }*/
 }
 
 
