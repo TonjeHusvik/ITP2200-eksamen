@@ -105,10 +105,8 @@ public abstract class Diet {
     public boolean dietRestriction1b() {
         for (Food f : getAllowedFood()) {
             if (f.isVegan()) {
-                //isVegan = true;
                 return true;
             }else{
-                //isVegan = false;
                 return false;
             }
         }
@@ -121,12 +119,13 @@ public abstract class Diet {
      * En test hvor alle f.isvegan food objekter er true
      * En test med en eller fler food objekter som ikke er isVegan
      */
-    public boolean veganDietRestriction1c() {
+    public boolean veganDietRestriction1c() throws IllegalArgumentException {
         for (Food f : getAllowedFood()) {
             if (!f.isVegan()) {
                 isVegan = false;
-                System.out.println("This diet contains non-vegan food");
-                return false;
+                System.out.println("This is an illegal argument being thrown as expected, " +
+                                   "because this diet contains non-vegan food.");
+                throw new IllegalArgumentException();
             }
         }
         System.out.println("This diet is vegan");
@@ -161,21 +160,23 @@ public abstract class Diet {
      *
      * en test med mer enn 2 FT carb
      * en test med 2 eller mindre FT carb
-     */
-    public int lowCarbRestriction1e() throws IllegalArgumentException {
+<<<<<<< HEAD
+     * ***/
+
+    public boolean lowCarbRestriction1e() throws IllegalArgumentException {
         int i = 0;
         for (Food f : getAllowedFood()) {
             if (f.getType().equals(FoodType.Carb)) {
                 i = i + 1;
-                if (i > 2) {
-
+                if (i >= 3) {
                     throw new IllegalArgumentException("You can not have more than two types of carb in a lowcarb diet");
-
                 }
             }
         }
-        return i;
+        return true;
     }
 }
+
+
 
 

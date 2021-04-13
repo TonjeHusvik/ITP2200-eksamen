@@ -65,10 +65,16 @@ public class Person {
     }
 
     //If their favorite food is non-vegan, they cannot follow a VeganDiet
-    public boolean personRestriction2a() {
+    /*TESTS:
+    * 1. Favorite food IS vegan, so they can follow a vegan diet
+    * 2. Favorite food IS NOT vegan, so they can't follow a vegan diet
+    * */
+    public boolean personRestriction2a() throws IllegalArgumentException {
         if (!getFavouriteFood().isVegan()) {
-            return !getDiet().isVegan();
+            System.out.println("An illegal argument exception is thrown as expected, because favorite food is not vegan.");
+            throw new IllegalArgumentException();
         }
+        System.out.println("This person has a vegan favorite food, and can therefore follow a vegan diet.");
         return getDiet().isVegan();
     }
 

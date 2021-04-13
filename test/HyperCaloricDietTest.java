@@ -32,26 +32,24 @@ public class HyperCaloricDietTest {
     @Test //Teste en diett hvor alt er vegan
     public void requirement1b_1(){
         HypercaloricDiet hypercaloricDiet = new HypercaloricDiet("Hyper caloric diet", 60, "health", allowedInHyperCaloric, false, 120, 600);
-        assertTrue(hypercaloricDiet.dietRestriction1b());
+        assertTrue("The food in this diet is vegan",hypercaloricDiet.dietRestriction1b());
     }
 
     @Test
     //Teste en diett hvor en eller fler ikke er vegan
     public void requirement1b_2(){
         LowCarbDiet lowCarbDiet = new LowCarbDiet("Low carb diet", 60, "health", allowedInLowCarb, false, 40);
-        assertFalse(lowCarbDiet.dietRestriction1b());
+        assertFalse("One or more dishes in this diet is not vegan", lowCarbDiet.dietRestriction1b());
     }
 
     @Test
-    //Teste en diett hvor alle ikke er vegan
+    //Teste en diett hvor ingenting er vegansk
     public void requirement1b_3(){
         Food flexFood1 = new Food("Beef", 20, false, FoodType.Fiber);
         FlexitarianDiet flexitarianDiet = new FlexitarianDiet("Low carb diet", 60, "health",
                 allowedInFlexiDiet, false, 400, flexFood1);
-        assertFalse(flexitarianDiet.dietRestriction1b());
+        assertFalse("Nothing in this diet is vegan", flexitarianDiet.dietRestriction1b());
     }
 
 
 }
-
-

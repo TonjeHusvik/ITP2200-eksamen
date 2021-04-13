@@ -10,6 +10,7 @@ import static org.junit.Assert.*;
 public class LowCarbDietTest {
     ArrayList <Food> allowedLowCarbFood = new ArrayList<>();
     ArrayList <Food> allowedLowCarbFoodVegan = new ArrayList<>();
+    ArrayList <Food> allowedLowCarbFoodCarb = new ArrayList<>();
 
 
     @Before
@@ -39,6 +40,14 @@ public class LowCarbDietTest {
         allowedLowCarbFoodVegan.add(lowCarbFoodVegan3);
         allowedLowCarbFoodVegan.add(lowCarbFoodVegan4);
         allowedLowCarbFoodVegan.add(lowCarbFoodVegan5);
+
+        Food allowCarbFoodCarb1 = new Food("Pasta", 245, true, FoodType.Carb);
+        Food allowCarbFoodCarb2 = new Food("Chocolate", 550, true, FoodType.Carb);
+        Food allowCarbFoodCarb3 = new Food("Sweet potato", 150, true, FoodType.Carb);
+        allowedLowCarbFoodCarb.add(allowCarbFoodCarb1);
+        allowedLowCarbFoodCarb.add(allowCarbFoodCarb2);
+        allowedLowCarbFoodCarb.add(allowCarbFoodCarb3);
+
 
 
         Person JACK = new Person(new Food("Chicken", 130, false, FoodType.Protein),
@@ -121,21 +130,31 @@ public class LowCarbDietTest {
         String result = lowCarbDiet1.writeDuration(lowCarbDiet1);
         assertEquals("This LowcarbDiet lasts for 2 years, 0 months and 0 days", result);
     }
-
+    @Test
     public void requirment1_e_true(){
-        //Denne går fordi det er kun to carb av food
+
         LowCarbDiet lowCarbDiet1 = new LowCarbDiet("Lowcarb Diet", 30, "Loose weight", allowedLowCarbFoodVegan, false, 50);
 
-        assertTrue(lowCarbDiet1.lowCarbRestriction1e() <= 2);
+        assertEquals(true, lowCarbDiet1.lowCarbRestriction1e());
     }
 
-    /*@Test
-    public void requirment1_e_false(){
+    /*requirment1_e_true Test - This test passes because allowedLowCarbFoodVegan arraylist only contains two FoodType.Carbs
+    *  if we were to change it to three Food objects with FoodType.Carb  */
+
+    @Test (expected = IllegalArgumentException.class)
+    public void requirment1_e_throw(){
+
         LowCarbDiet lowCarbDiet1 = new LowCarbDiet("Lowcarb Diet", 30, "Loose weight", allowedLowCarbFoodCarb, false, 50);
 
+        lowCarbDiet1.lowCarbRestriction1e();
+    }
 
-        assertTrue(lowCarbDiet1.lowCarbRestriction1e());
-    }*/
+    /*requirment1_e_throw Test - This test class expects an exception because the allowedLowCarbFoodCarb arraylist contains three FoodType.Carb
+    * If we were to remove the (expected = IllegalArgumentException.class) the test will throw an
+    * IllegalArgumentException. However, if we keep the (expected = IllegalArgumentException.class) syntax and
+    * change one of the the FoodType.Carb to another FoodType, the test will fail because it expects
+    * a IllegalArgumentException, and that won't be happening because the array contains the accepted amount
+    * of FoodType.Carb*/
 
 
   /*  @Test
