@@ -93,12 +93,13 @@ public class Person {
         - If person weight more than the limit
         - If person weight less than the limit
     */
-
     public boolean personRestriction2d(HypercaloricDiet h) {
         if(getWeight() > h.getMaxWeightKg()){
             //throw new IllegalArgumentException();
+            System.out.println("Cant follow this diet because of health reasons.");
             return false;
         }else{
+            System.out.println("Can follow this diet.");
             return true;
         }
     }
