@@ -142,6 +142,8 @@ public class PersonTest {
     /* requirement2_c_1_1 Test - This test checks the personRestriction2c_1 in the person class. It passes because
      * the person object p, weighs more than the lower weight limit for the vegan diet*/
 
+    // FIXME must change to lowcarb - Julie
+
     @Test (expected = IllegalArgumentException.class)
     public void requirement2_c_2_2() {
         //Testing lowcarb diet
@@ -154,6 +156,7 @@ public class PersonTest {
 
         assertFalse(p.personRestriction2c_1(vd));
     }
+    // FIXME must change to lowcarb - Julie
 
     /* requirement2_c_1_1 Test - This test checks the personRestriction2c_1 in the person class. It passes because
      * we expect an illegalArgumentException thrown becauae the persn object weighs less than the lower weight limit for
