@@ -6,7 +6,6 @@ import static org.junit.Assert.*;
 
 public class HyperCaloricDietTest {
     ArrayList<Food> allowedInHyperCaloric = new ArrayList<>();
-    ArrayList<Food> allowedInVeganDiet = new ArrayList<>();
     ArrayList<Food> allowedInFlexiDiet = new ArrayList<>();
     ArrayList<Food> allowedInLowCarb = new ArrayList<>();
 
@@ -17,17 +16,12 @@ public class HyperCaloricDietTest {
         allowedInHyperCaloric.add(hyperCaloric1);
         allowedInHyperCaloric.add(hyperCaloric2);
 
-        Food veganFood1 = new Food("Cheese", 20, true, FoodType.Fiber);
-        Food veganFood2 = new Food("Butter", 20, true, FoodType.Fiber);
-        allowedInVeganDiet.add(veganFood1);
-        allowedInVeganDiet.add(veganFood2);
-
-        Food flexFood1 = new Food("Nuts", 20, true, FoodType.Fiber);
-        Food flexFood2 = new Food("Nuts", 20, true, FoodType.Fiber);
+        Food flexFood1 = new Food("Beef", 20, false, FoodType.Fiber);
+        Food flexFood2 = new Food("Nuts", 20, false, FoodType.Fiber);
         allowedInFlexiDiet.add(flexFood1);
         allowedInFlexiDiet.add(flexFood2);
 
-        Food lowCarb1 = new Food("Nuts", 20, true, FoodType.Fiber);
+        Food lowCarb1 = new Food("Nuts", 20, false, FoodType.Fiber);
         Food lowCarb2 = new Food("Nuts", 20, true, FoodType.Fiber);
         allowedInLowCarb.add(lowCarb1);
         allowedInLowCarb.add(lowCarb2);
@@ -38,17 +32,26 @@ public class HyperCaloricDietTest {
 
     @Test //Teste en diett hvor alt er vegan
     public void requirement1b_1(){
-        HypercaloricDiet hypercaloricDiet = new HypercaloricDiet("Hyper caloric diet", 60,
-                "health", allowedInHyperCaloric, true, 120, 600);
+        HypercaloricDiet hypercaloricDiet = new HypercaloricDiet("Hyper caloric diet", 60, "health", allowedInHyperCaloric, false, 120, 600);
         assertTrue(hypercaloricDiet.dietRestriction1b());
     }
 
     @Test
     //Teste en diett hvor en eller fler ikke er vegan
     public void requirement1b_2(){
-        HypercaloricDiet hypercaloricDiet = new HypercaloricDiet("Hyper caloric diet", 60, "health", allowedInHyperCaloric, true, 120, 600);
-        //assertFalse();
+        LowCarbDiet lowCarbDiet = new LowCarbDiet("Low carb diet", 60, "health", allowedInLowCarb, false, 40);
+        assertFalse(lowCarbDiet.dietRestriction1b());
     }
+
+    @Test
+    //Teste en diett hvor alle ikke er vegan
+    public void requirement1b_3(){
+        Food flexFood1 = new Food("Beef", 20, false, FoodType.Fiber);
+        FlexitarianDiet flexitarianDiet = new FlexitarianDiet("Low carb diet", 60, "health",
+                allowedInFlexiDiet, false, 400, flexFood1);
+        assertFalse(flexitarianDiet.dietRestriction1b());
+    }
+
 
 }
 

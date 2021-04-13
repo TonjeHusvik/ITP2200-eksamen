@@ -105,10 +105,12 @@ public abstract class Diet {
     public boolean dietRestriction1b() {
         for (Food f : getAllowedFood()) {
             if (f.isVegan()) {
-                isVegan = true;
+                //isVegan = true;
                 return true;
+            }else{
+                //isVegan = false;
+                return false;
             }
-            throw new IllegalArgumentException();
         }
         return false;
     }
