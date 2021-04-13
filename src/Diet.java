@@ -159,11 +159,8 @@ public abstract class Diet {
      * en test med 2 eller mindre FT carb
 <<<<<<< HEAD
      * ***/
-    public boolean lowCarbRestriction1e() throws IllegalArgumentException {
-=======
-     */
+
     public int lowCarbRestriction1e() throws IllegalArgumentException {
->>>>>>> e4ed219d476ccfdba6e0b75c74708bf5ab01110d
         int i = 0;
         for (Food f : getAllowedFood()) {
             if (f.getType().equals(FoodType.Carb)) {
@@ -173,7 +170,7 @@ public abstract class Diet {
                 }
             }
         }
-        return true;
+        return i;
     }
 }
 
