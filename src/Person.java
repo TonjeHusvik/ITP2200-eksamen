@@ -96,6 +96,12 @@ public class Person {
 
     */
     public void personRestriction2d() {
+        for (Person p:) {
+            if(){
 
+            }else{
+
+            }
+        }
     }
 }
