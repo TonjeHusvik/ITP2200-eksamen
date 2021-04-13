@@ -96,6 +96,9 @@ public class PersonTest {
     }
 
     // TODO 2c1. Cannot follow VeganDiet or LowCarbDiet if they weigh less than the limit in minWeightKg
+
+    /*** Her tester jeg begge dietter fordi det er en egen attributt og ikke noe de har arvet fra diet,
+     * derfor vil jeg være sikker på at koden fungerer uavhengig av diet***/
     @Test
     public void requirement2_c_1_1() {
         //Testing vegan diet
@@ -108,7 +111,8 @@ public class PersonTest {
 
         assertTrue(p.personRestriction2c_1(vd));
     }
-    /* requirement2_c_1_1 Test - This test checks the personRestriction2c_1 in the person class. It passes because */
+    /* requirement2_c_1_1 Test - This test checks the personRestriction2c_1 in the person class. It passes because
+    * the person object p, weighs more than the lower weight limit for the vegan diet*/
 
     @Test (expected = IllegalArgumentException.class)
     public void requirement2_c_1_2() {
@@ -120,8 +124,43 @@ public class PersonTest {
         Person p = new Person(new Food("Tofu", 76, true, FoodType.Protein), pAllergies,
                 vd , 45);
 
+        assertFalse(p.personRestriction2c_1(vd));
+    }
+
+    @Test
+    public void requirement2_c_2_1() {
+        //Testing lowcarb diet
+        Food[] pAllergies = new Food[1];
+        pAllergies[0] = new Food("Apple", 35, true, FoodType.Fiber);
+        VeganDiet vd = new VeganDiet("Vegan diet", 200, "Save the planet", allowedInVegan2, true, 50);
+
+        Person p = new Person(new Food("Tofu", 76, true, FoodType.Protein), pAllergies,
+                vd , 80);
+
         assertTrue(p.personRestriction2c_1(vd));
     }
+    /* requirement2_c_1_1 Test - This test checks the personRestriction2c_1 in the person class. It passes because
+     * the person object p, weighs more than the lower weight limit for the vegan diet*/
+
+    // FIXME must change to lowcarb - Julie
+
+    @Test (expected = IllegalArgumentException.class)
+    public void requirement2_c_2_2() {
+        //Testing lowcarb diet
+        Food[] pAllergies = new Food[1];
+        pAllergies[0] = new Food("Apple", 35, true, FoodType.Fiber);
+        VeganDiet vd = new VeganDiet("Vegan diet", 200, "Save the planet", allowedInVegan2, true, 50);
+
+        Person p = new Person(new Food("Tofu", 76, true, FoodType.Protein), pAllergies,
+                vd , 45);
+
+        assertFalse(p.personRestriction2c_1(vd));
+    }
+    // FIXME must change to lowcarb - Julie
+
+    /* requirement2_c_1_1 Test - This test checks the personRestriction2c_1 in the person class. It passes because
+     * we expect an illegalArgumentException thrown becauae the persn object weighs less than the lower weight limit for
+     * the vegan diet.*/
 
     /*LowCarbDiet lowCarbDiet = new LowCarbDiet("Low carb diet", 20, "weight loss", allowedInLowCarb, false, 80);
     VeganDiet veganDiet = new VeganDiet("Vegan diet", 20, "health", allowedInVegan,true,80);
