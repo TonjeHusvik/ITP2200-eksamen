@@ -1,3 +1,4 @@
+import java.time.Period;
 import java.util.ArrayList;
 
 public abstract class Diet {
@@ -59,8 +60,7 @@ public abstract class Diet {
 
     public String writeDuration(Diet d) {
         String result = "";
-
-        int days = daysDuration;
+        int days = d.daysDuration;
         int years = days / 365;
         int equivalence = days % 365;
         int months = equivalence / 30;
@@ -71,21 +71,31 @@ public abstract class Diet {
 
     public String writeDurationInDays(Diet d) {
         String result = "";
-
-        int days = daysDuration;
+        int days = d.daysDuration;
         result = "This " + d.getName() + " lasts for " + days + " days";
         return result;
     }
 
     public String writeDurationInMonths(Diet d) {
         String result = "";
-
-        int days = daysDuration;
-        int equivalence = days % 365;
-        int months = equivalence / 30;
-        months = equivalence % 12;
+        int months = d.daysDuration / 30;
         result = "This " + d.getName() + " lasts for " + months + " months";
-        return result;
+
+        if (d.daysDuration >= 30) {
+            return result;
+        } else
+        throw new IllegalArgumentException("ERROR, the input is less than 1 month");
+    }
+
+    public String writeDurationInYears(Diet d) {
+        String result = "";
+        int years = d.daysDuration / 365;
+        result = "This " + d.getName() + " lasts for " + years + " years";
+
+        if (d.daysDuration >= 365) {
+            return result;
+        } else
+            throw new IllegalArgumentException("ERROR, the input is less than 1 year");
     }
 
     public String writeAllowedFood(Diet d) {
