@@ -10,6 +10,7 @@ public class PersonTest {
     ArrayList<Food> allowedInVegan = new ArrayList<>();
     ArrayList<Food> allowedInLowCarb = new ArrayList<>();
     ArrayList<Food> allowedInHyperCaloric = new ArrayList<>();
+    ArrayList<Food> allowedInVegan2 = new ArrayList<>();
 
     @Before
     public void diets(){
@@ -35,6 +36,19 @@ public class PersonTest {
         allowedInHyperCaloric.add(hyperCaloricFood2);
         allowedInHyperCaloric.add(hyperCaloricFood3);
         allowedInHyperCaloric.add(hyperCaloricFood4);
+
+        /*** Kan dette arrayet slås sammen med vegan-arreyt på toppen Joachim? JUlie ***/
+        Food veganFoodA1 = new Food("Apple", 30, true, FoodType.Fat);
+        Food veganFoodA2 = new Food("Orange", 50, true, FoodType.Fiber);
+        Food veganFoodA3 = new Food("Seitan", 200, true, FoodType.Carb);
+        allowedInVegan2.add(veganFoodA1);
+        allowedInVegan2.add(veganFoodA2);
+        allowedInVegan2.add(veganFoodA3);
+
+
+
+
+
     }
 
     // TODO 2a. If their favourite food is non-vegan, they cannot follow a vegan diet.
@@ -83,16 +97,40 @@ public class PersonTest {
 
     // TODO 2c1. Cannot follow VeganDiet or LowCarbDiet if they weigh less than the limit in minWeightKg
     @Test
-    public void requirement2_c_1() {
-        LowCarbDiet lowCarbDiet = new LowCarbDiet("Low carb diet", 20, "weight loss", allowedInLowCarb, false, 80);
-        VeganDiet veganDiet = new VeganDiet("Vegan diet", 20, "health", allowedInVegan,true,80);
-        Person lowWeightPerson = new Person(lowCarbDiet, 79);
+    public void requirement2_c_1_1() {
+        //Testing vegan diet
+        Food[] pAllergies = new Food[1];
+        pAllergies[0] = new Food("Apple", 35, true, FoodType.Fiber);
+        VeganDiet vd = new VeganDiet("Vegan diet", 200, "Save the planet", allowedInVegan2, true, 50);
+
+        Person p = new Person(new Food("Tofu", 76, true, FoodType.Protein), pAllergies,
+             vd , 80);
+
+        assertTrue(p.personRestriction2c_1(vd));
+    }
+    /* requirement2_c_1_1 Test - This test checks the personRestriction2c_1 in the person class. It passes because */
+
+    @Test (expected = IllegalArgumentException.class)
+    public void requirement2_c_1_2() {
+        //Testing vegan diet
+        Food[] pAllergies = new Food[1];
+        pAllergies[0] = new Food("Apple", 35, true, FoodType.Fiber);
+        VeganDiet vd = new VeganDiet("Vegan diet", 200, "Save the planet", allowedInVegan2, true, 50);
+
+        Person p = new Person(new Food("Tofu", 76, true, FoodType.Protein), pAllergies,
+                vd , 45);
+
+        assertTrue(p.personRestriction2c_1(vd));
+    }
+
+    /*LowCarbDiet lowCarbDiet = new LowCarbDiet("Low carb diet", 20, "weight loss", allowedInLowCarb, false, 80);
+    VeganDiet veganDiet = new VeganDiet("Vegan diet", 20, "health", allowedInVegan,true,80);
+    Person lowWeightPerson = new Person(lowCarbDiet, 79);
 
         Assertions.assertAll("Checks if person can follow low carb or vegan diet based on weight",
                 () -> assertFalse("Person can follow this low carb diet", lowWeightPerson.getWeight() > lowCarbDiet.getMinWeightKg()),
-                () -> assertFalse("Person can follow this vegan diet", lowWeightPerson.getWeight() > veganDiet.getMinWeightKg())
-        );
-    }
+            () -> assertFalse("Person can follow this vegan diet", lowWeightPerson.getWeight() > veganDiet.getMinWeightKg())
+            );*/
 
     //TODO 2d2. Can follow VeganDiet or LowCarbDiet of they weigh more than the min
     @Test
