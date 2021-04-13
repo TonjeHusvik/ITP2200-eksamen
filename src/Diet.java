@@ -141,17 +141,11 @@ public abstract class Diet {
      */
 
     public static String flexDietRestriction1d(FlexitarianDiet d, Food f) {
-        /*if (d.getPreferredMeat().isVegan() || d.getPreferredMeat().getType() != FoodType.Protein) {
-            throw new IllegalArgumentException("The preferred meat can't be vegan, and must be a protein");*/
-
-            if((d.getPreferredMeat().isVegan() && f.getType() != FoodType.Protein)) {
-                throw new IllegalArgumentException("The preferred meat in FlexitarianDiet is not of FoodType PROTEIN and is VEGAN, don't eat!");
-            } else if (f.getType() != FoodType.Protein) {
-                throw new IllegalArgumentException("The preferred meat in FlexitarianDiet is NOT of FoodType Protein, DO NOT EAT");
-            } else if (d.getPreferredMeat().isVegan()) {
-                throw new IllegalArgumentException("The preferred meat in FlexitarianDiet is VEGAN! DO NOT EAT");
-            } else
-                return "The preferred meat in FlexitarianDiet is not vegan and is of FoodType Protein, ENJOY! =)";
+        if (!d.getPreferredMeat().isVegan() && f.getType() == FoodType.Protein) {
+            return "The preferred meat in FlexitarianDiet is not vegan and is of FoodType Protein, ENJOY! =)";
+        } else {
+            throw new IllegalArgumentException("ERROR! The preferred meat in a FlexitarianDiet MUST be non-vegan of protein type.");
+        }
     }
 
 
@@ -160,7 +154,6 @@ public abstract class Diet {
      *
      * en test med mer enn 2 FT carb
      * en test med 2 eller mindre FT carb
-<<<<<<< HEAD
      * ***/
 
     public boolean lowCarbRestriction1e() throws IllegalArgumentException {

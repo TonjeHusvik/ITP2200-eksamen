@@ -70,8 +70,13 @@ public class FlexitarianDietTest {
 
     // TODO Test if preferred meat is non-vegan and FoodType is not protein
     // Test if preferred meat is non-vegan and FoodType is not protein 1_d_3
-    @Test
+    @Test (expected = IllegalArgumentException.class)
     public void requirement1_d_3() {
-        // CODE
+        Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Carb);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try vegan protein meat!",
+                allowedInFlexitarian, false, 8000, tomahawk);
+
+        System.out.println("The preferred meat in FlexitarianDiet is NOT of FoodType Protein! DO NOT EAT");
+        assertFalse(Boolean.parseBoolean(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawk)));
     }
 }
