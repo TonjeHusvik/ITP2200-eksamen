@@ -68,7 +68,7 @@ public abstract class Diet {
         return result;
     }
 
-
+    //FIXME må fikses med kun day output, Rune
     public String writeDurationInDays(Diet d) {
         String result = "";
 
