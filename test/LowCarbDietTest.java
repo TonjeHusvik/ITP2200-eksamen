@@ -30,7 +30,7 @@ public class LowCarbDietTest {
         jacksAllergies[0] = new Food("Apple", 35, true, FoodType.Fiber);
         jacksAllergies[1] = new Food("Chocolate", 500, false, FoodType.Recipe);
 
-        Food lowCarbFoodVegan1 = new Food("Apple", 30, true, FoodType.Fiber);
+        Food lowCarbFoodVegan1 = new Food("Apple", 30, true, FoodType.Fat);
         Food lowCarbFoodVegan2 = new Food("Orange", 50, true, FoodType.Fiber);
         Food lowCarbFoodVegan3 = new Food("Seitan", 200, true, FoodType.Carb);
         Food lowCarbFoodVegan4 = new Food("Bread", 400, true, FoodType.Carb);
@@ -135,11 +135,11 @@ public class LowCarbDietTest {
 
         LowCarbDiet lowCarbDiet1 = new LowCarbDiet("Lowcarb Diet", 30, "Loose weight", allowedLowCarbFoodVegan, false, 50);
 
-        assertEquals(true, lowCarbDiet1.lowCarbRestriction1e());
+        assertTrue(lowCarbDiet1.lowCarbRestriction1e());
     }
 
     /*requirment1_e_true Test - This test passes because allowedLowCarbFoodVegan arraylist only contains two FoodType.Carbs
-    *  if we were to change it to three Food objects with FoodType.Carb  */
+    *  if we were to change it to three Food objects with FoodType.Carb it wont pass, like the test below  */
 
     @Test (expected = IllegalArgumentException.class)
     public void requirment1_e_throw(){
@@ -147,6 +147,7 @@ public class LowCarbDietTest {
         LowCarbDiet lowCarbDiet1 = new LowCarbDiet("Lowcarb Diet", 30, "Loose weight", allowedLowCarbFoodCarb, false, 50);
 
         lowCarbDiet1.lowCarbRestriction1e();
+
     }
 
     /*requirment1_e_throw Test - This test class expects an exception because the allowedLowCarbFoodCarb arraylist contains three FoodType.Carb

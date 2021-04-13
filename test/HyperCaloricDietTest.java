@@ -50,6 +50,4 @@ public class HyperCaloricDietTest {
                 allowedInFlexiDiet, false, 400, flexFood1);
         assertFalse("Nothing in this diet is vegan", flexitarianDiet.dietRestriction1b());
     }
-
-
 }
