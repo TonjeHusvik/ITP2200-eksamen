@@ -102,12 +102,17 @@ public abstract class Diet {
     Kanskje fler tester?
 
      */
-    public void dietRestriction1b(Diet d) {
-        for (Food f : d.getAllowedFood()) {
+    public boolean dietRestriction1b() {
+        for (Food f : getAllowedFood()) {
             if (f.isVegan()) {
-                d.isVegan = true;
+                //isVegan = true;
+                return true;
+            }else{
+                //isVegan = false;
+                return false;
             }
         }
+        return false;
     }
 
     /* Joachim - A VeganDiet cannot contain non-vegan food.
