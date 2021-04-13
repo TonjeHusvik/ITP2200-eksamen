@@ -116,12 +116,13 @@ public abstract class Diet {
      * En test hvor alle f.isvegan food objekter er true
      * En test med en eller fler food objekter som ikke er isVegan
      */
-    public boolean veganDietRestriction1c() {
+    public boolean veganDietRestriction1c() throws IllegalArgumentException {
         for (Food f : getAllowedFood()) {
             if (!f.isVegan()) {
                 isVegan = false;
-                System.out.println("This diet contains non-vegan food");
-                return false;
+                System.out.println("This is an illegal argument being thrown as expected, " +
+                                   "because this diet contains non-vegan food.");
+                throw new IllegalArgumentException();
             }
         }
         System.out.println("This diet is vegan");

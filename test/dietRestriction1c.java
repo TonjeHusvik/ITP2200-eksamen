@@ -42,9 +42,9 @@ public class dietRestriction1c {
 
     //Testing with one or more non-vegan foods
     //Message shows if test fails
-    @Test
+    @Test (expected = IllegalArgumentException.class)
     public void notAllIsVegan() {
-        assertFalse("Diet contains only vegan foods", notVeganDiet.veganDietRestriction1c());
+        assertTrue("Diet contains only vegan foods", notVeganDiet.veganDietRestriction1c());
     }
 
 }
