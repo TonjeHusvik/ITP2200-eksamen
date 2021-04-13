@@ -91,6 +91,10 @@ public class Person {
 
     //If they weigh more than the limit set by the HypercaloricDiet,
     //they cannot be following this diet (for health reasons).
+    /*TEST:
+        
+
+    */
     public void personRestriction2d() {
 
     }
