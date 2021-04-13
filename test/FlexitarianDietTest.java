@@ -102,6 +102,42 @@ public class FlexitarianDietTest {
         assertEquals("This VeganDiet lasts for 1 years, 1 months and 5 days", result);
     }
 
+    // Test days only
+    // TODO ADD CODE
+    @Test
+    public void requirement3_a_1() {
+        Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("VeganDiet", 450, "What is the duration of this diet?",
+                allowedInFlexitarian, true, 3000, tomahawkSteak);
+
+        String result = flexitarianDiet1.writeDurationInDays(flexitarianDiet1);
+        assertEquals("This VeganDiet lasts for 1 days", result);
+    }
+
+    // Test months only
+    // TODO ADD CODE
+    @Test
+    public void requirement3_a_2() {
+        Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("VeganDiet", 450, "What is the duration of this diet?",
+                allowedInFlexitarian, true, 3000, tomahawkSteak);
+
+        String result = flexitarianDiet1.writeDurationInDays(flexitarianDiet1);
+        assertEquals("This VeganDiet lasts for 1 months", result);
+    }
+
+    // Test years only
+    // TODO ADD CODE
+    @Test
+    public void requirement3_a_3() {
+        Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("VeganDiet", 450, "What is the duration of this diet?",
+                allowedInFlexitarian, true, 3000, tomahawkSteak);
+
+        String result = flexitarianDiet1.writeDurationInDays(flexitarianDiet1);
+        assertEquals("This VeganDiet lasts for 1 years", result);
+    }
+
 // TODO Write the allowed food, e.g., "The following food is allowed in this FlexitarianDiet: Salad, Soup, Apple, Strawberry, Salmon".
     @Test
     public void requirement3_b() {

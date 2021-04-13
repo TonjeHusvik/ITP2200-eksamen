@@ -64,7 +64,19 @@ public abstract class Diet {
         int balance = days % 365;
         int months = balance / 30;
         days = balance % 30;
-        result =  "This " + d.getName() + " lasts for " + years + " years, " + months + " months and " + days + " days";
+        result = "This " + d.getName() + " lasts for " + years + " years, " + months + " months and " + days + " days";
+        return result;
+    }
+
+    public String writeDurationInDays(Diet d) {
+        String result = "";
+
+        int days = daysDuration;
+        int years = days / 365;
+        int balance = days % 365;
+        int months = balance / 30;
+        days = balance % 30;
+        result = "This " + d.getName() + " lasts for " + days + " days";
         return result;
     }
 
