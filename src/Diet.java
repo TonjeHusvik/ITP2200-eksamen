@@ -165,7 +165,7 @@ public abstract class Diet {
 <<<<<<< HEAD
      * ***/
 
-    public int lowCarbRestriction1e() throws IllegalArgumentException {
+    public boolean lowCarbRestriction1e() throws IllegalArgumentException {
         int i = 0;
         for (Food f : getAllowedFood()) {
             if (f.getType().equals(FoodType.Carb)) {
@@ -175,7 +175,7 @@ public abstract class Diet {
                 }
             }
         }
-        return i;
+        return true;
     }
 }
 
