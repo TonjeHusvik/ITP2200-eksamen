@@ -39,12 +39,23 @@ public class PersonTest2d {
 
     // TODO 2d. Cannot follow HyperCaloricDiet if they weigh more than the limit in maxWeightKg
     @Test
-    public void requirement2_d() {
+    public void requirement2_d_0() {
         HypercaloricDiet hypercaloricDiet = new HypercaloricDiet("Hypercaloric diet", 123, "weight gain",
                 allowedInHyperCaloric, false, 100, 6000);
         Person highWeightPerson = new Person(hypercaloricDiet, 120);
 
-        assertTrue("Person can follow this hypercaloric diet", highWeightPerson.getWeight() > hypercaloricDiet.getMaxWeightKg());
+        assertFalse(highWeightPerson.personRestriction2d(hypercaloricDiet));
+        //assertTrue("Person can follow this hypercaloric diet", highWeightPerson.getWeight() > hypercaloricDiet.getMaxWeightKg());
+    }
+
+    @Test
+    public void requirement2_d_1() {
+        HypercaloricDiet hypercaloricDiet = new HypercaloricDiet("Hypercaloric diet", 123, "weight gain",
+                allowedInHyperCaloric, false, 100, 6000);
+        Person highWeightPerson = new Person(hypercaloricDiet, 90);
+
+        assertTrue(highWeightPerson.personRestriction2d(hypercaloricDiet));
+        //assertTrue("Person can follow this hypercaloric diet", highWeightPerson.getWeight() > hypercaloricDiet.getMaxWeightKg());
     }
 }
 
