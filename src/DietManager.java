@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-public class DietManager {
+public class DietManager{
 
-    public boolean areCompatible(Person p, Diet d) throws IllegalArgumentException {
-        if (p.getFavouriteFood().isVegan() && d.isVegan()) {
+    // FIXME ikke done, rune
+    public boolean areCompatible(Person p, VeganDiet d) throws IllegalArgumentException {
+        if ((p.getFavouriteFood().isVegan() && d.isVegan()) && (p.getWeight() > d.getMinWeightKg()) &&
+                (p.getAllergies() != d.getAllowedFood())) {
             return true;
-        } else if (true) {
-
-        }
+        } else
         throw new IllegalArgumentException("The diet and the person is NOT compatible");
     }
 
