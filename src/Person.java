@@ -1,10 +1,12 @@
+import java.util.ArrayList;
+
 public class Person {
     private Food favouriteFood;
-    private Food[] allergies;
+    private ArrayList<Food> allergies;
     private Diet diet;
     private float weight;
 
-    public Person(Food favouriteFood, Food[] allergies, Diet diet, float weight) {
+    public Person(Food favouriteFood, ArrayList<Food> allergies, Diet diet, float weight) {
         this.favouriteFood = favouriteFood;
         this.allergies = allergies;
         this.diet = diet;
@@ -29,6 +31,9 @@ public class Person {
         this.diet = diet;
     }
 
+    public Person(ArrayList<Food> allergies) {
+        this.allergies = allergies;
+    }
 
     public Food getFavouriteFood() {
         return favouriteFood;
@@ -38,11 +43,11 @@ public class Person {
         this.favouriteFood = favouriteFood;
     }
 
-    public Food[] getAllergies() {
+    public ArrayList<Food> getAllergies() {
         return allergies;
     }
 
-    public void setAllergies(Food[] allergies) {
+    public void setAllergies(ArrayList<Food> allergies) {
         this.allergies = allergies;
     }
 
@@ -77,9 +82,17 @@ public class Person {
     }
 
     //They cannot follow a diet if they are allergic to 50% or more of the food allowed by the diet.
-    public void personRestriction2b() {
+        public boolean personRestriction2b(Person p, Diet d) {
+            p.getAllergies().retainAll(d.getAllowedFood());
+            if(p.getAllergies().size() >= (d.getAllowedFood().size()/2)) {
+                System.out.println("This person is allergic to the following foods in the diet: "
+                        + p.getAllergies().toString() + "\r\n" + "An exception is thrown as expected.");
+                throw new IllegalArgumentException();
+            }
+            System.out.println("The person can follow this diet.");
+            return true;
+        }
 
-    }
 
     //If they weigh less than the limit set by the VeganDiet or the LowCarbDiet,
     //they cannot be following these diets (for health reasons).

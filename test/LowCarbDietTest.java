@@ -26,9 +26,11 @@ public class LowCarbDietTest {
         allowedLowCarbFood.add(lowCarbFood4);
         allowedLowCarbFood.add(lowCarbFood5);
 
-        Food[] jacksAllergies = new Food[2];
-        jacksAllergies[0] = new Food("Apple", 35, true, FoodType.Fiber);
-        jacksAllergies[1] = new Food("Chocolate", 500, false, FoodType.Recipe);
+        ArrayList<Food> jacksAllergies = new ArrayList<>();
+        Food apple = new Food("Apple", 35, true, FoodType.Fiber);
+        Food chocolate = new Food("Chocolate", 500, false, FoodType.Recipe);
+        jacksAllergies.add(apple);
+        jacksAllergies.add(chocolate);
 
         Food lowCarbFoodVegan1 = new Food("Apple", 30, true, FoodType.Fat);
         Food lowCarbFoodVegan2 = new Food("Orange", 50, true, FoodType.Fiber);
