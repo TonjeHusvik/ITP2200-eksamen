@@ -62,28 +62,7 @@ public class VeganDietTest {
     }
 */
 
-    // TODO Write the duration of a diet in terms of years, months and days, eg., "This VeganDiet lasts for 2 years, 3 months and 5 days".
-    /*@Test
-    public void requirement3_a() {
-        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 400, "Save the planet!", allowedInVegan, true, 2);
-
-        String result = veganDiet1.writeDuration(veganDiet1);
-        assertEquals("This VeganDiet lasts for 1 years, 1 months and 5 days", result);
-    }*/
-
-    // TODO Write the allowed food, e.g., "The following food is allowed in this FlexitarianDiet: Salad, Soup, Apple, Strawberry, Salmon".
-   /* @Test
-    public void requirement3_b() {
-        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 70, "Save the earth.", allowedInVegan, true, 50);
-
-        String result = veganDiet1.writeAllowedFood(veganDiet1)
-                        .replace("[",  "")
-                        .replace("]", "");
-        assertEquals("The following food is allowed in this VeganDiet: Rice, Salad, Tofu, Beans, Broccoli", result);
-        System.out.println(result);
-    }
-
-    // TODO Given a Person and a Diet, return true if they are compatible, false otherwise
+/*    // TODO Given a Person and a Diet, return true if they are compatible, false otherwise
     @Test
     public void requirement4_a() {
         Food[] person1Allergies = new Food[2];
@@ -96,5 +75,44 @@ public class VeganDietTest {
         DietManager dietManager = new DietManager();
 
         assertTrue(dietManager.areCompatible(person1, person1VeganDiet));
+
+     // TODO If a diet contains any non-vegan food, it is considered not vegan (i.e., isVegan = false)
+    @Test // diet.isVegan = true & food.isVegan = true
+    public void requirement1_a1() {
+        Food veganFood5 = new Food("Tofu", 160, true, FoodType.Protein);
+        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet", allowedInVegan, true, 50);
+
+        assertTrue(veganDiet1.dietRestriction1a());
+        assertTrue(veganFood5.isVegan());
     }
-*/
+
+    @Test // diet.isVegan = false & food.isVegan = false // FIXME skal returnere "false, this diet is not vegan"
+    public void requirement1_a2() {
+        Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet", allowedInFlexitarian, false, 50, tomahawk);
+
+        assertFalse(flexitarianDiet1.dietRestriction1a());
+        assertFalse(tomahawk.isVegan());
+    }
+
+    @Test // diet.isVegan = true & food.isVegan = false
+    public void requirement1_a3() {
+        Food tomahawk = new Food("Steak", 160, false, FoodType.Protein);
+        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet of Rice and Chicken Filet", allowedInVegan, true, 50);
+
+        assertTrue(veganDiet1.dietRestriction1aTest(veganDiet1));
+        assertFalse(tomahawk.isVegan());
+    }
+
+    @Test // diet.isVegan = false & food.isVegan = true
+    public void requirement1_a4() {
+        Food tofu = new Food("Tofu", 200, true, FoodType.Protein);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet", allowedInFlexitarian, false, 50, tofu);
+
+        assertFalse(flexitarianDiet1.dietRestriction1aTest(flexitarianDiet1));
+        assertTrue(tofu.isVegan());
+    }
+
+
+    }*/
+

@@ -1,5 +1,3 @@
-import java.time.Period;
-
 public class Person {
     private Food favouriteFood;
     private Food[] allergies;
@@ -85,13 +83,30 @@ public class Person {
 
     //If they weigh less than the limit set by the VeganDiet or the LowCarbDiet,
     //they cannot be following these diets (for health reasons).
-    public void personRestriction2c() {
+    public boolean personRestriction2c_1(VeganDiet d) throws IllegalArgumentException {
 
+        if(getWeight() < d.getMinWeightKg()){
+            throw new IllegalArgumentException("ERROR! You cannot follow a vegan diet if you weigh less than the minimum weight requerement");
+        }
+        else{
+            return true;
+        }
     }
 
     //If they weigh more than the limit set by the HypercaloricDiet,
     //they cannot be following this diet (for health reasons).
-    public void personRestriction2d() {
-
+    /*TEST:
+        - If person weight more than the limit
+        - If person weight less than the limit
+    */
+    public boolean personRestriction2d(HypercaloricDiet h) {
+        if(getWeight() > h.getMaxWeightKg()){
+            //throw new IllegalArgumentException();
+            System.out.println("Cant follow this diet because of health reasons.");
+            return false;
+        }else{
+            System.out.println("Can follow this diet.");
+            return true;
+        }
     }
 }

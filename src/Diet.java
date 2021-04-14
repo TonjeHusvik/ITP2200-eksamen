@@ -1,4 +1,6 @@
+import java.time.Period;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public abstract class Diet {
     private int daysDuration;
@@ -56,16 +58,45 @@ public abstract class Diet {
         isVegan = vegan;
     }
 
+
     public String writeDuration(Diet d) {
         String result = "";
-
-        int days = daysDuration;
+        int days = d.daysDuration;
         int years = days / 365;
-        int balance = days % 365;
-        int months = balance / 30;
-        days = balance % 30;
-        result =  "This " + d.getName() + " lasts for " + years + " years, " + months + " months and " + days + " days";
+        int equivalence = days % 365;
+        int months = equivalence / 30;
+        days = equivalence % 30;
+        result = "This " + d.getName() + " lasts for " + years + " years, " + months + " months and " + days + " days";
         return result;
+    }
+
+    public String writeDurationInDays(Diet d) {
+        String result = "";
+        int days = d.daysDuration;
+        result = "This " + d.getName() + " lasts for " + days + " days";
+        return result;
+    }
+
+    public String writeDurationInMonths(Diet d) {
+        String result = "";
+        int months = d.daysDuration / 30;
+        result = "This " + d.getName() + " lasts for " + months + " months";
+
+        if (d.daysDuration >= 30) {
+            return result;
+        } else
+        throw new IllegalArgumentException("ERROR, the input is less than 1 month");
+    }
+
+    public String writeDurationInYears(Diet d) {
+        String result = "";
+        int years = d.daysDuration / 365;
+        result = "This " + d.getName() + " lasts for " + years + " years";
+
+        if (d.daysDuration >= 365) {
+            return result;
+        } else
+            throw new IllegalArgumentException("ERROR, the input is less than 1 year");
     }
 
     public String writeAllowedFood(Diet d) {
@@ -102,12 +133,15 @@ public abstract class Diet {
     Kanskje fler tester?
 
      */
-    public void dietRestriction1b(Diet d) {
-        for (Food f : d.getAllowedFood()) {
+    public boolean dietRestriction1b() {
+        for (Food f : getAllowedFood()) {
             if (f.isVegan()) {
-                d.isVegan = true;
+                return true;
+            }else{
+                return false;
             }
         }
+        return false;
     }
 
     /* Joachim - A VeganDiet cannot contain non-vegan food.
@@ -138,17 +172,11 @@ public abstract class Diet {
      */
 
     public static String flexDietRestriction1d(FlexitarianDiet d, Food f) {
-        /*if (d.getPreferredMeat().isVegan() || d.getPreferredMeat().getType() != FoodType.Protein) {
-            throw new IllegalArgumentException("The preferred meat can't be vegan, and must be a protein");*/
-
-            if((d.getPreferredMeat().isVegan() && f.getType() != FoodType.Protein)) {
-                throw new IllegalArgumentException("The preferred meat in FlexitarianDiet is not of FoodType PROTEIN and is VEGAN, don't eat!");
-            } else if (f.getType() != FoodType.Protein) {
-                throw new IllegalArgumentException("The preferred meat in FlexitarianDiet is NOT of FoodType Protein, DO NOT EAT");
-            } else if (d.getPreferredMeat().isVegan()) {
-                throw new IllegalArgumentException("The preferred meat in FlexitarianDiet is VEGAN! DO NOT EAT");
-            } else
-                return "The preferred meat in FlexitarianDiet is not vegan and is of FoodType Protein, ENJOY! =)";
+        if (!d.getPreferredMeat().isVegan() && f.getType() == FoodType.Protein) {
+            return "The preferred meat in FlexitarianDiet is not vegan and is of FoodType Protein, ENJOY! =)";
+        } else {
+            throw new IllegalArgumentException("ERROR! The preferred meat in a FlexitarianDiet MUST be non-vegan of protein type.");
+        }
     }
 
 
@@ -157,7 +185,6 @@ public abstract class Diet {
      *
      * en test med mer enn 2 FT carb
      * en test med 2 eller mindre FT carb
-<<<<<<< HEAD
      * ***/
 
     public boolean lowCarbRestriction1e() throws IllegalArgumentException {
@@ -172,19 +199,49 @@ public abstract class Diet {
         }
         return true;
     }
+
+    //FIXME Joachim
+/*    //Test både med allergi 50% eller mer, og under
+    public boolean personRestriction2b(Person p, Diet d) throws IllegalArgumentException {
+        d.getAllowedFood().retainAll(p.getAllergies());
+        if(p.getAllergies().size() >= (d.getAllowedFood().size()/2)) {
+            throw new IllegalArgumentException();
+        }
+        return true;
+    }*/
+
+    public boolean dietRestriction1a() {
+        Iterator var1 = this.getAllowedFood().iterator();
+        if (var1.hasNext()) {
+            Food f = (Food)var1.next();
+            if (f.isVegan()) {
+                System.out.println("True, this diet is vegan");
+                return true;
+            } else {
+                System.out.println("False, this diet is not vegan");
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public boolean dietRestriction1aTest(Diet d) {
+        Iterator var2 = this.getAllowedFood().iterator();
+
+        Food f;
+        do {
+            if (!var2.hasNext()) {
+                return false;
+            }
+
+            f = (Food) var2.next();
+        } while (!d.isVegan || !f.isVegan());
+
+        return true;
+    }
 }
 
-/*public int lowCarbRestriction1e() throws IllegalArgumentException {
-        int i = 0;
-        for (Food f : getAllowedFood()) {
-            if (f.getType().equals(FoodType.Carb)) {
-                i = i + 1;
-                if (i >= 3) {
-                    throw new IllegalArgumentException("You can not have more than two types of carb in a lowcarb diet");
-                }
-            }
-        }
-        return i;
-    }*/
+
 
 
