@@ -13,6 +13,12 @@ public class Person {
         this.weight = weight;
     }
 
+    public Person(Food favouriteFood, ArrayList<Food> allergies, float weight) {
+        this.favouriteFood = favouriteFood;
+        this.allergies = allergies;
+        this.weight = weight;
+    }
+
     public Person(Food favouriteFood) {
         this.favouriteFood = favouriteFood;
     }
@@ -97,6 +103,16 @@ public class Person {
     //If they weigh less than the limit set by the VeganDiet or the LowCarbDiet,
     //they cannot be following these diets (for health reasons).
     public boolean personRestriction2c_1(VeganDiet d) throws IllegalArgumentException {
+
+        if(getWeight() < d.getMinWeightKg()){
+            throw new IllegalArgumentException("ERROR! You cannot follow a vegan diet if you weigh less than the minimum weight requerement");
+        }
+        else{
+            return true;
+        }
+    }
+
+    public boolean personRestriction2c_2(LowCarbDiet d) throws IllegalArgumentException {
 
         if(getWeight() < d.getMinWeightKg()){
             throw new IllegalArgumentException("ERROR! You cannot follow a vegan diet if you weigh less than the minimum weight requerement");
