@@ -43,14 +43,6 @@ public class PersonTest {
         allowedInHyperCaloric.add(hyperCaloricFood2);
         allowedInHyperCaloric.add(hyperCaloricFood3);
         allowedInHyperCaloric.add(hyperCaloricFood4);
-
-        /*** Kan dette arrayet slås sammen med vegan-arreyt på toppen Joachim? JUlie ***/
-
-
-
-
-
-
     }
 
     // TODO 2a. If their favourite food is non-vegan, they cannot follow a vegan diet.
@@ -140,6 +132,7 @@ public class PersonTest {
         p.personRestriction2c_1(vd);
     }
 
+    //PASSED ✔️
     @Test
     public void requirement2_c_2_1() {
         //Testing lowcarb diet
@@ -154,10 +147,9 @@ public class PersonTest {
         assertTrue(p.personRestriction2c_2(lcd));
     }
     /* requirement2_c_1_1 Test - This test checks the personRestriction2c_1 in the person class. It passes because
-     * the person object p, weighs more than the lower weight limit for the vegan diet*/
+     * the person object p, weighs more than the lower weight limit for the lowcarb diet*/
 
-    // FIXME must change to lowcarb - Julie
-
+    //PASSED ✔️
     @Test (expected = IllegalArgumentException.class)
     public void requirement2_c_2_2() {
         //Testing lowcarb diet
@@ -165,13 +157,11 @@ public class PersonTest {
         Food peanuts = new Food("Peanuts", 450, true, FoodType.Protein);
         pAllergies.add(peanuts);
         LowCarbDiet lcd = new LowCarbDiet("Lowcarb Diet", 200, "Burn fat", allowedInLowCarb, false, 50);
-
-        Person p = new Person(new Food("Pizza", 550, false, FoodType.Recipe), pAllergies,
-                lcd , 43);
+        Person p = new Person(new Food("Pizza", 550, false, FoodType.Recipe), pAllergies, lcd , 43);
 
         p.personRestriction2c_2(lcd);
     }
-    // FIXME must change to lowcarb - Julie
+
 
     /*--------------------------------------------------------------------------------------------------------------------*/
     /*--------------------------------------------------------------------------------------------------------------------*/
@@ -182,15 +172,15 @@ public class PersonTest {
     @Test
     public void requirement2_d() {
         HypercaloricDiet hypercaloricDiet = new HypercaloricDiet("Hypercaloric diet", 123, "weight gain",
-                                                                    allowedInHyperCaloric, false, 100, 6000);
+        allowedInHyperCaloric, false, 100, 6000);
         Person highWeightPerson = new Person(hypercaloricDiet, 120);
 
         assertTrue("Person can follow this hypercaloric diet", highWeightPerson.getWeight() > hypercaloricDiet.getMaxWeightKg());
     }
 }
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------*/
+    /*--------------------------------------------------------------------------------------------------------------------*/
+    /*--------------------------------------------------------------------------------------------------------------------*/
+    /*--------------------------------------------------------------------------------------------------------------------*/
 
 /*//2d2. Can follow VeganDiet or LowCarbDiet of they weigh more than the min
     @Test
