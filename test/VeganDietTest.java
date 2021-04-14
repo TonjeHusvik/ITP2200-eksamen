@@ -31,7 +31,9 @@ public class VeganDietTest {
     }
 
 
-        // TODO If a diet contains any non-vegan food, it is considered not vegan (i.e., isVegan = false)
+        // MAIN TASK: IF A DIET CONTAINS ANY NON-VEGAN FOOD, IT IS CONSIDERED NOT VEGAN.
+        // Test if the diet is vegan and if the food is vegan.
+        // PASSED✔️
         @Test // diet.isVegan = true & food.isVegan = true
         public void requirement1_a1 () {
             Food veganFood5 = new Food("Tofu", 160, true, FoodType.Protein);
@@ -41,7 +43,9 @@ public class VeganDietTest {
             assertTrue(veganFood5.isVegan());
         }
 
-        @Test // diet.isVegan = false & food.isVegan = false // FIXME skal returnere "false, this diet is not vegan"
+        // Test if the diet is non-vegan and if the food is non-vegan.
+        // PASSED✔️
+        @Test // diet.isVegan = false & food.isVegan = false //
         public void requirement1_a2 () {
             Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein);
             FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet", allowedInFlexitarian, false, 50, tomahawk);
@@ -51,6 +55,8 @@ public class VeganDietTest {
 
         }
 
+        // Test if the diet is vegan and if the food is non-vegan.
+        // PASSED✔️
         @Test // diet.isVegan = true & food.isVegan = false
         public void requirement1_a3 () {
             Food tomahawk = new Food("Steak", 160, false, FoodType.Protein);
@@ -60,6 +66,8 @@ public class VeganDietTest {
             assertFalse(tomahawk.isVegan());
         }
 
+        // Test if the diet is non-vegan and if the food is vegan.
+        // PASSED✔️
         @Test // diet.isVegan = false & food.isVegan = true
         public void requirement1_a4 () {
             Food tofu = new Food("Tofu", 200, true, FoodType.Protein);
