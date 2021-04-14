@@ -5,7 +5,7 @@ public class DietManager{
 
     // FIXME ikke done, rune
     public boolean areCompatible(Person p, VeganDiet d) throws IllegalArgumentException {
-        if ((p.getFavouriteFood().isVegan() && d.isVegan()) || (p.getWeight() > d.getMinWeightKg()) ||
+        if ((p.getFavouriteFood().isVegan() && d.isVegan()) && (p.getWeight() > d.getMinWeightKg()) &&
                 (p.getAllergies() != d.getAllowedFood())) {
             return true;
         } else
