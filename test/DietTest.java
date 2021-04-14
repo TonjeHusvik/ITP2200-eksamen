@@ -1,5 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -28,7 +29,8 @@ public class DietTest {
         Food wholeMilk = new Food("Whole Milk", 42, false, FoodType.Fat);
         Food potatoes = new Food("Potatoes", 77, true, FoodType.Carb);
         person1Allergies.add(walnuts);
-        person1Allergies.add(kiwi);
+        // TODO TEMP kiwi fjernes etter allergitesten og puttes inn i person1
+        person2Allergies.add(kiwi);
         person2Allergies.add(shellfish);
         person2Allergies.add(potatoes);
         person3Allergies.add(wheat);
@@ -43,8 +45,11 @@ public class DietTest {
         allowedLowCarbFood.add(lowCarbFood1);
         allowedLowCarbFood.add(lowCarbFood2);
         allowedLowCarbFood.add(lowCarbFood3);
-        allowedLowCarbFood.add(lowCarbFood4);
-        allowedLowCarbFood.add(lowCarbFood5);
+        // TODO fjernes etter allergitesten
+        allowedLowCarbFood.add(shellfish);
+        allowedLowCarbFood.add(potatoes);
+        allowedLowCarbFood.add(kiwi);
+
 
         // VEGAN FOOD
         Food veganFood1 = new Food("Rice", 130, true, FoodType.Carb);
@@ -83,6 +88,7 @@ public class DietTest {
     /***Given a Person and a Diet, return true if they are compatible, false otherwise***/
 
     // MAIN TASK: Given a Person and a Diet, return true if they are compatible, false otherwise
+    // PASSED✔
     @Test
     public void requirement4_a() {
         Food veganPerson1FavouriteFood = new Food("Beans", 150, true, FoodType.Protein);
@@ -91,10 +97,11 @@ public class DietTest {
 
         Person person1 = new Person(veganPerson1FavouriteFood, person1Allergies, person1VeganDiet, 60);
         DietManager dietManager = new DietManager();
-        assertTrue(dietManager.areCompatible(person1, person1VeganDiet));
+        assertTrue(dietManager.areCompatibleVegan(person1, person1VeganDiet));
     }
 
     // Testing ONLY lowcarb-compatibility
+    // PASSED✔
     @Test
     public void requirement4_a1() {
         Food lowCarbPerson2FavouriteFood = new Food("Eggs", 155, true, FoodType.Protein);
@@ -103,6 +110,7 @@ public class DietTest {
 
         DietManager dietManager = new DietManager();
         Person person2 = new Person(lowCarbPerson2FavouriteFood, person2Allergies, person2LowCarbDiet, 70);
+        assertTrue(dietManager.areCompatibleLowCarb(person2, person2LowCarbDiet));
     }
 
     // Testing ONLY flexitarian-compatibility
