@@ -105,7 +105,7 @@ public class Person {
     public boolean personRestriction2c_1(VeganDiet d) throws IllegalArgumentException {
 
         if(getWeight() < d.getMinWeightKg()){
-            throw new IllegalArgumentException("ERROR! You cannot follow a vegan diet if you weigh less than the minimum weight requerement");
+            throw new IllegalArgumentException("ERROR! You cannot follow a vegan diet if you weigh less than the minimum weight requirement");
         }
         else{
             return true;
@@ -115,7 +115,7 @@ public class Person {
     public boolean personRestriction2c_2(LowCarbDiet d) throws IllegalArgumentException {
 
         if(getWeight() < d.getMinWeightKg()){
-            throw new IllegalArgumentException("ERROR! You cannot follow a vegan diet if you weigh less than the minimum weight requerement");
+            throw new IllegalArgumentException("ERROR! You cannot follow a lowcarb diet if you weigh less than the minimum weight requirement");
         }
         else{
             return true;

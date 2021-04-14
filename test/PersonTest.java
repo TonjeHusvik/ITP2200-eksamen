@@ -10,12 +10,19 @@ public class PersonTest {
     ArrayList<Food> allowedInVegan = new ArrayList<>();
     ArrayList<Food> allowedInLowCarb = new ArrayList<>();
     ArrayList<Food> allowedInHyperCaloric = new ArrayList<>();
-    ArrayList<Food> allowedInVegan2 = new ArrayList<>();
+
 
     @Before
     public void diets(){
+
         Food veganFood1 = new Food("Salad", 10, true, FoodType.Fiber);
+        Food veganFood2 = new Food("Apple", 30, true, FoodType.Fat);
+        Food veganFood3= new Food("Orange", 50, true, FoodType.Fiber);
+        Food veganFood4 = new Food("Seitan", 200, true, FoodType.Carb);
         allowedInVegan.add(veganFood1);
+        allowedInVegan.add(veganFood2);
+        allowedInVegan.add(veganFood2);
+        allowedInVegan.add(veganFood2);
 
         Food lowCarbFood1 = new Food("Bacon", 10, false, FoodType.Fat);
         Food lowCarbFood2 = new Food("Pork", 10, false, FoodType.Fat);
@@ -38,12 +45,7 @@ public class PersonTest {
         allowedInHyperCaloric.add(hyperCaloricFood4);
 
         /*** Kan dette arrayet slås sammen med vegan-arreyt på toppen Joachim? JUlie ***/
-        Food veganFoodA1 = new Food("Apple", 30, true, FoodType.Fat);
-        Food veganFoodA2 = new Food("Orange", 50, true, FoodType.Fiber);
-        Food veganFoodA3 = new Food("Seitan", 200, true, FoodType.Carb);
-        allowedInVegan2.add(veganFoodA1);
-        allowedInVegan2.add(veganFoodA2);
-        allowedInVegan2.add(veganFoodA3);
+
 
 
 
@@ -110,7 +112,7 @@ public class PersonTest {
         ArrayList<Food> pAllergies = new ArrayList<>();
         Food apple = new Food("Apple", 35, true, FoodType.Fiber);
         pAllergies.add(apple);
-        VeganDiet vd = new VeganDiet("Vegan diet", 200, "Save the planet", allowedInVegan2, true, 50);
+        VeganDiet vd = new VeganDiet("Vegan diet", 200, "Save the planet", allowedInVegan, true, 50);
 
         Person p = new Person(new Food("Tofu", 76, true, FoodType.Protein), pAllergies,
              vd , 80);
@@ -130,12 +132,12 @@ public class PersonTest {
         ArrayList<Food> pAllergies = new ArrayList<>();
         Food apple = new Food("Apple", 35, true, FoodType.Fiber);
         pAllergies.add(apple);
-        VeganDiet vd = new VeganDiet("Vegan diet", 200, "Save the planet", allowedInVegan2, true, 50);
+        VeganDiet vd = new VeganDiet("Vegan diet", 200, "Save the planet", allowedInVegan, true, 50);
 
         Person p = new Person(new Food("Tofu", 76, true, FoodType.Protein), pAllergies,
                 vd , 45);
 
-        assertFalse(p.personRestriction2c_1(vd));
+        p.personRestriction2c_1(vd);
     }
 
     @Test
@@ -144,7 +146,7 @@ public class PersonTest {
         ArrayList<Food> pAllergies = new ArrayList<>();
         Food peanuts = new Food("Peanuts", 450, true, FoodType.Protein);
         pAllergies.add(peanuts);
-        LowCarbDiet lcd = new LowCarbDiet("Lowcarb Diet", 200, "Burn fat", allowedInVegan2, false, 50);
+        LowCarbDiet lcd = new LowCarbDiet("Lowcarb Diet", 200, "Burn fat", allowedInLowCarb, false, 50);
 
         Person p = new Person(new Food("Pizza", 550, false, FoodType.Recipe), pAllergies,
                 lcd , 63);
@@ -162,12 +164,12 @@ public class PersonTest {
         ArrayList<Food> pAllergies = new ArrayList<>();
         Food peanuts = new Food("Peanuts", 450, true, FoodType.Protein);
         pAllergies.add(peanuts);
-        LowCarbDiet lcd = new LowCarbDiet("Lowcarb Diet", 200, "Burn fat", allowedInVegan2, false, 50);
+        LowCarbDiet lcd = new LowCarbDiet("Lowcarb Diet", 200, "Burn fat", allowedInLowCarb, false, 50);
 
         Person p = new Person(new Food("Pizza", 550, false, FoodType.Recipe), pAllergies,
                 lcd , 43);
 
-        assertFalse(p.personRestriction2c_2(lcd));
+        p.personRestriction2c_2(lcd);
     }
     // FIXME must change to lowcarb - Julie
 
