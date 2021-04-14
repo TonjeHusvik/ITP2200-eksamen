@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Assertions;
 
 import static org.junit.Assert.*;
-/*
+
 public class VeganDietTest {
     ArrayList<Food> allowedInVegan = new ArrayList<>();
     ArrayList<Food> person1FavouriteFood = new ArrayList<>();
@@ -30,9 +30,9 @@ public class VeganDietTest {
         person1Allergies[1] = new Food("Kiwi", 61, true, FoodType.Fiber);
     }
 
- */
 
-    /*
+
+
     // IKKE FERDIG IKKE FERDIG IKKE FERDIG IKKE FERDIG IKKE FERDIG IKKE FERDIG
     // TODO If a diet contains any non-vegan food, it is considered not vegan (i.e., isVegan = false)
     @Test
@@ -49,9 +49,9 @@ public class VeganDietTest {
 
         veganDiet1.dietRestriction1a(veganDiet1);
 
-    }*/
+    }
 
-/*
+
     @Test
     public void testVegan2() {
         VeganDiet veganDiet1 = new VeganDiet("VeganDiet",40, "Test", allowedInVegan, true, 1);
@@ -60,9 +60,9 @@ public class VeganDietTest {
         assertTrue(veganDiet1.isVegan());
         System.out.println(veganDiet1.isVegan());
     }
-*/
 
-/*    // TODO Given a Person and a Diet, return true if they are compatible, false otherwise
+
+    // TODO Given a Person and a Diet, return true if they are compatible, false otherwise
     @Test
     public void requirement4_a() {
         Food[] person1Allergies = new Food[2];
@@ -114,5 +114,5 @@ public class VeganDietTest {
     }
 
 
-    }*/
+    }
 
