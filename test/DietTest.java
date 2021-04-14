@@ -3,6 +3,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class DietTest {
@@ -11,7 +12,7 @@ public class DietTest {
     ArrayList<Food> person1Allergies = new ArrayList<>();
 
     @Before
-    public void addVeganFoods() {
+    public void setup() {
         Food veganFood1 = new Food("Rice", 130, true, FoodType.Carb);
         Food veganFood2 = new Food("Salad", 20, true, FoodType.Recipe);
         Food veganFood3 = new Food("Tofu", 200, true, FoodType.Protein);
@@ -30,8 +31,9 @@ public class DietTest {
     }
 
 
+    /***Given a Person and a Diet, return true if they are compatible, false otherwise***/
 
-    // TODO Given a Person and a Diet, return true if they are compatible, false otherwise
+    // MAIN TASK: Given a Person and a Diet, return true if they are compatible, false otherwise
     @Test
     public void requirement4_a() {
         Food person1FavouriteFood = new Food("Hamburger", 295, true, FoodType.Recipe);
@@ -42,4 +44,29 @@ public class DietTest {
 
         assertTrue(dietManager.areCompatible(person1, person1VeganDiet));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

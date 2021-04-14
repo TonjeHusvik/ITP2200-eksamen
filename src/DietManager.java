@@ -1,11 +1,12 @@
 public class DietManager {
 
-    public boolean areCompatible(Person p, Diet d) {
-        // TODO Given a Person and a Diet, return true if they are compatible, false otherwise.
+    public boolean areCompatible(Person p, Diet d) throws IllegalArgumentException {
         if (p.getFavouriteFood().isVegan() && d.isVegan()) {
             return true;
+        } else if (true) {
+
         }
-        return false;
+        throw new IllegalArgumentException("The diet and the person is NOT compatible");
     }
 
     public Diet randomDiet(Person p, Food f[]) {
