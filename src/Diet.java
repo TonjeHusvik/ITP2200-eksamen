@@ -1,4 +1,6 @@
+import java.time.Period;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public abstract class Diet {
     private int daysDuration;
@@ -56,29 +58,45 @@ public abstract class Diet {
         isVegan = vegan;
     }
 
+
     public String writeDuration(Diet d) {
         String result = "";
-
-        int days = daysDuration;
+        int days = d.daysDuration;
         int years = days / 365;
-        int balance = days % 365;
-        int months = balance / 30;
-        days = balance % 30;
+        int equivalence = days % 365;
+        int months = equivalence / 30;
+        days = equivalence % 30;
         result = "This " + d.getName() + " lasts for " + years + " years, " + months + " months and " + days + " days";
         return result;
     }
 
-    //FIXME må fikses med kun day output, Rune
     public String writeDurationInDays(Diet d) {
         String result = "";
-
-        int days = daysDuration;
-        int years = days / 365;
-        int balance = days % 365;
-        int months = balance / 30;
-        days = balance % 30;
+        int days = d.daysDuration;
         result = "This " + d.getName() + " lasts for " + days + " days";
         return result;
+    }
+
+    public String writeDurationInMonths(Diet d) {
+        String result = "";
+        int months = d.daysDuration / 30;
+        result = "This " + d.getName() + " lasts for " + months + " months";
+
+        if (d.daysDuration >= 30) {
+            return result;
+        } else
+        throw new IllegalArgumentException("ERROR, the input is less than 1 month");
+    }
+
+    public String writeDurationInYears(Diet d) {
+        String result = "";
+        int years = d.daysDuration / 365;
+        result = "This " + d.getName() + " lasts for " + years + " years";
+
+        if (d.daysDuration >= 365) {
+            return result;
+        } else
+            throw new IllegalArgumentException("ERROR, the input is less than 1 year");
     }
 
     public String writeAllowedFood(Diet d) {
@@ -179,6 +197,47 @@ public abstract class Diet {
                 }
             }
         }
+        return true;
+    }
+
+    //FIXME Joachim
+/*    //Test både med allergi 50% eller mer, og under
+    public boolean personRestriction2b(Person p, Diet d) throws IllegalArgumentException {
+        d.getAllowedFood().retainAll(p.getAllergies());
+        if(p.getAllergies().size() >= (d.getAllowedFood().size()/2)) {
+            throw new IllegalArgumentException();
+        }
+        return true;
+    }*/
+
+    public boolean dietRestriction1a() {
+        Iterator var1 = this.getAllowedFood().iterator();
+        if (var1.hasNext()) {
+            Food f = (Food)var1.next();
+            if (f.isVegan()) {
+                System.out.println("True, this diet is vegan");
+                return true;
+            } else {
+                System.out.println("False, this diet is not vegan");
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public boolean dietRestriction1aTest(Diet d) {
+        Iterator var2 = this.getAllowedFood().iterator();
+
+        Food f;
+        do {
+            if (!var2.hasNext()) {
+                return false;
+            }
+
+            f = (Food) var2.next();
+        } while (!d.isVegan || !f.isVegan());
+
         return true;
     }
 }
