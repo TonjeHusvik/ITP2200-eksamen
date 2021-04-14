@@ -144,12 +144,12 @@ public class PersonTest {
         ArrayList<Food> pAllergies = new ArrayList<>();
         Food apple = new Food("Apple", 35, true, FoodType.Fiber);
         pAllergies.add(apple);
-        VeganDiet vd = new VeganDiet("Vegan diet", 200, "Save the planet", allowedInVegan2, true, 50);
+        LowCarbDiet lcd = new LowCarbDiet("Lowcarb Diet", 200, "Save the planet", allowedInVegan2, false, 50);
 
-        Person p = new Person(new Food("Tofu", 76, true, FoodType.Protein), pAllergies,
-                vd , 80);
+        Person p = new Person(new Food("Tofu", 76, false, FoodType.Protein), pAllergies,
+                lcd , 80);
 
-        assertTrue(p.personRestriction2c_1(vd));
+        assertTrue(p.personRestriction2c_2(lcd));
     }
     /* requirement2_c_1_1 Test - This test checks the personRestriction2c_1 in the person class. It passes because
      * the person object p, weighs more than the lower weight limit for the vegan diet*/
