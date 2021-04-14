@@ -12,6 +12,7 @@ public class DietManager {
         throw new IllegalArgumentException("The diet and the person is NOT compatible");
     }
 
+
     public HypercaloricDiet randomDiet(Person p, ArrayList<Food> f) {
         int daysDuration = new Random().nextInt(100 + 1) + 1;
         f.removeAll(p.getAllergies());
