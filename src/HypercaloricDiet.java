@@ -30,8 +30,8 @@ public class HypercaloricDiet extends Diet{
 
     @Override
     public String toString() {
-        return "Hypercaloric Diet: " + "\r\n" + getName() + "\r\n" + "Lasts for: " + getDaysDuration() + " days" +
+        return "Diet: " + getName() + "\r\n" + "Lasts for: " + getDaysDuration() + " days" +
         "\r\n" + "Purpose: " + getPurpose() + "\r\n" + "Allowed food: " + getAllowedFood().toString() + "\r\n" +
-        "Vegan: " + isVegan() + "\r\n" + "Max weight: " + getMaxWeightKg() + "\r\n" + "Minimun calories per day: " + getMinCaloriesPerDay();
+        "Vegan: " + isVegan() + "\r\n" + "Max weight: " + getMaxWeightKg() + "\r\n" + "Minimum calories per day: " + getMinCaloriesPerDay();
     }
 }
