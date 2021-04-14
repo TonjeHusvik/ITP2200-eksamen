@@ -142,12 +142,12 @@ public class PersonTest {
     public void requirement2_c_2_1() {
         //Testing lowcarb diet
         ArrayList<Food> pAllergies = new ArrayList<>();
-        Food apple = new Food("Apple", 35, true, FoodType.Fiber);
-        pAllergies.add(apple);
-        LowCarbDiet lcd = new LowCarbDiet("Lowcarb Diet", 200, "Save the planet", allowedInVegan2, false, 50);
+        Food peanuts = new Food("Peanuts", 450, true, FoodType.Protein);
+        pAllergies.add(peanuts);
+        LowCarbDiet lcd = new LowCarbDiet("Lowcarb Diet", 200, "Burn fat", allowedInVegan2, false, 50);
 
-        Person p = new Person(new Food("Tofu", 76, false, FoodType.Protein), pAllergies,
-                lcd , 80);
+        Person p = new Person(new Food("Pizza", 550, false, FoodType.Recipe), pAllergies,
+                lcd , 63);
 
         assertTrue(p.personRestriction2c_2(lcd));
     }
@@ -160,14 +160,14 @@ public class PersonTest {
     public void requirement2_c_2_2() {
         //Testing lowcarb diet
         ArrayList<Food> pAllergies = new ArrayList<>();
-        Food apple = new Food("Apple", 35, true, FoodType.Fiber);
-        pAllergies.add(apple);
-        VeganDiet vd = new VeganDiet("Vegan diet", 200, "Save the planet", allowedInVegan2, true, 50);
+        Food peanuts = new Food("Peanuts", 450, true, FoodType.Protein);
+        pAllergies.add(peanuts);
+        LowCarbDiet lcd = new LowCarbDiet("Lowcarb Diet", 200, "Burn fat", allowedInVegan2, false, 50);
 
-        Person p = new Person(new Food("Tofu", 76, true, FoodType.Protein), pAllergies,
-                vd , 45);
+        Person p = new Person(new Food("Pizza", 550, false, FoodType.Recipe), pAllergies,
+                lcd , 43);
 
-        assertFalse(p.personRestriction2c_1(vd));
+        assertFalse(p.personRestriction2c_2(lcd));
     }
     // FIXME must change to lowcarb - Julie
 
