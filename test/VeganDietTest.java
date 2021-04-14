@@ -55,6 +55,8 @@ public class VeganDietTest {
 
         }
 
+
+        // TODO FIX THIS MESS, skal returnere
         // Test if the diet is vegan and if the food is non-vegan.
         // PASSED✔️
         @Test
@@ -62,7 +64,7 @@ public class VeganDietTest {
             Food tomahawk = new Food("Steak", 160, false, FoodType.Protein);
             VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet of Rice and Chicken Filet", allowedInVegan, true, 50);
 
-            assertTrue(veganDiet1.dietRestriction1aTest(veganDiet1));
+            assertTrue(veganDiet1.dietRestriction1a());
             assertFalse(tomahawk.isVegan());
         }
 
@@ -73,7 +75,7 @@ public class VeganDietTest {
             Food tofu = new Food("Tofu", 200, true, FoodType.Protein);
             FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet", allowedInFlexitarian, false, 50, tofu);
 
-            assertFalse(flexitarianDiet1.dietRestriction1aTest(flexitarianDiet1));
+            assertFalse(flexitarianDiet1.dietRestriction1a());
             assertTrue(tofu.isVegan());
         }
     }

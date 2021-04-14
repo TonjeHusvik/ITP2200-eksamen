@@ -221,20 +221,17 @@ public abstract class Diet {
         return false;
     }
 
-
+// FIX
 
     public boolean dietRestriction1aTest(Diet d) {
         Iterator var2 = this.getAllowedFood().iterator();
-
         Food f;
         do {
             if (!var2.hasNext()) {
                 return false;
             }
-
             f = (Food) var2.next();
         } while (!d.isVegan || !f.isVegan());
-
         return true;
     }
 }
