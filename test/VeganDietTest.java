@@ -31,18 +31,6 @@ public class VeganDietTest {
     }
 
 
-    // TODO Given a Person and a Diet, return true if they are compatible, false otherwise
-    @Test
-    public void requirement4_a() {
-        Food person1FavouriteFood = new Food("Hamburger", 295, true, FoodType.Recipe);
-        VeganDiet person1VeganDiet = new VeganDiet("Person1 VeganDiet", 90, "Gotta loose some weight", allowedInVegan, true, 50);
-
-        Person person1 = new Person(person1FavouriteFood, person1Allergies, person1VeganDiet, 90);
-        DietManager dietManager = new DietManager();
-
-        assertTrue(dietManager.areCompatible(person1, person1VeganDiet));
-    }
-
         // TODO If a diet contains any non-vegan food, it is considered not vegan (i.e., isVegan = false)
         @Test // diet.isVegan = true & food.isVegan = true
         public void requirement1_a1 () {
