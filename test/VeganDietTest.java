@@ -75,5 +75,44 @@ public class VeganDietTest {
         DietManager dietManager = new DietManager();
 
         assertTrue(dietManager.areCompatible(person1, person1VeganDiet));
+
+     // TODO If a diet contains any non-vegan food, it is considered not vegan (i.e., isVegan = false)
+    @Test // diet.isVegan = true & food.isVegan = true
+    public void requirement1_a1() {
+        Food veganFood5 = new Food("Tofu", 160, true, FoodType.Protein);
+        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet", allowedInVegan, true, 50);
+
+        assertTrue(veganDiet1.dietRestriction1a());
+        assertTrue(veganFood5.isVegan());
+    }
+
+    @Test // diet.isVegan = false & food.isVegan = false // FIXME skal returnere "false, this diet is not vegan"
+    public void requirement1_a2() {
+        Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet", allowedInFlexitarian, false, 50, tomahawk);
+
+        assertFalse(flexitarianDiet1.dietRestriction1a());
+        assertFalse(tomahawk.isVegan());
+    }
+
+    @Test // diet.isVegan = true & food.isVegan = false
+    public void requirement1_a3() {
+        Food tomahawk = new Food("Steak", 160, false, FoodType.Protein);
+        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet of Rice and Chicken Filet", allowedInVegan, true, 50);
+
+        assertTrue(veganDiet1.dietRestriction1aTest(veganDiet1));
+        assertFalse(tomahawk.isVegan());
+    }
+
+    @Test // diet.isVegan = false & food.isVegan = true
+    public void requirement1_a4() {
+        Food tofu = new Food("Tofu", 200, true, FoodType.Protein);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet", allowedInFlexitarian, false, 50, tofu);
+
+        assertFalse(flexitarianDiet1.dietRestriction1aTest(flexitarianDiet1));
+        assertTrue(tofu.isVegan());
+    }
+
+
     }*/
 

@@ -1,5 +1,6 @@
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public abstract class Diet {
     private int daysDuration;
@@ -208,6 +209,37 @@ public abstract class Diet {
         }
         return true;
     }*/
+
+    public boolean dietRestriction1a() {
+        Iterator var1 = this.getAllowedFood().iterator();
+        if (var1.hasNext()) {
+            Food f = (Food)var1.next();
+            if (f.isVegan()) {
+                System.out.println("True, this diet is vegan");
+                return true;
+            } else {
+                System.out.println("False, this diet is not vegan");
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public boolean dietRestriction1aTest(Diet d) {
+        Iterator var2 = this.getAllowedFood().iterator();
+
+        Food f;
+        do {
+            if (!var2.hasNext()) {
+                return false;
+            }
+
+            f = (Food) var2.next();
+        } while (!d.isVegan || !f.isVegan());
+
+        return true;
+    }
 }
 
 
