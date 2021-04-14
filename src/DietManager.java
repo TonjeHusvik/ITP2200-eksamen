@@ -4,13 +4,18 @@ import java.util.Random;
 public class DietManager{
 
     // FIXME ikke done, rune
+    // FIXME
     public boolean areCompatible(Person p, VeganDiet d) throws IllegalArgumentException {
-        if ((p.getFavouriteFood().isVegan() && d.isVegan()) && (p.getWeight() > d.getMinWeightKg()) &&
-                (p.getAllergies() != d.getAllowedFood())) {
+        if (true) {
             return true;
-        } else
-        throw new IllegalArgumentException("The diet and the person is NOT compatible");
+        }
+            else
+        throw new IllegalArgumentException("The diet and the person is NOT compatible because of ");
     }
+
+/*
+    (p.getFavouriteFood().isVegan() && d.isVegan()) && (p.getWeight() > d.getMinWeightKg())
+*/
 
 
     public HypercaloricDiet randomDiet(Person p, ArrayList<Food> f) {

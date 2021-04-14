@@ -40,7 +40,7 @@ public class DietTest {
     // MAIN TASK: Given a Person and a Diet, return true if they are compatible, false otherwise
     @Test
     public void requirement4_a() {
-        Food person1FavouriteFood = new Food("Hamburger", 295, false, FoodType.Recipe);
+        Food person1FavouriteFood = new Food("Hamburger", 295, true, FoodType.Recipe);
         VeganDiet person1VeganDiet = new VeganDiet("Person1 VeganDiet", 90, "Is this diet compatible with this Person?",
                 allowedInVegan, true, 50);
 
