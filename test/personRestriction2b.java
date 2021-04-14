@@ -1,11 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
-
 import java.util.ArrayList;
-
 import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class personRestriction2b {
     ArrayList<Food> allergiesTooMany = new ArrayList<>();
@@ -14,7 +10,7 @@ public class personRestriction2b {
 
     Person tooManyAllergies = new Person(allergiesTooMany);
     Person okAmountOfAllergies = new Person(allergiesOk);
-    FlexitarianDiet flexiDiet = new FlexitarianDiet("Flexi", 324, "somethin", allowedInDiet,
+    FlexitarianDiet flexiDiet = new FlexitarianDiet("Flexi", 324, "testing", allowedInDiet,
             false, 1000, (new Food("Tuna", 400, false, FoodType.Protein)));
 
     @Before
@@ -35,28 +31,27 @@ public class personRestriction2b {
         Food allergyFood1 = new Food("Spinach", 10, true, FoodType.Fiber);
         Food allergyFood2 = new Food("Asparagus", 10, false, FoodType.Fiber);
         Food allergyFood3 = new Food("Salmon", 10, false, FoodType.Protein);
-        Food allergyFood4 = new Food("Pomegranate", 10, true, FoodType.Fiber);
-        Food allergyFood5 = new Food("Peanuts", 10, true, FoodType.Fat);
-        Food allergyFood6 = new Food("Wheat", 10, true, FoodType.Fiber);
+
         allergiesTooMany.add(allergyFood3);
-        allergiesTooMany.add(allergyFood4);
-        allergiesTooMany.add(allergyFood5);
-        allergiesTooMany.add(allergyFood6);
+        allergiesTooMany.add(flexiFood4);
+        allergiesTooMany.add(flexiFood5);
+        allergiesTooMany.add(flexiFood6);
 
         allergiesOk.add(allergyFood1);
         allergiesOk.add(allergyFood2);
         allergiesOk.add(allergyFood3);
-        allergiesOk.add(allergyFood4);
+        allergiesOk.add(flexiFood4);
     }
 
+    //Testing with too many allergies
     @Test (expected = IllegalArgumentException.class)
     public void tooManyAllergies() {
         tooManyAllergies.personRestriction2b(tooManyAllergies, flexiDiet);
     }
 
+    //Testing with less than 50% allergies
     @Test
     public void okAmountOfAllergies() {
         assertTrue(okAmountOfAllergies.personRestriction2b(okAmountOfAllergies, flexiDiet));
     }
-
 }

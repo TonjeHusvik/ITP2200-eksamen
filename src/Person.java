@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Person {
     private Food favouriteFood;
@@ -83,10 +82,11 @@ public class Person {
     }
 
     //They cannot follow a diet if they are allergic to 50% or more of the food allowed by the diet.
-        public boolean personRestriction2b(Person p, Diet d) throws IllegalArgumentException {
+        public boolean personRestriction2b(Person p, Diet d) {
             p.getAllergies().retainAll(d.getAllowedFood());
             if(p.getAllergies().size() >= (d.getAllowedFood().size()/2)) {
-                System.out.println(p.getAllergies().toString());
+                System.out.println("This person is allergic to the following foods in the diet: "
+                        + p.getAllergies().toString() + "\r\n" + "An exception is thrown as expected.");
                 throw new IllegalArgumentException();
             }
             System.out.println("The person can follow this diet.");
