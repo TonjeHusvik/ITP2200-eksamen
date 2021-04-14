@@ -130,7 +130,7 @@ public class FlexitarianDietTest {
     @Test
     public void requirement3_a_3() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
-        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 364, "What is the duration of this diet?",
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 400, "What is the duration of this diet?",
                 allowedInFlexitarian, true, 3000, tomahawkSteak);
 
         String result = flexitarianDiet1.writeDurationInYears(flexitarianDiet1);
