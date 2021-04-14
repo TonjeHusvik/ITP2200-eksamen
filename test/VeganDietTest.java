@@ -2,15 +2,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
-
-import org.junit.jupiter.api.Assertions;
-
 import static org.junit.Assert.*;
 
 public class VeganDietTest {
+
     ArrayList<Food> allowedInVegan = new ArrayList<>();
-    ArrayList<Food> person1FavouriteFood = new ArrayList<>();
     ArrayList<Food> allowedInFlexitarian = new ArrayList<>();
+    ArrayList<Food> person1Allergies = new ArrayList<>();
+
 
     @Before
     public void addVeganFoods() {
@@ -19,25 +18,22 @@ public class VeganDietTest {
         Food veganFood3 = new Food("Tofu", 200, true, FoodType.Protein);
         Food veganFood4 = new Food("Beans", 130, true, FoodType.Carb);
         Food veganFood5 = new Food("Broccoli", 20, true, FoodType.Fiber);
-        Food veganImposter = new Food("Chicken fillet", 165, false, FoodType.Protein);
         allowedInVegan.add(veganFood1);
         allowedInVegan.add(veganFood2);
         allowedInVegan.add(veganFood3);
         allowedInVegan.add(veganFood4);
         allowedInVegan.add(veganFood5);
 
-        Food[] person1Allergies = new Food[2];
-        person1Allergies[0] = new Food("Walnuts", 654, true, FoodType.Fat);
-        person1Allergies[1] = new Food("Kiwi", 61, true, FoodType.Fiber);
+        Food walnuts = new Food("Walnuts", 654, true, FoodType.Fat);
+        Food kiwi = new Food("Kiwi", 61, true, FoodType.Fiber);
+        person1Allergies.add(walnuts);
+        person1Allergies.add(kiwi);
     }
 
 
     // TODO Given a Person and a Diet, return true if they are compatible, false otherwise
     @Test
     public void requirement4_a() {
-        Food[] person1Allergies = new Food[2];
-        person1Allergies[0] = new Food("Walnuts", 654, true, FoodType.Fat);
-        person1Allergies[1] = new Food("Kiwi", 61, true, FoodType.Fiber);
         Food person1FavouriteFood = new Food("Hamburger", 295, true, FoodType.Recipe);
         VeganDiet person1VeganDiet = new VeganDiet("Person1 VeganDiet", 90, "Gotta loose some weight", allowedInVegan, true, 50);
 
