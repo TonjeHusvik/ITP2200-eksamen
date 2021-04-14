@@ -46,8 +46,9 @@ public class VeganDietTest {
             Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein);
             FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet", allowedInFlexitarian, false, 50, tomahawk);
 
-            assertFalse(flexitarianDiet1.dietRestriction1a());
             assertFalse(tomahawk.isVegan());
+            assertFalse(flexitarianDiet1.dietRestriction1a());
+
         }
 
         @Test // diet.isVegan = true & food.isVegan = false
