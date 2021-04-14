@@ -1,15 +1,22 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-public class DietManager {
+public class DietManager{
 
-    public boolean areCompatible(Person p, Diet d) {
-        // TODO Given a Person and a Diet, return true if they are compatible, false otherwise.
-        if (p.getFavouriteFood().isVegan() && d.isVegan()) {
+    // FIXME ikke done, rune
+    // FIXME
+    public boolean areCompatible(Person p, VeganDiet d) throws IllegalArgumentException {
+        if (true) {
             return true;
         }
-        return false;
+            else
+        throw new IllegalArgumentException("The diet and the person is NOT compatible because of ");
     }
+
+/*
+    (p.getFavouriteFood().isVegan() && d.isVegan()) && (p.getWeight() > d.getMinWeightKg())
+*/
+
 
     public HypercaloricDiet randomDiet(Person p, ArrayList<Food> f) {
         int daysDuration = new Random().nextInt(100 + 1) + 1;
