@@ -1,6 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertFalse;
@@ -9,6 +10,9 @@ import static org.junit.Assert.assertTrue;
 public class DietTest {
 
     ArrayList<Food> allowedInVegan = new ArrayList<>();
+    ArrayList<Food> allowedLowCarbFood = new ArrayList<>();
+    ArrayList<Food> allowedInHypercaloricDiet = new ArrayList<>();
+    ArrayList<Food> allowedInFlexitarianDiet = new ArrayList<>();
     ArrayList<Food> person1Allergies = new ArrayList<>();
     ArrayList<Food> person2Allergies = new ArrayList<>();
     ArrayList<Food> person3Allergies = new ArrayList<>();
@@ -16,7 +20,7 @@ public class DietTest {
 
     @Before
     public void setup() {
-
+        // ALLERGIES
         Food walnuts = new Food("Walnuts", 654, true, FoodType.Fat);
         Food kiwi = new Food("Kiwi", 61, true, FoodType.Fiber);
         Food shellfish = new Food("Shellfish", 99, false, FoodType.Protein);
@@ -30,7 +34,19 @@ public class DietTest {
         person3Allergies.add(wheat);
         person4Allergies.add(wholeMilk);
 
+        // LOWCARB FOOD
+        Food lowCarbFood1 = new Food("Cauliflower rice", 23, true, FoodType.Protein);
+        Food lowCarbFood2 = new Food("Salad", 20, true, FoodType.Fiber);
+        Food lowCarbFood3 = new Food("Tofu", 200, true, FoodType.Protein);
+        Food lowCarbFood4 = new Food("Fish", 130, false, FoodType.Protein);
+        Food lowCarbFood5 = new Food("Broccoli", 20, true, FoodType.Fiber);
+        allowedLowCarbFood.add(lowCarbFood1);
+        allowedLowCarbFood.add(lowCarbFood2);
+        allowedLowCarbFood.add(lowCarbFood3);
+        allowedLowCarbFood.add(lowCarbFood4);
+        allowedLowCarbFood.add(lowCarbFood5);
 
+        // VEGAN FOOD
         Food veganFood1 = new Food("Rice", 130, true, FoodType.Carb);
         Food veganFood2 = new Food("Salad", 20, true, FoodType.Recipe);
         Food veganFood3 = new Food("Tofu", 200, true, FoodType.Protein);
@@ -41,6 +57,26 @@ public class DietTest {
         allowedInVegan.add(veganFood3);
         allowedInVegan.add(veganFood4);
         allowedInVegan.add(veganFood5);
+
+        // HYPERCALORIC FOOD
+        Food hypercaloricFood1 = new Food("Minced meat of lamb", 300, false, FoodType.Protein);
+        Food hypercaloricFood2 = new Food("Nuts", 606, true, FoodType.Fat);
+        Food hypercaloricFood3 = new Food("Mac n cheese", 289, false, FoodType.Recipe);
+        Food hypercaloricFood4 = new Food("Brownies", 466, false, FoodType.Recipe);
+        allowedInHypercaloricDiet.add(hypercaloricFood1);
+        allowedInHypercaloricDiet.add(hypercaloricFood2);
+        allowedInHypercaloricDiet.add(hypercaloricFood3);
+        allowedInHypercaloricDiet.add(hypercaloricFood4);
+
+        // FLEXITARIAN FOOD
+        Food flexitarianFood1 = new Food("Minced meat of lamb", 300, false, FoodType.Protein);
+        Food flexitarianFood2 = new Food("Salad", 20, true, FoodType.Recipe);
+        Food flexitarianFood3 = new Food("Tofu", 200, true, FoodType.Protein);
+        Food flexitarianFood4 = new Food("Broccoli", 20, true, FoodType.Fiber);
+        allowedInFlexitarianDiet.add(flexitarianFood1);
+        allowedInFlexitarianDiet.add(flexitarianFood2);
+        allowedInFlexitarianDiet.add(flexitarianFood3);
+        allowedInFlexitarianDiet.add(flexitarianFood4);
     }
 
 
@@ -53,32 +89,42 @@ public class DietTest {
         VeganDiet person1VeganDiet = new VeganDiet("Person1 VeganDiet", 90, "Is this diet compatible with this Person?",
                 allowedInVegan, true, 50);
 
+        Person person1 = new Person(veganPerson1FavouriteFood, person1Allergies, person1VeganDiet, 60);
+        DietManager dietManager = new DietManager();
+        assertTrue(dietManager.areCompatible(person1, person1VeganDiet));
+    }
+
+    // Testing ONLY lowcarb-compatibility
+    @Test
+    public void requirement4_a1() {
         Food lowCarbPerson2FavouriteFood = new Food("Eggs", 155, true, FoodType.Protein);
         LowCarbDiet person2LowCarbDiet = new LowCarbDiet("Person2 LowCarbDiet", 90, "Is this diet compatible with this Person?",
-                allowedInVegan, true, 50);
+                allowedLowCarbFood, true, 50);
 
+        DietManager dietManager = new DietManager();
+        Person person2 = new Person(lowCarbPerson2FavouriteFood, person2Allergies, person2LowCarbDiet, 70);
+    }
 
-        //FIXME fixe allowedFood arraylisten til denne dietten
+    // Testing ONLY flexitarian-compatibility
+    @Test
+    public void requirement4a_2() {
         Food flexitarianPerson3FavouriteFood = new Food("Tomahawk Beef", 295, false, FoodType.Protein);
         FlexitarianDiet person3FlexitarianDiet = new FlexitarianDiet("Person3 FlexitarianDiet", 90, "Is this diet compatible with this Person?",
-                allowedInVegan, true, 5000, flexitarianPerson3FavouriteFood);
+                allowedInFlexitarianDiet, true, 5000, flexitarianPerson3FavouriteFood);
 
+        DietManager dietManager = new DietManager();
+        Person person3 = new Person(flexitarianPerson3FavouriteFood, person3Allergies, person3FlexitarianDiet, 90);
+    }
 
-        //FIXME fixe allowedFood arraylisten til denne dietten
+    // Testing ONLY hypercaloric-compatibility
+    @Test
+    public void requirement4a_3() {
         Food hypercaloricPerson4FavouriteFood = new Food("Spaghetti", 295, true, FoodType.Carb);
         HypercaloricDiet person4HypercaloricDiet = new HypercaloricDiet("Person1 VeganDiet", 90, "Is this diet compatible with this Person?",
-                allowedInVegan, false, 150, 4000);
+                allowedInHypercaloricDiet, false, 150, 2000);
 
-
-
-
-        // FIXME må fikses under for personobjekter
-        Person person1 = new Person(veganPerson1FavouriteFood, person1Allergies, person1VeganDiet, 60);
-        Person person2 = new Person(lowCarbPerson2FavouriteFood, person2Allergies, person2LowCarbDiet, 70);
-        Person person3 = new Person();
         DietManager dietManager = new DietManager();
-
-        assertTrue(dietManager.areCompatible(person1, person1VeganDiet));
+        Person person4 = new Person(hypercaloricPerson4FavouriteFood, person4Allergies, person4HypercaloricDiet, 84);
     }
 
 
