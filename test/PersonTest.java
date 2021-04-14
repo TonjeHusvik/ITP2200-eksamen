@@ -102,8 +102,9 @@ public class PersonTest {
     @Test
     public void requirement2_c_1_1() {
         //Testing vegan diet
-        Food[] pAllergies = new Food[1];
-        pAllergies[0] = new Food("Apple", 35, true, FoodType.Fiber);
+        ArrayList<Food> pAllergies = new ArrayList<>();
+        Food apple = new Food("Apple", 35, true, FoodType.Fiber);
+        pAllergies.add(apple);
         VeganDiet vd = new VeganDiet("Vegan diet", 200, "Save the planet", allowedInVegan2, true, 50);
 
         Person p = new Person(new Food("Tofu", 76, true, FoodType.Protein), pAllergies,
