@@ -27,4 +27,11 @@ public class HypercaloricDiet extends Diet{
     public void setMinCaloriesPerDay(float minCaloriesPerDay) {
         this.minCaloriesPerDay = minCaloriesPerDay;
     }
+
+    @Override
+    public String toString() {
+        return "Hypercaloric Diet: " + "\r\n" + getName() + "\r\n" + "Lasts for: " + getDaysDuration() + " days" +
+        "\r\n" + "Purpose: " + getPurpose() + "\r\n" + "Allowed food: " + getAllowedFood().toString() + "\r\n" +
+        "Vegan: " + isVegan() + "\r\n" + "Max weight: " + getMaxWeightKg() + "\r\n" + "Minimun calories per day: " + getMinCaloriesPerDay();
+    }
 }

@@ -13,6 +13,12 @@ public class Person {
         this.weight = weight;
     }
 
+    public Person(Food favouriteFood, ArrayList<Food> allergies, float weight) {
+        this.favouriteFood = favouriteFood;
+        this.allergies = allergies;
+        this.weight = weight;
+    }
+
     public Person(Food favouriteFood) {
         this.favouriteFood = favouriteFood;
     }
