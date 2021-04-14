@@ -154,7 +154,7 @@ public class LowCarbDietTest {
     * IllegalArgumentException. However, if we keep the (expected = IllegalArgumentException.class) syntax and
     * change one of the the FoodType.Carb to another FoodType, the test will fail because it expects
     * a IllegalArgumentException, and that won't be happening because the array contains the accepted amount
-    * of FoodType.Carb*/
+    * of FoodType.Crb*/
 
 
   /*  @Test
