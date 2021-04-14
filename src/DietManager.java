@@ -5,12 +5,19 @@ public class DietManager{
 
     // FIXME ikke done, rune
     // FIXME
-    public boolean areCompatible(Person p, VeganDiet d) throws IllegalArgumentException {
-        if (true) {
-            return true;
-        }
-            else
-        throw new IllegalArgumentException("The diet and the person is NOT compatible because of ");
+    public boolean areCompatible(Person p, VeganDiet veganDiet, LowCarbDiet lowCarbDiet, HypercaloricDiet hypercaloricDiet) throws IllegalArgumentException {
+
+
+        p.personRestriction2a();
+        p.personRestriction2b(p, veganDiet);
+        p.personRestriction2c_1(veganDiet);
+        p.personRestriction2c_2(lowCarbDiet);
+        p.personRestriction2d(hypercaloricDiet);
+
+        return true;
+/*            while () {
+            throw new IllegalArgumentException("The diet and the person is NOT compatible because of ");
+        }*/
     }
 
 /*
