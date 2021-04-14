@@ -144,15 +144,16 @@ public class FlexitarianDietTest {
 
     /*** Write the allowed food, e.g., "The following food is allowed in this FlexitarianDiet: Salad, Soup, Apple, Strawberry, Salmon”***/
     // MAIN TASK: Write the allowed food, e.g., "The following food is allowed in this FlexitarianDiet: Salad, Soup, Apple, Strawberry, Salmon"
+    // PASSED✔️
     @Test
     public void requirement3_b() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
-        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("VeganDiet", 400, "What is the duration of this diet?",
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 400, "What does this diet contains?",
                 allowedInFlexitarian, true, 3000, tomahawkSteak);
 
         String result = flexitarianDiet1.writeAllowedFood(flexitarianDiet1)
                         .replace("[", "")
                         .replace("]", "");
-        assertEquals("The following food is allowed in this VeganDiet: Tomahawk Steak, Tofu, Green peas, Trout, Butter, Rice", result);
+        assertEquals("The following food is allowed in this FlexitarianDiet: Tomahawk Steak, Tofu, Green peas, Trout, Butter, Rice", result);
     }
 }
