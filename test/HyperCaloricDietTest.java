@@ -26,6 +26,7 @@ public class HyperCaloricDietTest {
         allowedInLowCarb.add(lowCarb2);
     }
 
+
     //TODO If a diet contains only vegan food, it is considered vegan, even if it is not a VeganDiet
     // (e.g., it could be a LowCarbDiet).
 
