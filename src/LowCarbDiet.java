@@ -14,8 +14,4 @@ public class LowCarbDiet extends Diet{
         return minWeightKg;
     }
 
-    public void setMinWeightKg(float minWeightKg) {
-        this.minWeightKg = minWeightKg;
-    }
-
 }

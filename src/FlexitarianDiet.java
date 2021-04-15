@@ -12,20 +12,8 @@ public class FlexitarianDiet extends Diet{
         this.preferredMeat = preferredMeat;
     }
 
-    public float getMaxMeatGramsPerWeek() {
-        return maxMeatGramsPerWeek;
-    }
-
-    public void setMaxMeatGramsPerWeek(float maxMeatGramsPerWeek) {
-        this.maxMeatGramsPerWeek = maxMeatGramsPerWeek;
-    }
-
     public Food getPreferredMeat() {
         return preferredMeat;
-    }
-
-    public void setPreferredMeat(Food preferredMeat) {
-        this.preferredMeat = preferredMeat;
     }
 
 }
