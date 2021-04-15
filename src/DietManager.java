@@ -27,7 +27,7 @@ public class DietManager{
     }
 
     public boolean areCompatibleHypercaloric(Person p, HypercaloricDiet f) {
-        if (p.personRestriction2b(p, f) && p.personRestriction2d(f)) {
+        if (p.personRestriction2b(p, f) && p.personRestriction2_d(f)) {
             return true;
         }
         return false;

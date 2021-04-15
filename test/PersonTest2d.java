@@ -1,6 +1,5 @@
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
 
 import java.util.ArrayList;
 
@@ -39,7 +38,8 @@ public class PersonTest2d {
     /* ALT OVER VAR HER FRA FØR */
 
 
-    /*** Requirement 2. b: Cannot follow HyperCaloricDiet if they weigh more than the limit in maxWeightKg ***/
+    /*** Requirement 2. d: If they weigh more than the limit set by the HypercaloricDiet, they cannot be
+     following this diet (for health reasons). ***/
     //Test if person weight more than the limit set by the diet.
     //PASSED
     @Test
@@ -48,7 +48,7 @@ public class PersonTest2d {
                 allowedInHyperCaloric, false, 100, 6000);
         Person highWeightPerson = new Person(hypercaloricDiet, 120);
 
-        assertFalse(highWeightPerson.personRestriction2d(hypercaloricDiet));
+        assertFalse(highWeightPerson.personRestriction2_d(hypercaloricDiet));
     }
 
     //Test if person weight less than the limit set by the diet.
@@ -60,7 +60,7 @@ public class PersonTest2d {
                 allowedInHyperCaloric, false, 100, 6000);
         Person highWeightPerson = new Person(hypercaloricDiet, 90);
 
-        assertTrue(highWeightPerson.personRestriction2d(hypercaloricDiet));
+        assertTrue(highWeightPerson.personRestriction2_d(hypercaloricDiet));
     }
 }
 

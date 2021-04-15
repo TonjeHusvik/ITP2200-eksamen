@@ -136,14 +136,14 @@ public class PersonTest {
     /*--------------------------------------------------------------------------------------------------------------------*/
     /*--------------------------------------------------------------------------------------------------------------------*/
 
-    // TODO 2c1. Cannot follow VeganDiet or LowCarbDiet if they weigh less than the limit in minWeightKg
+
     /*** Requirement 3. c: If they weigh less than the limit set by the VeganDiet or the LowCarbDiet, they
      cannot be following these diets (for health reasons). ***/
 
+    // Testing vegan diet
     // PASSED ✔️
     @Test
     public void requirement2_c_1_1() {
-        //Testing vegan diet
         ArrayList<Food> pAllergies = new ArrayList<>();
         Food apple = new Food("Apple", 35, true, FoodType.Fiber);
         pAllergies.add(apple);
@@ -154,16 +154,11 @@ public class PersonTest {
 
         assertTrue(p.personRestriction2c_1(vd));
     }
-    /* requirement2_c_1_1 Test - This test checks the personRestriction2c_1 in the person class. It passes because
-    * the person object p, weighs more than the lower weight limit for the vegan diet
-    *
-    * Her tester jeg begge dietter fordi det er en egen attributt og ikke noe de har arvet fra diet,
-     * derfor vil jeg være sikker på at koden fungerer uavhengig av diet */
 
-    //PASSED ✔️
+    // Testing vegan diet
+    // PASSED ✔️
     @Test (expected = IllegalArgumentException.class)
     public void requirement2_c_1_2() {
-        //Testing vegan diet
         ArrayList<Food> pAllergies = new ArrayList<>();
         Food apple = new Food("Apple", 35, true, FoodType.Fiber);
         pAllergies.add(apple);
@@ -175,10 +170,10 @@ public class PersonTest {
         p.personRestriction2c_1(vd);
     }
 
-    //PASSED ✔️
+    // Testing lowcarb diet
+    // PASSED ✔️
     @Test
     public void requirement2_c_2_1() {
-        //Testing lowcarb diet
         ArrayList<Food> pAllergies = new ArrayList<>();
         Food peanuts = new Food("Peanuts", 450, true, FoodType.Protein);
         pAllergies.add(peanuts);
@@ -189,13 +184,11 @@ public class PersonTest {
 
         assertTrue(p.personRestriction2c_2(lcd));
     }
-    /* requirement2_c_1_1 Test - This test checks the personRestriction2c_1 in the person class. It passes because
-     * the person object p, weighs more than the lower weight limit for the lowcarb diet*/
 
-    //PASSED ✔️
+    // Testing lowcarb diet
+    // PASSED ✔️
     @Test (expected = IllegalArgumentException.class)
     public void requirement2_c_2_2() {
-        //Testing lowcarb diet
         ArrayList<Food> pAllergies = new ArrayList<>();
         Food peanuts = new Food("Peanuts", 450, true, FoodType.Protein);
         pAllergies.add(peanuts);
@@ -205,49 +198,31 @@ public class PersonTest {
         p.personRestriction2c_2(lcd);
     }
 
-
     /*--------------------------------------------------------------------------------------------------------------------*/
     /*--------------------------------------------------------------------------------------------------------------------*/
     /*--------------------------------------------------------------------------------------------------------------------*/
 
-
-    // TODO 2d. Cannot follow HyperCaloricDiet if they weigh more than the limit in maxWeightKg
-    @Test
-    public void requirement2_d() {
+    /*** Requirement 2. d: If they weigh more than the limit set by the HypercaloricDiet, they cannot be
+     following this diet (for health reasons). ***/
+    // Test if person weight more than the limit set by the diet.
+    // PASSED ✔️
+    @Test (expected = IllegalArgumentException.class)
+    public void requirement2_d_0() {
         HypercaloricDiet hypercaloricDiet = new HypercaloricDiet("Hypercaloric diet", 123, "weight gain",
-        allowedInHyperCaloric, false, 100, 6000);
+                allowedInHyperCaloric, false, 100, 6000);
         Person highWeightPerson = new Person(hypercaloricDiet, 120);
 
-        assertTrue("Person can follow this hypercaloric diet", highWeightPerson.getWeight() > hypercaloricDiet.getMaxWeightKg());
+        highWeightPerson.personRestriction2_d(hypercaloricDiet);
+    }
+
+    // Test if person weight less than the limit set by the diet.
+    // PASSED ✔️
+    @Test
+    public void requirement2_d_1() {
+        HypercaloricDiet hypercaloricDiet = new HypercaloricDiet("Hypercaloric diet", 123, "weight gain",
+                allowedInHyperCaloric, false, 100, 6000);
+        Person highWeightPerson = new Person(hypercaloricDiet, 90);
+
+        assertTrue(highWeightPerson.personRestriction2_d(hypercaloricDiet));
     }
 }
-    /*--------------------------------------------------------------------------------------------------------------------*/
-    /*--------------------------------------------------------------------------------------------------------------------*/
-    /*--------------------------------------------------------------------------------------------------------------------*/
-
-/*//2d2. Can follow VeganDiet or LowCarbDiet of they weigh more than the min
-    @Test
-    public void requirement2_c_2() {
-        LowCarbDiet lowCarbDiet = new LowCarbDiet("Low carb diet", 20, "weight loss", allowedInLowCarb, false, 80);
-        VeganDiet veganDiet = new VeganDiet("Vegan diet", 20, "health", allowedInVegan,true,80);
-        Person lowWeightPerson = new Person(lowCarbDiet, 82);
-
-        Assertions.assertAll("Checks if person can follow low carb or vegan diet based on weight",
-                () -> assertFalse("Person cannot follow this low carb diet", lowWeightPerson.getWeight() < lowCarbDiet.getMinWeightKg()),
-                () -> assertFalse("Person cannot follow this vegan diet", lowWeightPerson.getWeight() < veganDiet.getMinWeightKg())
-        );
-    }*/
-
-
-/* requirement2_c_1_1 Test - This test checks the personRestriction2c_1 in the person class. It passes because
- * we expect an illegalArgumentException thrown becauae the persn object weighs less than the lower weight limit for
- * the vegan diet.*/
-
-    /*LowCarbDiet lowCarbDiet = new LowCarbDiet("Low carb diet", 20, "weight loss", allowedInLowCarb, false, 80);
-    VeganDiet veganDiet = new VeganDiet("Vegan diet", 20, "health", allowedInVegan,true,80);
-    Person lowWeightPerson = new Person(lowCarbDiet, 79);
-
-        Assertions.assertAll("Checks if person can follow low carb or vegan diet based on weight",
-                () -> assertFalse("Person can follow this low carb diet", lowWeightPerson.getWeight() > lowCarbDiet.getMinWeightKg()),
-            () -> assertFalse("Person can follow this vegan diet", lowWeightPerson.getWeight() > veganDiet.getMinWeightKg())
-            );*/
