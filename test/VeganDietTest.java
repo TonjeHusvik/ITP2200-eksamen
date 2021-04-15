@@ -51,7 +51,7 @@ public class VeganDietTest {
     // Test if the diet is vegan and if the food is vegan.
     // PASSED✔️
     @Test
-    public void requirement1_a1 () {
+    public void requirement1a_1 () {
         Food veganFood5 = new Food("Tofu", 160, true, FoodType.Protein);
         VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet", allowedInVegan, true, 50);
 
@@ -62,7 +62,7 @@ public class VeganDietTest {
     // Test if the diet is non-vegan and if the food is non-vegan.
     // PASSED✔️
     @Test
-    public void requirement1_a2 () {
+    public void requirement1a_2 () {
         Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet", allowedInFlexitarian, false, 50, tomahawk);
 
@@ -73,7 +73,7 @@ public class VeganDietTest {
     // Test if the diet is vegan and if the food is non-vegan.
     // PASSED✔️
     @Test
-    public void requirement1_a3 () {
+    public void requirement1a_3 () {
         Food tomahawk = new Food("Steak", 160, false, FoodType.Protein);
         VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet of Rice and Chicken Filet", allowedInVegan, true, 50);
 
@@ -84,7 +84,7 @@ public class VeganDietTest {
     // Test if the diet is non-vegan and if the food is vegan.
     // PASSED✔️
     @Test
-    public void requirement1_a4 () {
+    public void requirement1a_4 () {
         Food tofu = new Food("Tofu", 200, true, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet", allowedInFlexitarian, false, 50, tofu);
 
