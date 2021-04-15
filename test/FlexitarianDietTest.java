@@ -3,6 +3,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
+
 // PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
 // PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
 // PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
@@ -85,6 +86,7 @@ public class FlexitarianDietTest {
 
     // MAIN TASK: Write the duration of a diet in terms of years, months and days, e.g.,
     //     “This VeganDiet lasts for 2 years, 3 months and 5 days”
+    // Testing only one diet for this req, all the subclasses inherits from the Diet class (parent)
     // PASSED✔️
     @Test
     public void requirement3_a() {
@@ -139,6 +141,7 @@ public class FlexitarianDietTest {
 
     /*** Write the allowed food, e.g., "The following food is allowed in this FlexitarianDiet: Salad, Soup, Apple, Strawberry, Salmon”***/
     // MAIN TASK: Write the allowed food, e.g., "The following food is allowed in this FlexitarianDiet: Salad, Soup, Apple, Strawberry, Salmon"
+    // Testing only one diet for this req, all the subclasses inherits from the Diet class (parent)
     // PASSED✔️
     @Test
     public void requirement3_b() {
