@@ -15,17 +15,17 @@ public class NonVeganDietsTest {
     @Before
     public void diets(){
         Food hyperCaloric1 = new Food("Broccoli", 20, true, FoodType.Fiber);
-        Food hyperCaloric2 = new Food("Avocado", 20, true, FoodType.Fiber);
+        Food hyperCaloric2 = new Food("Avocado", 160, true, FoodType.Fat);
         allowedInHyperCaloric.add(hyperCaloric1);
         allowedInHyperCaloric.add(hyperCaloric2);
 
-        Food flexFood1 = new Food("Beef", 20, false, FoodType.Fiber);
-        Food flexFood2 = new Food("Fish", 20, false, FoodType.Fiber);
+        Food flexFood1 = new Food("Beef", 250, false, FoodType.Protein);
+        Food flexFood2 = new Food("Fish", 206, false, FoodType.Protein);
         allowedInFlexiDiet.add(flexFood1);
         allowedInFlexiDiet.add(flexFood2);
 
-        Food lowCarb1 = new Food("Beef", 20, false, FoodType.Fiber);
-        Food lowCarb2 = new Food("Nuts", 20, true, FoodType.Fiber);
+        Food lowCarb1 = new Food("Beef", 250, false, FoodType.Protein);
+        Food lowCarb2 = new Food("Nuts", 607, true, FoodType.Fat);
         allowedInLowCarb.add(lowCarb1);
         allowedInLowCarb.add(lowCarb2);
     }
@@ -55,7 +55,7 @@ public class NonVeganDietsTest {
     // PASSED✔️
     @Test
     public void requirement1b_3(){
-        Food flexFood1 = new Food("Beef", 20, false, FoodType.Fiber);
+        Food flexFood1 = new Food("Beef", 250, false, FoodType.Protein);
         FlexitarianDiet flexitarianDiet = new FlexitarianDiet("Low carb diet", 60, "health",
                 allowedInFlexiDiet, false, 400, flexFood1);
         assertFalse("Everything in this diet is vegan", flexitarianDiet.dietRestriction1b());

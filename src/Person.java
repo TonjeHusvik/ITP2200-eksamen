@@ -54,7 +54,7 @@ public class Person {
     }
 
     public boolean personRestriction2a() throws IllegalArgumentException {
-        if (!getFavouriteFood().isVegan()) {
+        if (!getFavouriteFood().isVegan() && diet.isVegan()) {
             System.out.println("An illegal argument exception is thrown as expected, because favorite food is not vegan.");
             throw new IllegalArgumentException();
         }
