@@ -31,7 +31,7 @@ public class HyperCaloricDietTest {
     // (e.g., it could be a LowCarbDiet).
 
 
-    // Test a diet that is not from the VeganDiet, but is fully vegan
+    // MAIN TASK: Test a diet that is not from the VeganDiet, but is fully vegan
     // PASSED✔️
     @Test
     public void requirement1b_1(){

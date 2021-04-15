@@ -22,7 +22,6 @@ public class VeganDietTest {
         allowedInVegan.add(veganFood3);
         allowedInVegan.add(veganFood4);
         allowedInVegan.add(veganFood5);
-
     }
 
     public void addFlexitarianFoods(){
