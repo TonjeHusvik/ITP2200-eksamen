@@ -15,18 +15,18 @@ public class RandomDietTest {
     @Before
     public void setUp() {
         // FOOD ARRAY
-        Food food1 = new Food("Bacon", 10, false, FoodType.Fat);
-        Food food2 = new Food("Pork", 10, false, FoodType.Protein);
-        Food food3 = new Food("Peanuts", 10, true, FoodType.Fat);
+        Food food1 = new Food("Bacon", 541, false, FoodType.Fat);
+        Food food2 = new Food("Pork", 242, false, FoodType.Protein);
+        Food food3 = new Food("Peanuts", 567, true, FoodType.Fat);
         food.add(food1);
         food.add(food2);
         food.add(food3);
 
         // ALLERGY FOOD
-        Food allergyFood1 = new Food("Asparagus", 10, true, FoodType.Fiber);
-        Food allergyFood2 = new Food("Butter", 10, false, FoodType.Fat);
-        Food allergyFood3 = new Food("Peanut butter", 10, true, FoodType.Fat);
-        Food allergyFood4 = new Food("Lard", 10, false, FoodType.Fat);
+        Food allergyFood1 = new Food("Asparagus", 20, true, FoodType.Fiber);
+        Food allergyFood2 = new Food("Butter", 716, false, FoodType.Fat);
+        Food allergyFood3 = new Food("Peanut butter", 588, true, FoodType.Fat);
+        Food allergyFood4 = new Food("Lard", 898, false, FoodType.Fat);
         allergies.add(allergyFood1);
         allergies.add(allergyFood2);
         allergies.add(allergyFood3);

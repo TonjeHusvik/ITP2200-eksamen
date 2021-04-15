@@ -31,11 +31,11 @@ public class PersonTest {
         allowedInVegan.add(veganFood4);
 
         // LOW CARB FOOD
-        Food lowCarbFood1 = new Food("Bacon", 10, false, FoodType.Fat);
-        Food lowCarbFood2 = new Food("Pork", 10, false, FoodType.Fat);
-        Food lowCarbFood3 = new Food("Peanuts", 10, false, FoodType.Fat);
-        Food lowCarbFood4 = new Food("Shellfish", 10, false, FoodType.Fat);
-        Food lowCarbFood5 = new Food("Potatoes", 10, false, FoodType.Fat);
+        Food lowCarbFood1 = new Food("Bacon", 541, false, FoodType.Fat);
+        Food lowCarbFood2 = new Food("Pork", 242, false, FoodType.Fat);
+        Food lowCarbFood3 = new Food("Peanuts", 567, false, FoodType.Fat);
+        Food lowCarbFood4 = new Food("Shellfish", 99, false, FoodType.Protein);
+        Food lowCarbFood5 = new Food("Potatoes", 307, false, FoodType.Carb);
         allowedInLowCarb.add(lowCarbFood1);
         allowedInLowCarb.add(lowCarbFood2);
         allowedInLowCarb.add(lowCarbFood3);
@@ -43,10 +43,10 @@ public class PersonTest {
         allowedInLowCarb.add(lowCarbFood5);
 
         // HYPERCALORIC FOOD
-        Food hyperCaloricFood1 = new Food("Bacon", 10, false, FoodType.Fat);
-        Food hyperCaloricFood2 = new Food("Butter", 10, false, FoodType.Fat);
-        Food hyperCaloricFood3 = new Food("Peanut butter", 10, false, FoodType.Fat);
-        Food hyperCaloricFood4 = new Food("Lard", 10, false, FoodType.Fat);
+        Food hyperCaloricFood1 = new Food("Bacon", 541, false, FoodType.Fat);
+        Food hyperCaloricFood2 = new Food("Butter", 716, false, FoodType.Fat);
+        Food hyperCaloricFood3 = new Food("Peanut butter", 588, false, FoodType.Fat);
+        Food hyperCaloricFood4 = new Food("Lard", 898, false, FoodType.Fat);
         allowedInHyperCaloric.add(hyperCaloricFood1);
         allowedInHyperCaloric.add(hyperCaloricFood2);
         allowedInHyperCaloric.add(hyperCaloricFood3);
@@ -54,11 +54,11 @@ public class PersonTest {
 
         // FLEXITARIAN FOOD
         Food flexiFood1 = new Food("Salad", 10, true, FoodType.Fiber);
-        Food flexiFood2 = new Food("Crab", 10, false, FoodType.Protein);
-        Food flexiFood3 = new Food("Beef", 10, false, FoodType.Protein);
-        Food flexiFood4 = new Food("Pomegranate", 10, true, FoodType.Fiber);
-        Food flexiFood5 = new Food("Peanuts", 10, true, FoodType.Fat);
-        Food flexiFood6 = new Food("Wheat", 10, true, FoodType.Fiber);
+        Food flexiFood2 = new Food("Crab", 82, false, FoodType.Protein);
+        Food flexiFood3 = new Food("Beef", 250, false, FoodType.Protein);
+        Food flexiFood4 = new Food("Pomegranate", 234, true, FoodType.Fiber);
+        Food flexiFood5 = new Food("Peanuts", 567, true, FoodType.Fat);
+        Food flexiFood6 = new Food("Wheat", 315, true, FoodType.Carb);
         allowedInDiet.add(flexiFood1);
         allowedInDiet.add(flexiFood2);
         allowedInDiet.add(flexiFood3);
@@ -67,9 +67,9 @@ public class PersonTest {
         allowedInDiet.add(flexiFood6);
 
         // ALLERGY FOOD
-        Food allergyFood1 = new Food("Spinach", 10, true, FoodType.Fiber);
-        Food allergyFood2 = new Food("Asparagus", 10, false, FoodType.Fiber);
-        Food allergyFood3 = new Food("Salmon", 10, false, FoodType.Protein);
+        Food allergyFood1 = new Food("Spinach", 23, true, FoodType.Fiber);
+        Food allergyFood2 = new Food("Asparagus", 20, false, FoodType.Fiber);
+        Food allergyFood3 = new Food("Salmon", 208, false, FoodType.Protein);
         allergiesTooMany.add(allergyFood3);
         allergiesTooMany.add(flexiFood4);
         allergiesTooMany.add(flexiFood5);
@@ -99,7 +99,7 @@ public class PersonTest {
     @Test
     public void requirement2_a_1() {
         VeganDiet veganDiet = new VeganDiet("Vegan diet", 20, "health", allowedInVegan,true,20);
-        Person personVeganFavorite = new Person(new Food("Smoked tofu", 400, true, FoodType.Protein),
+        Person personVeganFavorite = new Person(new Food("Smoked tofu", 140, true, FoodType.Protein),
                 veganDiet);
 
         assertTrue(personVeganFavorite.personRestriction2a());
@@ -118,7 +118,7 @@ public class PersonTest {
     public void requirement2_b() {
         Person tooManyAllergies = new Person(allergiesTooMany);
         FlexitarianDiet flexiDiet = new FlexitarianDiet("Flexi", 324, "testing", allowedInDiet,
-                false, 1000, (new Food("Tuna", 400, false, FoodType.Protein)));
+                false, 1000, (new Food("Tuna", 129, false, FoodType.Protein)));
         tooManyAllergies.personRestriction2b(tooManyAllergies, flexiDiet);
     }
 
@@ -128,7 +128,7 @@ public class PersonTest {
     public void requirement2_b_1() {
         Person okAmountOfAllergies = new Person(allergiesOk);
         FlexitarianDiet flexiDiet = new FlexitarianDiet("Flexi", 324, "testing", allowedInDiet,
-                false, 1000, (new Food("Tuna", 400, false, FoodType.Protein)));
+                false, 1000, (new Food("Tuna", 129, false, FoodType.Protein)));
         assertTrue(okAmountOfAllergies.personRestriction2b(okAmountOfAllergies, flexiDiet));
     }
 
