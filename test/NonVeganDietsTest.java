@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 // PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
 // PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
 
-public class HyperCaloricDietTest {
+public class NonVeganDietsTest {
     ArrayList<Food> allowedInHyperCaloric = new ArrayList<>();
     ArrayList<Food> allowedInFlexiDiet = new ArrayList<>();
     ArrayList<Food> allowedInLowCarb = new ArrayList<>();
@@ -52,7 +52,7 @@ public class HyperCaloricDietTest {
     }
 
     // Test a diet where nothing is vegan
-    // PASSED✔
+    // PASSED✔️
     @Test
     public void requirement1b_3(){
         Food flexFood1 = new Food("Beef", 20, false, FoodType.Fiber);
