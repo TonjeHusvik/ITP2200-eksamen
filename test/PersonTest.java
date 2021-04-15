@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 public class PersonTest {
+
     ArrayList<Food> allowedInVegan = new ArrayList<>();
     ArrayList<Food> allowedInLowCarb = new ArrayList<>();
     ArrayList<Food> allowedInHyperCaloric = new ArrayList<>();
-
 
     @Before
     public void diets(){
@@ -43,51 +43,39 @@ public class PersonTest {
         allowedInHyperCaloric.add(hyperCaloricFood2);
         allowedInHyperCaloric.add(hyperCaloricFood3);
         allowedInHyperCaloric.add(hyperCaloricFood4);
+
     }
 
-    // TODO 2a. If their favourite food is non-vegan, they cannot follow a vegan diet.
-    @Test
+
+    /***Requirement 2.a: If their favorite food is non-vegan, they cannot follow a VeganDiet***/
+
+    // MAIN TASK: If their favorite food is non-vegan, they cannot follow a VeganDiet
+    // PASSED✔
+    @Test (expected = IllegalArgumentException.class)
     public void requirement2_a() {
-        Person person1 = new Person(new Food("Meatloaf", 400, false, FoodType.Fat));
         VeganDiet veganDiet = new VeganDiet("Vegan diet", 20, "health", allowedInVegan,true,20);
+        Person personNotVeganFavorite = new Person(new Food("Tuna", 400, false, FoodType.Protein),
+                veganDiet);
 
-        if (!person1.getFavouriteFood().isVegan() && veganDiet.isVegan()){
-            assertTrue("This person cannot follow this diet", !person1.getFavouriteFood().isVegan() && veganDiet.isVegan());
-        }else{
-            throw new IllegalArgumentException("This person's favouriteFood is " + person1.getFavouriteFood().getName() + " and can follow this diet.");
-        }
+        assertTrue(personNotVeganFavorite.personRestriction2a());
     }
 
-    // TODO 2b. They cannot follow a diet if they are allergic to 50% or more of the food allowed by the diet.
+    // If the persons favourite food is vegan, they can follow a vegan diet
+    // PASSED✔
     @Test
-    public void requirement2_b(){
-        LowCarbDiet lowCarbDiet = new LowCarbDiet("Low carb diet", 20, "weight loss", allowedInLowCarb, false, 80);
+    public void requirement2_a_1() {
+        VeganDiet veganDiet = new VeganDiet("Vegan diet", 20, "health", allowedInVegan,true,20);
+        Person personVeganFavorite = new Person(new Food("Smoked tofu", 400, true, FoodType.Protein),
+                veganDiet);
 
-        Food[] person1Allergies = new Food[4];
-        person1Allergies[0] = new Food("Apple", 35, true, FoodType.Fiber);
-        person1Allergies[1] = new Food("Shellfish", 500, false, FoodType.Recipe);
-        person1Allergies[2] = new Food("Pork", 35, true, FoodType.Fiber);
-        person1Allergies[3] = new Food("Peanuts", 500, false, FoodType.Recipe);
-
-        //Person person1 = new Person(new Food("Chicken wings", 500, false, FoodType.Protein), person1Allergies, lowCarbDiet, 50);
-
-        int teller = 0;
-
-
-        for (Food allowedFood:lowCarbDiet.getAllowedFood()) {
-            for (Food allergies:person1Allergies) {
-                if (allowedFood.getName().equals(allergies.getName())){
-                    teller = teller+1; // counter matches
-                    System.out.println(teller);
-
-                    if (teller >= lowCarbDiet.getAllowedFood().size()/2){
-                        assertTrue(allowedFood.getName().equals(allergies.getName()));
-
-                    }
-                }
-            }
-        }
+        assertTrue(personVeganFavorite.personRestriction2a());
     }
+
+
+    /*-----------------------------------------------------------------------------------------------------------------*/
+    /*-----------------------------------------------------------------------------------------------------------------*/
+    /*-----------------------------------------------------------------------------------------------------------------*/
+
 
     /*--------------------------------------------------------------------------------------------------------------------*/
     /*--------------------------------------------------------------------------------------------------------------------*/
