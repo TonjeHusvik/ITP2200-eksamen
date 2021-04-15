@@ -8,7 +8,6 @@ public class VeganDietTest {
 
     ArrayList<Food> allowedInVegan = new ArrayList<>();
     ArrayList<Food> allowedInFlexitarian = new ArrayList<>();
-    ArrayList<Food> person1Allergies = new ArrayList<>();
 
 
     @Before
@@ -24,12 +23,14 @@ public class VeganDietTest {
         allowedInVegan.add(veganFood4);
         allowedInVegan.add(veganFood5);
 
-        Food walnuts = new Food("Walnuts", 654, true, FoodType.Fat);
-        Food kiwi = new Food("Kiwi", 61, true, FoodType.Fiber);
-        person1Allergies.add(walnuts);
-        person1Allergies.add(kiwi);
     }
 
+    public void addFlexitarianFoods(){
+        Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
+        Food tofu = new Food("tofu", 402, false, FoodType.Protein);
+        allowedInFlexitarian.add(tomahawkSteak);
+        allowedInFlexitarian.add(tofu);
+    }
 
         // MAIN TASK: IF A DIET CONTAINS ANY NON-VEGAN FOOD, IT IS CONSIDERED NOT VEGAN.
         // Test if the diet is vegan and if the food is vegan.
@@ -50,13 +51,10 @@ public class VeganDietTest {
             Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein);
             FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet", allowedInFlexitarian, false, 50, tomahawk);
 
-            assertFalse(tomahawk.isVegan());
             assertFalse(flexitarianDiet1.dietRestriction1a());
-
+            assertFalse(tomahawk.isVegan());
         }
 
-
-        // TODO FIX THIS MESS, skal returnere
         // Test if the diet is vegan and if the food is non-vegan.
         // PASSED✔️
         @Test
@@ -64,7 +62,7 @@ public class VeganDietTest {
             Food tomahawk = new Food("Steak", 160, false, FoodType.Protein);
             VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet of Rice and Chicken Filet", allowedInVegan, true, 50);
 
-            assertTrue(veganDiet1.dietRestriction1a());
+            assertTrue(veganDiet1.dietRestriction1a1(veganDiet1));
             assertFalse(tomahawk.isVegan());
         }
 

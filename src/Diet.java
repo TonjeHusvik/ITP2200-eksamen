@@ -222,21 +222,17 @@ public abstract class Diet {
         return false;
     }
 
-// FIX
-
-    public boolean dietRestriction1aTest(Diet d) {
+    public boolean dietRestriction1a1(Diet d) {
         Iterator var2 = this.getAllowedFood().iterator();
         Food f;
         do {
             if (!var2.hasNext()) {
+                System.out.println("True, this diet is vegan");
                 return false;
             }
             f = (Food) var2.next();
         } while (!d.isVegan || !f.isVegan());
+        System.out.println("False, this diet is not vegan");
         return true;
     }
 }
-
-
-
-
