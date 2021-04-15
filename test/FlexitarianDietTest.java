@@ -40,8 +40,7 @@ public class FlexitarianDietTest {
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Non-vegan protein food",
                                             allowedInFlexitarian, false, 8000, tomahawkSteak);
 
-        assertFalse(Boolean.parseBoolean(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak)));
-        System.out.println(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak));
+        assertTrue(flexitarianDiet1.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak));
     }
 
     // Test if preferred meat is vegan and FoodType is not protein
@@ -52,8 +51,7 @@ public class FlexitarianDietTest {
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try vegan and non-protein foodtype",
                 allowedInFlexitarian, false, 8000, tomahawkSteak);
 
-        System.out.println("The preferred meat in FlexitarianDiet is not of FoodType PROTEIN and is VEGAN, DO NOT EAT");
-        assertFalse(Boolean.parseBoolean(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak)));
+        assertTrue(flexitarianDiet1.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak));
     }
 
     // Test if preferred meat is vegan and FoodType is protein
@@ -64,8 +62,7 @@ public class FlexitarianDietTest {
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try vegan and protein foodtype",
                 allowedInFlexitarian, false, 8000, tomahawkSteak);
 
-        System.out.println("The preferred meat in FlexitarianDiet is VEGAN! DO NOT EAT");
-        assertFalse(Boolean.parseBoolean(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak)));
+        assertTrue(flexitarianDiet1.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak));
     }
 
     // Test if preferred meat is non-vegan and FoodType is not protein
@@ -76,8 +73,7 @@ public class FlexitarianDietTest {
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try non-vegan and non-protein foodtype",
                 allowedInFlexitarian, false, 8000, tomahawkSteak);
 
-        System.out.println("The preferred meat in FlexitarianDiet is NOT of FoodType Protein! DO NOT EAT");
-        assertFalse(Boolean.parseBoolean(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak)));
+        assertTrue(flexitarianDiet1.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak));
     }
 
     /*-----------------------------------------------------------------------------------------------------------------*/

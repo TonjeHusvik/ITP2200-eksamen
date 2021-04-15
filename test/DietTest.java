@@ -1,11 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class DietTest {
@@ -29,8 +24,7 @@ public class DietTest {
         Food wholeMilk = new Food("Whole Milk", 42, false, FoodType.Fat);
         Food potatoes = new Food("Potatoes", 77, true, FoodType.Carb);
         person1Allergies.add(walnuts);
-        // TODO TEMP kiwi fjernes etter allergitesten og puttes inn i person1
-        person2Allergies.add(kiwi);
+        person1Allergies.add(kiwi);
         person2Allergies.add(shellfish);
         person2Allergies.add(potatoes);
         person3Allergies.add(wheat);
@@ -45,11 +39,6 @@ public class DietTest {
         allowedLowCarbFood.add(lowCarbFood1);
         allowedLowCarbFood.add(lowCarbFood2);
         allowedLowCarbFood.add(lowCarbFood3);
-        // TODO fjernes etter allergitesten
-        allowedLowCarbFood.add(shellfish);
-        allowedLowCarbFood.add(potatoes);
-        allowedLowCarbFood.add(kiwi);
-
 
         // VEGAN FOOD
         Food veganFood1 = new Food("Rice", 130, true, FoodType.Carb);
@@ -63,16 +52,6 @@ public class DietTest {
         allowedInVegan.add(veganFood4);
         allowedInVegan.add(veganFood5);
 
-        // HYPERCALORIC FOOD
-        Food hypercaloricFood1 = new Food("Minced meat of lamb", 300, false, FoodType.Protein);
-        Food hypercaloricFood2 = new Food("Nuts", 606, true, FoodType.Fat);
-        Food hypercaloricFood3 = new Food("Mac n cheese", 289, false, FoodType.Recipe);
-        Food hypercaloricFood4 = new Food("Brownies", 466, false, FoodType.Recipe);
-        allowedInHypercaloricDiet.add(hypercaloricFood1);
-        allowedInHypercaloricDiet.add(hypercaloricFood2);
-        allowedInHypercaloricDiet.add(hypercaloricFood3);
-        allowedInHypercaloricDiet.add(hypercaloricFood4);
-
         // FLEXITARIAN FOOD
         Food flexitarianFood1 = new Food("Minced meat of lamb", 300, false, FoodType.Protein);
         Food flexitarianFood2 = new Food("Salad", 20, true, FoodType.Recipe);
@@ -82,6 +61,16 @@ public class DietTest {
         allowedInFlexitarianDiet.add(flexitarianFood2);
         allowedInFlexitarianDiet.add(flexitarianFood3);
         allowedInFlexitarianDiet.add(flexitarianFood4);
+
+        // HYPERCALORIC FOOD
+        Food hypercaloricFood1 = new Food("Minced meat of lamb", 300, false, FoodType.Protein);
+        Food hypercaloricFood2 = new Food("Nuts", 606, true, FoodType.Fat);
+        Food hypercaloricFood3 = new Food("Mac n cheese", 289, false, FoodType.Recipe);
+        Food hypercaloricFood4 = new Food("Brownies", 466, false, FoodType.Recipe);
+        allowedInHypercaloricDiet.add(hypercaloricFood1);
+        allowedInHypercaloricDiet.add(hypercaloricFood2);
+        allowedInHypercaloricDiet.add(hypercaloricFood3);
+        allowedInHypercaloricDiet.add(hypercaloricFood4);
     }
 
 
@@ -114,6 +103,7 @@ public class DietTest {
     }
 
     // Testing ONLY flexitarian-compatibility
+    // PASSED✔
     @Test
     public void requirement4a_2() {
         Food flexitarianPerson3FavouriteFood = new Food("Tomahawk Beef", 295, false, FoodType.Protein);
@@ -122,9 +112,11 @@ public class DietTest {
 
         DietManager dietManager = new DietManager();
         Person person3 = new Person(flexitarianPerson3FavouriteFood, person3Allergies, person3FlexitarianDiet, 90);
+        assertTrue(dietManager.areCompatibleFlexitarian(person3, person3FlexitarianDiet, flexitarianPerson3FavouriteFood));
     }
 
     // Testing ONLY hypercaloric-compatibility
+    // PASSED✔
     @Test
     public void requirement4a_3() {
         Food hypercaloricPerson4FavouriteFood = new Food("Spaghetti", 295, true, FoodType.Carb);
@@ -132,31 +124,7 @@ public class DietTest {
                 allowedInHypercaloricDiet, false, 150, 2000);
 
         DietManager dietManager = new DietManager();
-        Person person4 = new Person(hypercaloricPerson4FavouriteFood, person4Allergies, person4HypercaloricDiet, 84);
+        Person person4 = new Person(hypercaloricPerson4FavouriteFood, person4Allergies, person4HypercaloricDiet, 89);
+        assertTrue(dietManager.areCompatibleHypercaloric(person4, person4HypercaloricDiet));
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

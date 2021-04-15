@@ -171,9 +171,10 @@ public abstract class Diet {
      **
      */
 
-    public static String flexDietRestriction1d(FlexitarianDiet d, Food f) {
+    public boolean flexDietRestriction1d(FlexitarianDiet d, Food f) {
         if (!d.getPreferredMeat().isVegan() && f.getType() == FoodType.Protein) {
-            return "The preferred meat in FlexitarianDiet is not vegan and is of FoodType Protein, ENJOY! =)";
+            System.out.println("The preferred meat in FlexitarianDiet is not vegan and is of FoodType Protein, ENJOY! =)");
+            return true;
         } else {
             throw new IllegalArgumentException("ERROR! The preferred meat in a FlexitarianDiet MUST be non-vegan of protein type.");
         }

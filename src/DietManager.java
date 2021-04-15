@@ -20,6 +20,20 @@ public class DietManager{
         return false;
     }
 
+    public boolean areCompatibleFlexitarian(Person p, FlexitarianDiet f, Food food) {
+        if (p.personRestriction2b(p, f) && f.flexDietRestriction1d(f, food)) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean areCompatibleHypercaloric(Person p, HypercaloricDiet f) {
+        if (p.personRestriction2b(p, f) && p.personRestriction2d(f)) {
+            return true;
+        }
+        return false;
+    }
+
 
     public HypercaloricDiet randomDiet(Person p, ArrayList<Food> f) {
         int daysDuration = new Random().nextInt(100 + 1) + 1;
