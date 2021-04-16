@@ -91,7 +91,7 @@ public class PersonTest {
         Person personNotVeganFavorite = new Person(new Food("Tuna", 400, false, FoodType.Protein),
                 veganDiet);
 
-        assertTrue(personNotVeganFavorite.personRestriction2a());
+        personNotVeganFavorite.personRestriction2a();
     }
 
     // If the persons favourite food is vegan, they can follow a vegan diet
