@@ -15,6 +15,7 @@ public class DietManager{
                 && p.personRestriction2c_2(l)) {
             return true;
         }
+        // todo make exception here as the method above has, rune
         return false;
     }
 
@@ -22,6 +23,7 @@ public class DietManager{
         if (p.personRestriction2b(p, f) && f.flexDietRestriction1d(f, food)) {
             return true;
         }
+        // todo make exception here as the method above has, rune
         return false;
     }
 
@@ -29,6 +31,7 @@ public class DietManager{
         if (p.personRestriction2b(p, f) && p.personRestriction2_d(f)) {
             return true;
         }
+        // todo make exception here as the method above has, rune
         return false;
     }
 

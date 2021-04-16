@@ -96,7 +96,7 @@ public class DietTest {
     }
 
     // Given a Person and a Diet, return true if they are compatible, false otherwise, expecting to return false in method
-    // todo , weight, veganfalse is wrong intentionally
+    // todo, weight, veganfalse is wrong intentionally
     // PASSED✔
     @Test (expected = IllegalArgumentException.class)
     public void requirement4aException() {
@@ -110,7 +110,6 @@ public class DietTest {
     }
 
     // Testing ONLY lowcarb-compatibility, expecting to return false in method
-    // todo
     // PASSED✔
     @Test
     public void requirement4a_1() {
@@ -124,6 +123,7 @@ public class DietTest {
     }
 
     // Testing ONLY lowcarb-compatibility
+    // todo, fix this to make sure its testing with exception and with the wrong inputs, rune
     // PASSED✔
     @Test
     public void requirement4a_1Exception() {
@@ -149,10 +149,38 @@ public class DietTest {
         assertTrue(dietManager.areCompatibleFlexitarian(person3, person3FlexitarianDiet, flexitarianPerson3FavouriteFood));
     }
 
+    // Testing ONLY flexitarian-compatibility
+    // todo, fix this to make sure its testing with exception and with the wrong inputs, rune
+    // PASSED✔
+    @Test
+    public void requirement4a_2Exception() {
+        Food flexitarianPerson3FavouriteFood = new Food("Tomahawk Beef", 295, false, FoodType.Protein);
+        FlexitarianDiet person3FlexitarianDiet = new FlexitarianDiet("Person3 FlexitarianDiet", 90, "Is this diet compatible with this Person?",
+                allowedInFlexitarianDiet, true, 5000, flexitarianPerson3FavouriteFood);
+
+        DietManager dietManager = new DietManager();
+        Person person3 = new Person(flexitarianPerson3FavouriteFood, person3Allergies, person3FlexitarianDiet, 90);
+        assertTrue(dietManager.areCompatibleFlexitarian(person3, person3FlexitarianDiet, flexitarianPerson3FavouriteFood));
+    }
+
     // Testing ONLY hypercaloric-compatibility
     // PASSED✔
     @Test
     public void requirement4a_3() {
+        Food hypercaloricPerson4FavouriteFood = new Food("Spaghetti", 295, true, FoodType.Carb);
+        HypercaloricDiet person4HypercaloricDiet = new HypercaloricDiet("Person1 VeganDiet", 90, "Is this diet compatible with this Person?",
+                allowedInHypercaloricDiet, false, 150, 2000);
+
+        DietManager dietManager = new DietManager();
+        Person person4 = new Person(hypercaloricPerson4FavouriteFood, person4Allergies, person4HypercaloricDiet, 89);
+        assertTrue(dietManager.areCompatibleHypercaloric(person4, person4HypercaloricDiet));
+    }
+
+    // Testing ONLY hypercaloric-compatibility
+    // todo, fix this to make sure its testing with exception and with the wrong inputs, rune
+    // PASSED✔
+    @Test
+    public void requirement4a_3Exception() {
         Food hypercaloricPerson4FavouriteFood = new Food("Spaghetti", 295, true, FoodType.Carb);
         HypercaloricDiet person4HypercaloricDiet = new HypercaloricDiet("Person1 VeganDiet", 90, "Is this diet compatible with this Person?",
                 allowedInHypercaloricDiet, false, 150, 2000);
