@@ -46,7 +46,7 @@ public class RandomDietTest {
 
     // PASSED✔
     @Test
-    public void randomDiet4_b() {
+    public void randomDiet4b() {
         DietManager randomDietManager = new DietManager();
         System.out.println(randomDietManager.randomDiet(randomPerson, food));
     }

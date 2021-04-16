@@ -83,7 +83,7 @@ public class DietTest {
     // MAIN TASK: Given a Person and a Diet, return true if they are compatible, false otherwise
     // PASSED✔
     @Test
-    public void requirement4_a() {
+    public void requirement4a() {
         Food veganPerson1FavouriteFood = new Food("Beans", 150, true, FoodType.Protein);
         VeganDiet person1VeganDiet = new VeganDiet("Person1 VeganDiet", 90, "Is this diet compatible with this Person?",
                 allowedInVegan, true, 50);
@@ -96,7 +96,7 @@ public class DietTest {
     // Testing ONLY lowcarb-compatibility
     // PASSED✔
     @Test
-    public void requirement4_a1() {
+    public void requirement4a_1() {
         Food lowCarbPerson2FavouriteFood = new Food("Eggs", 155, true, FoodType.Protein);
         LowCarbDiet person2LowCarbDiet = new LowCarbDiet("Person2 LowCarbDiet", 90, "Is this diet compatible with this Person?",
                 allowedLowCarbFood, true, 50);
