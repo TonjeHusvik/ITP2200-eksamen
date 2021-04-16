@@ -145,6 +145,8 @@ public abstract class Diet {
         return false;
     }
 
+
+    // TODO hør med joachim om denne skal brukes i 1a_3 eller ikke
     public boolean dietRestriction1a1(Diet d) {
         Iterator var2 = this.getAllowedFood().iterator();
         Food f;
