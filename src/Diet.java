@@ -67,7 +67,7 @@ public abstract class Diet {
         if (d.daysDuration >= 30) {
             return result;
         } else
-        throw new IllegalArgumentException("ERROR, the input is less than 1 month");
+            throw new IllegalArgumentException("ERROR, the input is less than 1 month");
     }
 
     public String writeDurationInYears(Diet d) {
@@ -84,7 +84,7 @@ public abstract class Diet {
     public String writeAllowedFood(Diet d) {
         String result = "";
 
-        result = "The following food is allowed in this " + d.getName() +": "+ allowedFood;
+        result = "The following food is allowed in this " + d.getName() + ": " + allowedFood;
         return result;
     }
 
@@ -92,7 +92,7 @@ public abstract class Diet {
         for (Food f : getAllowedFood()) {
             if (f.isVegan()) {
                 return true;
-            }else{
+            } else {
                 return false;
             }
         }
@@ -104,7 +104,7 @@ public abstract class Diet {
             if (!f.isVegan()) {
                 isVegan = false;
                 System.out.println("This is an illegal argument being thrown as expected, " +
-                                   "because this diet contains non-vegan food.");
+                        "because this diet contains non-vegan food.");
                 throw new IllegalArgumentException();
             }
         }
@@ -135,7 +135,7 @@ public abstract class Diet {
     }
 
     public boolean dietRestriction1a() {
-        for (Food f: getAllowedFood()) {
+        for (Food f : getAllowedFood()) {
             if (isVegan() && f.isVegan()) {
                 System.out.println("True, this diet is vegan");
                 return true;
@@ -144,20 +144,5 @@ public abstract class Diet {
         System.out.println("False, this diet is not vegan");
         return false;
     }
-
-
-    // TODO hør med joachim om denne skal brukes i 1a_3 eller ikke
-    public boolean dietRestriction1a1(Diet d) {
-        Iterator var2 = this.getAllowedFood().iterator();
-        Food f;
-        do {
-            if (!var2.hasNext()) {
-                System.out.println("True, this diet is vegan");
-                return false;
-            }
-            f = (Food) var2.next();
-        } while (!d.isVegan || !f.isVegan());
-        System.out.println("False, this diet is not vegan");
-        return true;
-    }
 }
+
