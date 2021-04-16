@@ -89,7 +89,7 @@ public class FlexitarianDietTest {
     // Testing only one diet for this req, all the subclasses inherits from the Diet class (parent)
     // PASSED✔️
     @Test
-    public void requirement3_a() {
+    public void requirement3a() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 400, "What is the duration of this diet?",
                 allowedInFlexitarian, true, 3000, tomahawkSteak);
@@ -101,7 +101,7 @@ public class FlexitarianDietTest {
     // Test days only
     // PASSED✔️
     @Test
-    public void requirement3_a_1() {
+    public void requirement3a_1() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 450, "What is the duration of this diet?",
                 allowedInFlexitarian, true, 3000, tomahawkSteak);
@@ -113,7 +113,7 @@ public class FlexitarianDietTest {
     // Test months only (has to be more than 30 days, else an exception is thrown).
     // PASSED✔️
     @Test
-    public void requirement3_a_2() {
+    public void requirement3a_2() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 700, "What is the duration of this diet?",
                 allowedInFlexitarian, true, 3000, tomahawkSteak);
@@ -125,7 +125,7 @@ public class FlexitarianDietTest {
     // Test years only (has to be more than 1 years, else an exception is thrown).
     // PASSED✔️
     @Test
-    public void requirement3_a_3() {
+    public void requirement3a_3() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 400, "What is the duration of this diet?",
                 allowedInFlexitarian, true, 3000, tomahawkSteak);
@@ -144,7 +144,7 @@ public class FlexitarianDietTest {
     // Testing only one diet for this req, all the subclasses inherits from the Diet class (parent)
     // PASSED✔️
     @Test
-    public void requirement3_b() {
+    public void requirement3b() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 400, "What does this diet contains?",
                 allowedInFlexitarian, true, 3000, tomahawkSteak);
