@@ -35,7 +35,7 @@ public class FlexitarianDietTest {
     // Test if preferred meat is non-vegan and FoodType is of Protein
     // PASSED✔️
     @Test
-    public void requirement1_d () {
+    public void requirement1d () {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Non-vegan protein food",
                                             allowedInFlexitarian, false, 8000, tomahawkSteak);
@@ -46,7 +46,7 @@ public class FlexitarianDietTest {
     // Test if preferred meat is vegan and FoodType is not protein
     // PASSED✔️
     @Test (expected = IllegalArgumentException.class)
-    public void requirement1_d_1() {
+    public void requirement1d_1() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, true, FoodType.Carb);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try vegan and non-protein foodtype",
                 allowedInFlexitarian, false, 8000, tomahawkSteak);
@@ -57,7 +57,7 @@ public class FlexitarianDietTest {
     // Test if preferred meat is vegan and FoodType is protein
     // PASSED✔️
     @Test (expected = IllegalArgumentException.class)
-    public void requirement1_d_2() {
+    public void requirement1d_2() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, true, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try vegan and protein foodtype",
                 allowedInFlexitarian, false, 8000, tomahawkSteak);
@@ -68,7 +68,7 @@ public class FlexitarianDietTest {
     // Test if preferred meat is non-vegan and FoodType is not protein
     // PASSED✔️
     @Test (expected = IllegalArgumentException.class)
-    public void requirement1_d_3() {
+    public void requirement1d_3() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Carb);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try non-vegan and non-protein foodtype",
                 allowedInFlexitarian, false, 8000, tomahawkSteak);

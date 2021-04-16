@@ -102,7 +102,7 @@ public class VeganDietTest {
     // Message shows if test fails
     // PASSED✔️
     @Test
-    public void requirement1_c() {
+    public void requirement1c() {
         VeganDiet veganDiet = new VeganDiet("VeganDiet", 30, "Vegan Diet",
                 allowedInVegan, true, 50);
 
@@ -113,11 +113,11 @@ public class VeganDietTest {
     // Message shows if test fails
     // PASSED✔️
     @Test (expected = IllegalArgumentException.class)
-    public void requirement1_c1() {
+    public void requirement1c_1() {
         VeganDiet notVeganDiet = new VeganDiet("Not veganDiet", 30, "Vegan Diet",
                 nonAllowedFoodVegan, true, 50);
 
-        assertTrue("Diet contains only vegan foods", notVeganDiet.veganDietRestriction1c());
+        notVeganDiet.veganDietRestriction1c();
     }
 }
 

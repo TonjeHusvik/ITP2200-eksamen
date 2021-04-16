@@ -86,18 +86,18 @@ public class PersonTest {
     // MAIN TASK: If their favorite food is non-vegan, they cannot follow a VeganDiet
     // PASSED✔
     @Test (expected = IllegalArgumentException.class)
-    public void requirement2_a() {
+    public void requirement2a() {
         VeganDiet veganDiet = new VeganDiet("Vegan diet", 20, "health", allowedInVegan,true,20);
         Person personNotVeganFavorite = new Person(new Food("Tuna", 400, false, FoodType.Protein),
                 veganDiet);
 
-        assertTrue(personNotVeganFavorite.personRestriction2a());
+        personNotVeganFavorite.personRestriction2a();
     }
 
     // If the persons favourite food is vegan, they can follow a vegan diet
     // PASSED✔
     @Test
-    public void requirement2_a_1() {
+    public void requirement2a_1() {
         VeganDiet veganDiet = new VeganDiet("Vegan diet", 20, "health", allowedInVegan,true,20);
         Person personVeganFavorite = new Person(new Food("Smoked tofu", 140, true, FoodType.Protein),
                 veganDiet);
