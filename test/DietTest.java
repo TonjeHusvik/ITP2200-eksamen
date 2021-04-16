@@ -93,6 +93,20 @@ public class DietTest {
         assertTrue(dietManager.areCompatibleVegan(person1, person1VeganDiet));
     }
 
+    // MAIN TASK: Given a Person and a Diet, return true if they are compatible, false otherwise
+    // PASSED✔
+    // FIXME tester om man evt. skal sjekke for exception og, feil vei, rune
+    @Test (expected = IllegalArgumentException.class)
+    public void requirement4a_1_1() {
+        Food veganPerson1FavouriteFood = new Food("Beans", 150, true, FoodType.Protein);
+        VeganDiet person1VeganDiet = new VeganDiet("Person1 VeganDiet", 90, "Is this diet compatible with this Person?",
+                allowedInVegan, false, 50);
+
+        Person person1 = new Person(veganPerson1FavouriteFood, person1Allergies, person1VeganDiet, 60);
+        DietManager dietManager = new DietManager();
+        assertTrue(dietManager.areCompatibleVegan(person1, person1VeganDiet));
+    }
+
     // Testing ONLY lowcarb-compatibility
     // PASSED✔
     @Test

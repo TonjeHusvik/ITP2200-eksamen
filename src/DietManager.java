@@ -8,7 +8,8 @@ public class DietManager{
                 && p.personRestriction2c_1(v)) {
             return true;
         }
-        return false;
+        // FIXME evt adde denne på de 3 andre og, rune
+        throw new IllegalArgumentException("ERROR! The Person and the Diet is not compatible.");
     }
 
     public boolean areCompatibleLowCarb(Person p, LowCarbDiet l) {
