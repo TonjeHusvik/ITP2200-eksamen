@@ -7,9 +7,7 @@ public class DietManager{
         if (v.dietRestriction1a() && p.personRestriction2a() && p.personRestriction2b(p, v)
                 && p.personRestriction2c_1(v)) {
             return true;
-        }
-        // FIXME evt adde denne på de 3 andre og, rune
-        throw new IllegalArgumentException("ERROR! The Person and the Diet is not compatible.");
+        } else throw new IllegalArgumentException("ERROR! The Person and the Diet is not compatible.");
     }
 
     public boolean areCompatibleLowCarb(Person p, LowCarbDiet l) {

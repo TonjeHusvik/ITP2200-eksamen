@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
+
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 // PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
@@ -93,24 +95,38 @@ public class DietTest {
         assertTrue(dietManager.areCompatibleVegan(person1, person1VeganDiet));
     }
 
-    // MAIN TASK: Given a Person and a Diet, return true if they are compatible, false otherwise
+    // Given a Person and a Diet, return true if they are compatible, false otherwise, expecting to return false in method
+    // todo , weight, veganfalse is wrong intentionally
     // PASSED✔
-    // FIXME tester om man evt. skal sjekke for exception og, feil vei, rune
     @Test (expected = IllegalArgumentException.class)
-    public void requirement4a_1_1() {
-        Food veganPerson1FavouriteFood = new Food("Beans", 150, true, FoodType.Protein);
+    public void requirement4aException() {
+        Food veganPerson1FavouriteFood = new Food("Beans", 150, false, FoodType.Protein);
         VeganDiet person1VeganDiet = new VeganDiet("Person1 VeganDiet", 90, "Is this diet compatible with this Person?",
                 allowedInVegan, false, 50);
 
-        Person person1 = new Person(veganPerson1FavouriteFood, person1Allergies, person1VeganDiet, 60);
+        Person person1 = new Person(veganPerson1FavouriteFood, person1Allergies, person1VeganDiet, 45);
         DietManager dietManager = new DietManager();
-        assertTrue(dietManager.areCompatibleVegan(person1, person1VeganDiet));
+        assertFalse(dietManager.areCompatibleVegan(person1, person1VeganDiet));
+    }
+
+    // Testing ONLY lowcarb-compatibility, expecting to return false in method
+    // todo
+    // PASSED✔
+    @Test
+    public void requirement4a_1() {
+        Food lowCarbPerson2FavouriteFood = new Food("Eggs", 155, true, FoodType.Protein);
+        LowCarbDiet person2LowCarbDiet = new LowCarbDiet("Person2 LowCarbDiet", 90, "Is this diet compatible with this Person?",
+                allowedLowCarbFood, true, 50);
+
+        DietManager dietManager = new DietManager();
+        Person person2 = new Person(lowCarbPerson2FavouriteFood, person2Allergies, person2LowCarbDiet, 70);
+        assertTrue(dietManager.areCompatibleLowCarb(person2, person2LowCarbDiet));
     }
 
     // Testing ONLY lowcarb-compatibility
     // PASSED✔
     @Test
-    public void requirement4a_1() {
+    public void requirement4a_1Exception() {
         Food lowCarbPerson2FavouriteFood = new Food("Eggs", 155, true, FoodType.Protein);
         LowCarbDiet person2LowCarbDiet = new LowCarbDiet("Person2 LowCarbDiet", 90, "Is this diet compatible with this Person?",
                 allowedLowCarbFood, true, 50);
