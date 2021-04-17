@@ -38,6 +38,7 @@ public class LowCarbDietTest {
         allowedLowCarbFoodCarb.add(allowCarbFoodCarb1);
         allowedLowCarbFoodCarb.add(allowCarbFoodCarb2);
         allowedLowCarbFoodCarb.add(allowCarbFoodCarb3);
+
     }
 
 
