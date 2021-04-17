@@ -124,8 +124,8 @@ public abstract class Diet {
         System.out.println("False, this diet is not vegan");
         return false;
     } */
-public boolean dietRestriction1a(Diet d) {
-    for (Food f : getAllowedFood()) {
+/*    public boolean dietRestriction1a(Diet d) {
+        for (Food f : getAllowedFood()) {
         if (d.getAllowedFood().equals(f.isVegan())) {
             System.out.println("True, this diet is vegan");
             return true;
@@ -135,6 +135,15 @@ public boolean dietRestriction1a(Diet d) {
     }
     System.out.println("False, this diet is not vegan");
     return false;
-}
+    }*/
+
+    public boolean dietRestriction1a(Diet d) {
+        for (Food f : allowedFood) {
+            if ((!f.isVegan() && !d.isVegan()) || (!f.isVegan() && d.isVegan())) {
+                throw new IllegalArgumentException("NOT VEGAN");
+            }
+        }
+        return true;
+    }
 }
 

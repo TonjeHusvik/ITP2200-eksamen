@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
 public class VeganDietTest {
 
     ArrayList<Food> allowedInVegan = new ArrayList<>();
+    ArrayList<Food> allowedInVeganImposter = new ArrayList<>();
     ArrayList<Food> allowedInFlexitarian = new ArrayList<>();
     ArrayList<Food> nonAllowedFoodVegan = new ArrayList<>();
 
@@ -26,16 +27,20 @@ public class VeganDietTest {
         allowedInFlexitarian.add(flexitarianFood3);
 
         // VEGAN FOOD
-        Food veganFood1 = new Food("Rice", 130, false, FoodType.Carb);
+        Food veganFood1 = new Food("Rice", 130, true, FoodType.Carb);
         Food veganFood2 = new Food("Salad", 20, true, FoodType.Recipe);
         Food veganFood3 = new Food("Tofu", 200, true, FoodType.Protein);
         Food veganFood4 = new Food("Beans", 130, true, FoodType.Carb);
-        Food veganFood5 = new Food("Broccoli", 20, false, FoodType.Fiber);
+        Food veganFood5 = new Food("Broccoli", 20, true, FoodType.Fiber);
         allowedInVegan.add(veganFood1);
         allowedInVegan.add(veganFood2);
         allowedInVegan.add(veganFood3);
         allowedInVegan.add(veganFood4);
         allowedInVegan.add(veganFood5);
+
+        // VEGAN IMPOSTER FOOD
+        Food veganFoodImposter = new Food("Broccoli", 20, false, FoodType.Fiber);
+        allowedInVeganImposter.add(veganFoodImposter);
 
         // NON VEGAN FOOD
         Food nonVeganFood1 = new Food("Ribeye", 130, false, FoodType.Protein);
@@ -48,11 +53,21 @@ public class VeganDietTest {
 
     /*** Requirement 1. a: If a diet contains any non-vegan food, it is considered not vegan (i.e., isVegan = false).***/
 
-    // Test if the diet is vegan and if the food is vegan.
+    // Test if the diet is vegan on behalf of the food is vegan.
     // PASSED✔️
+    // TESTING EVERYTHING IN THE ARRAYLIST IF ITS ALL VEGAN, allowedfood is determining and not the isVegan parameter on the diet
     @Test
     public void requirement1a_1 () {
-        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet", allowedInVegan, true, 50);
+        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet", allowedInVegan, false, 50);
+
+        assertTrue(veganDiet1.dietRestriction1a(veganDiet1));
+    }
+
+    // TESTING EVERYTHING IN THE ARRAYLIST IF ITS ALL VEGAN, but it is not because of the imposterfood
+    // PASSED✔️
+    @Test (expected = IllegalArgumentException.class)
+    public void requirement1a_1Exception () {
+        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet", allowedInVeganImposter, true, 50);
 
         assertTrue(veganDiet1.dietRestriction1a(veganDiet1));
     }
@@ -64,7 +79,17 @@ public class VeganDietTest {
         Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein); //sjekker ikke preferred meat, må bare stå her
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet", allowedInFlexitarian, false, 50, tomahawk);
 
-        assertFalse(flexitarianDiet1.dietRestriction1a(flexitarianDiet1));
+        flexitarianDiet1.dietRestriction1a(flexitarianDiet1);
+    }
+
+    // Test if the diet is non-vegan and if the food is non-vegan.
+    // PASSED✔️
+    @Test
+    public void requirement1a_2Exception () {
+        Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein); //sjekker ikke preferred meat, må bare stå her
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet", allowedInFlexitarian, false, 50, tomahawk);
+
+        flexitarianDiet1.dietRestriction1a(flexitarianDiet1);
     }
 
     // Test if the diet is vegan and if the food is non-vegan.
@@ -78,12 +103,14 @@ public class VeganDietTest {
 
     // Test if the diet is non-vegan and if the food is vegan.
     // PASSED✔️
+    // FIXME ikke i orden, metode må jobbes med
     @Test
     public void requirement1a_4 () {
         Food tofu = new Food("Tofu", 200, true, FoodType.Protein);
-        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet", allowedInVegan, false, 50, tofu);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet",
+                allowedInVegan, false, 50, tofu);
 
-        assertTrue(flexitarianDiet1.dietRestriction1a(flexitarianDiet1));
+        assertFalse(flexitarianDiet1.dietRestriction1a(flexitarianDiet1));
     }
 
     /*-------------------------------------------------------------------------------------------------------------------*/
