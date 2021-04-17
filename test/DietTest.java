@@ -95,8 +95,8 @@ public class DietTest {
         assertTrue(dietManager.areCompatibleVegan(person1, person1VeganDiet));
     }
 
-    // Given a Person and a Diet, return true if they are compatible, false otherwise, expecting to return false in method
-    // todo, weight, veganfalse is wrong intentionally
+    // Given a Person and a Diet, return true if they are compatible, false otherwise, expecting the exception
+    // weight and vegan = false is wrong intentionally, and these are not compatible together
     // PASSED✔
     @Test (expected = IllegalArgumentException.class)
     public void requirement4aException() {
