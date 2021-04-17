@@ -37,7 +37,7 @@ public class FlexitarianDietTest {
     @Test
     public void requirement1d () {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
-        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Non-vegan protein food",
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Flexitarian Diet", 23, "Non-vegan protein food",
                                             allowedInFlexitarian, false, 8000, tomahawkSteak);
 
         assertTrue(flexitarianDiet1.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak));
@@ -48,7 +48,7 @@ public class FlexitarianDietTest {
     @Test (expected = IllegalArgumentException.class)
     public void requirement1d_1() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, true, FoodType.Carb);
-        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try vegan and non-protein foodtype",
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Flexitarian Diet", 23, "Want to try vegan and non-protein foodtype",
                 allowedInFlexitarian, false, 8000, tomahawkSteak);
 
         flexitarianDiet1.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak);
@@ -59,7 +59,7 @@ public class FlexitarianDietTest {
     @Test (expected = IllegalArgumentException.class)
     public void requirement1d_2() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, true, FoodType.Protein);
-        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try vegan and protein foodtype",
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Flexitarian Diet", 23, "Want to try vegan and protein foodtype",
                 allowedInFlexitarian, false, 8000, tomahawkSteak);
 
         flexitarianDiet1.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak);
@@ -70,7 +70,7 @@ public class FlexitarianDietTest {
     @Test (expected = IllegalArgumentException.class)
     public void requirement1d_3() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Carb);
-        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try non-vegan and non-protein foodtype",
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Flexitarian Diet", 23, "Want to try non-vegan and non-protein foodtype",
                 allowedInFlexitarian, false, 8000, tomahawkSteak);
 
         flexitarianDiet1.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak);
