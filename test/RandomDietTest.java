@@ -10,23 +10,23 @@ import java.util.ArrayList;
 public class RandomDietTest {
     ArrayList<Food> allergies = new ArrayList<>();
     ArrayList<Food> food = new ArrayList<>();
-    Person randomPerson = new Person(new Food("Salad", 10, true, FoodType.Fiber), allergies, 80);
+    Person randomPerson = new Person(new Food("Salad", 10, true, FoodType.FIBER), allergies, 80);
 
     @Before
     public void setUp() {
         // FOOD ARRAY
-        Food food1 = new Food("Bacon", 541, false, FoodType.Fat);
-        Food food2 = new Food("Pork", 242, false, FoodType.Protein);
-        Food food3 = new Food("Peanuts", 567, true, FoodType.Fat);
+        Food food1 = new Food("Bacon", 541, false, FoodType.FAT);
+        Food food2 = new Food("Pork", 242, false, FoodType.PROTEIN);
+        Food food3 = new Food("Peanuts", 567, true, FoodType.FAT);
         food.add(food1);
         food.add(food2);
         food.add(food3);
 
         // ALLERGY FOOD
-        Food allergyFood1 = new Food("Asparagus", 20, true, FoodType.Fiber);
-        Food allergyFood2 = new Food("Butter", 716, false, FoodType.Fat);
-        Food allergyFood3 = new Food("Peanut butter", 588, true, FoodType.Fat);
-        Food allergyFood4 = new Food("Lard", 898, false, FoodType.Fat);
+        Food allergyFood1 = new Food("Asparagus", 20, true, FoodType.FIBER);
+        Food allergyFood2 = new Food("Butter", 716, false, FoodType.FAT);
+        Food allergyFood3 = new Food("Peanut butter", 588, true, FoodType.FAT);
+        Food allergyFood4 = new Food("Lard", 898, false, FoodType.FAT);
         allergies.add(allergyFood1);
         allergies.add(allergyFood2);
         allergies.add(allergyFood3);

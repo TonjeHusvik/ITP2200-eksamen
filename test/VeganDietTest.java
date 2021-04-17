@@ -20,19 +20,19 @@ public class VeganDietTest {
     public void addFood() {
 
         // FLEXITARIAN FOOD
-        Food flexitarianFood1 = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
-        Food flexitarianFood2 = new Food("Tofu", 76, true, FoodType.Protein);
-        Food flexitarianFood3 = new Food("Green peas", 81, true, FoodType.Protein);
+        Food flexitarianFood1 = new Food("Tomahawk Steak", 160, false, FoodType.PROTEIN);
+        Food flexitarianFood2 = new Food("Tofu", 76, true, FoodType.PROTEIN);
+        Food flexitarianFood3 = new Food("Green peas", 81, true, FoodType.PROTEIN);
         allowedInFlexitarian.add(flexitarianFood1);
         allowedInFlexitarian.add(flexitarianFood2);
         allowedInFlexitarian.add(flexitarianFood3);
 
         // VEGAN FOOD
-        Food veganFood1 = new Food("Rice", 130, true, FoodType.Carb);
-        Food veganFood2 = new Food("Salad", 20, true, FoodType.Recipe);
-        Food veganFood3 = new Food("Tofu", 200, true, FoodType.Protein);
-        Food veganFood4 = new Food("Beans", 130, true, FoodType.Carb);
-        Food veganFood5 = new Food("Broccoli", 20, true, FoodType.Fiber);
+        Food veganFood1 = new Food("Rice", 130, true, FoodType.CARB);
+        Food veganFood2 = new Food("Salad", 20, true, FoodType.RECIPE);
+        Food veganFood3 = new Food("Tofu", 200, true, FoodType.PROTEIN);
+        Food veganFood4 = new Food("Beans", 130, true, FoodType.CARB);
+        Food veganFood5 = new Food("Broccoli", 20, true, FoodType.FIBER);
         allowedInVegan.add(veganFood1);
         allowedInVegan.add(veganFood2);
         allowedInVegan.add(veganFood3);
@@ -40,17 +40,17 @@ public class VeganDietTest {
         allowedInVegan.add(veganFood5);
 
         // VEGAN IMPOSTER FOOD
-        Food veganFoodImposter = new Food("Broccoli", 20, false, FoodType.Fiber);
+        Food veganFoodImposter = new Food("Broccoli", 20, false, FoodType.FIBER);
         allowedInVeganImposter.add(veganFoodImposter);
 
         // FLEXITARIAN VEGAN IMPOSTER FOOD
-        Food flexitarianFoodImposter = new Food("Beef", 20, true, FoodType.Protein);
+        Food flexitarianFoodImposter = new Food("Beef", 20, true, FoodType.PROTEIN);
         allowedInFlexitarianVeganImposter.add(flexitarianFoodImposter);
 
         // NON VEGAN FOOD
-        Food nonVeganFood1 = new Food("Ribeye", 130, false, FoodType.Protein);
-        Food nonVeganFood2 = new Food("Red snapper", 20, false, FoodType.Protein);
-        Food nonVeganFood3 = new Food("Broccoli", 20, false, FoodType.Fiber);
+        Food nonVeganFood1 = new Food("Ribeye", 130, false, FoodType.PROTEIN);
+        Food nonVeganFood2 = new Food("Red snapper", 20, false, FoodType.PROTEIN);
+        Food nonVeganFood3 = new Food("Broccoli", 20, false, FoodType.FIBER);
         nonAllowedFoodVegan.add(nonVeganFood1);
         nonAllowedFoodVegan.add(nonVeganFood2);
         nonAllowedFoodVegan.add(nonVeganFood3);
@@ -84,7 +84,7 @@ public class VeganDietTest {
     // PASSED✔️
     @Test
     public void requirement1a_2 () {
-        Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein);
+        Food tomahawk = new Food("Tomahawk", 160, false, FoodType.PROTEIN);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet",
                 allowedInFlexitarianVeganImposter, false, 50, tomahawk);
 
@@ -95,7 +95,7 @@ public class VeganDietTest {
     // PASSED✔️
     @Test (expected = IllegalArgumentException.class)
     public void requirement1a_2Exception () {
-        Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein);
+        Food tomahawk = new Food("Tomahawk", 160, false, FoodType.PROTEIN);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet",
                 allowedInFlexitarian, false, 50, tomahawk);
 
@@ -126,7 +126,7 @@ public class VeganDietTest {
     // PASSED✔️
     @Test
     public void requirement1a_4 () {
-        Food tofu = new Food("Tofu", 200, true, FoodType.Protein);
+        Food tofu = new Food("Tofu", 200, true, FoodType.PROTEIN);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet",
                 allowedInVegan, false, 50, tofu);
 
@@ -137,7 +137,7 @@ public class VeganDietTest {
     // PASSED✔️
     @Test (expected = IllegalArgumentException.class)
     public void requirement1a_4Exception () {
-        Food tofu = new Food("Tofu", 200, true, FoodType.Protein);
+        Food tofu = new Food("Tofu", 200, true, FoodType.PROTEIN);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet",
                 allowedInFlexitarian, false, 50, tofu);
 
