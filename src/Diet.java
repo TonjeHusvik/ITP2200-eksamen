@@ -93,8 +93,6 @@ public abstract class Diet {
         for (Food f : getAllowedFood()) {
             if (f.isVegan()) {
                 return true;
-            } else {
-                return false;
             }
         }
         return false;
