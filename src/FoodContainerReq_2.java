@@ -43,21 +43,34 @@ public class FoodContainerReq_2 {
         return allowedInHyperCaloric;
     }
 
-    public ArrayList<Food> allowedInDiet() {
+    public ArrayList<ArrayList <Food>> allowedInDietAndAllergiesTooMany() {
+
         ArrayList<Food> allowedInDiet = new ArrayList<>();
+        ArrayList<Food> allergiesTooMany = new ArrayList<>();
+        ArrayList<ArrayList<Food>> allowedInDietAndAllergiesTooMany = new ArrayList<ArrayList<Food>>();
+
         Food flexiFood1 = new Food("Salad", 10, true, FoodType.FIBER);
         Food flexiFood2 = new Food("Crab", 82, false, FoodType.PROTEIN);
         Food flexiFood3 = new Food("Beef", 250, false, FoodType.PROTEIN);
         Food flexiFood4 = new Food("Pomegranate", 234, true, FoodType.FIBER);
         Food flexiFood5 = new Food("Peanuts", 567, true, FoodType.FAT);
         Food flexiFood6 = new Food("Wheat", 315, true, FoodType.CARB);
+        Food allergyFood3 = new Food("Salmon", 208, false, FoodType.PROTEIN);
         allowedInDiet.add(flexiFood1);
         allowedInDiet.add(flexiFood2);
         allowedInDiet.add(flexiFood3);
         allowedInDiet.add(flexiFood4);
         allowedInDiet.add(flexiFood5);
         allowedInDiet.add(flexiFood6);
-        return allowedInDiet;
+        allergiesTooMany.add(flexiFood4);
+        allergiesTooMany.add(flexiFood5);
+        allergiesTooMany.add(flexiFood6);
+        allergiesTooMany.add(allergyFood3);
+
+        allowedInDietAndAllergiesTooMany.add(0, allowedInDiet);
+        allowedInDietAndAllergiesTooMany.add(1, allergiesTooMany);
+
+        return allowedInDietAndAllergiesTooMany;
     }
 
     public ArrayList<Food> allergiesTooMany() {

@@ -63,7 +63,6 @@ public class Person {
     }
 
     public boolean personRestriction2b(Person p, Diet d) {
-        p.getAllergies().retainAll(d.getAllowedFood());
         if(p.getAllergies().size() >= (d.getAllowedFood().size()/2)) {
             System.out.println("This person is allergic to the following foods in the diet: "
                     + p.getAllergies().toString() + "\r\n" + "An exception is thrown as expected.");

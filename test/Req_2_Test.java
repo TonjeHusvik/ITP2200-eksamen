@@ -47,8 +47,9 @@ public class Req_2_Test {
     //PASSED ✔️
     @Test (expected = IllegalArgumentException.class)
     public void requirement2b() {
-        Person tooManyAllergies = new Person(foodContainerReq2.allergiesTooMany());
-        FlexitarianDiet flexiDiet = new FlexitarianDiet("Flexi", 324, "testing", foodContainerReq2.allowedInDiet(),
+        Person tooManyAllergies = new Person(foodContainerReq2.allowedInDietAndAllergiesTooMany().get(1));
+        FlexitarianDiet flexiDiet = new FlexitarianDiet("Flexi", 324, "testing",
+                foodContainerReq2.allowedInDietAndAllergiesTooMany().get(0),
                 false, 1000, (new Food("Tuna", 129, false, FoodType.PROTEIN)));
         tooManyAllergies.personRestriction2b(tooManyAllergies, flexiDiet);
     }
@@ -58,7 +59,8 @@ public class Req_2_Test {
     @Test
     public void requirement2b_1() {
         Person okAmountOfAllergies = new Person(foodContainerReq2.allergiesOk());
-        FlexitarianDiet flexiDiet = new FlexitarianDiet("Flexi", 324, "testing", foodContainerReq2.allowedInDiet(),
+        FlexitarianDiet flexiDiet = new FlexitarianDiet("Flexi", 324, "testing",
+                foodContainerReq2.allowedInDietAndAllergiesTooMany().get(0),
                 false, 1000, (new Food("Tuna", 129, false, FoodType.PROTEIN)));
         assertTrue(okAmountOfAllergies.personRestriction2b(okAmountOfAllergies, flexiDiet));
     }
