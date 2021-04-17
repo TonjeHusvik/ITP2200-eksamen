@@ -5,7 +5,7 @@ public abstract class Diet {
     private int daysDuration;
     private String purpose;
     private ArrayList<Food> allowedFood;
-    private boolean isVegan;
+    public boolean isVegan;
     private String name;
 
     public Diet(String name, int daysDuration, String purpose, ArrayList<Food> allowedFood, boolean isVegan) {
@@ -88,18 +88,6 @@ public abstract class Diet {
         return result;
     }
 
-    public boolean veganDietRestriction1c() throws IllegalArgumentException {
-        for (Food f : getAllowedFood()) {
-            if (!f.isVegan()) {
-                isVegan = false;
-                System.out.println("This is an illegal argument being thrown as expected, " +
-                        "because this diet contains non-vegan food.");
-                throw new IllegalArgumentException();
-            }
-        }
-        System.out.println("This diet is vegan");
-        return true;
-    }
 
     public boolean dietRestriction1b() {
         for (Food f : getAllowedFood()) {
@@ -111,10 +99,10 @@ public abstract class Diet {
         }
         return false;
     }
-
-    public boolean dietRestriction1a() {
+/*
+    public boolean dietRestriction1a(Diet d) {
         for (Food f : getAllowedFood()) {
-            if (isVegan() && f.isVegan()) {
+            if ((isVegan() || !isVegan()) && f.isVegan()) {
                 System.out.println("True, this diet is vegan");
                 return true;
             }
@@ -122,5 +110,31 @@ public abstract class Diet {
         System.out.println("False, this diet is not vegan");
         return false;
     }
+
+    */ /*
+    public boolean dietRestriction1a(Diet d) {
+        for (Food f : getAllowedFood()) {
+            if (isVegan() && f.isVegan()) {
+                System.out.println("True, this diet is vegan");
+                return true;
+            }else if(!d.isVegan() && f.isVegan()){
+                return true;
+            }
+        }
+        System.out.println("False, this diet is not vegan");
+        return false;
+    } */
+public boolean dietRestriction1a(Diet d) {
+    for (Food f : getAllowedFood()) {
+        if (d.getAllowedFood().equals(f.isVegan())) {
+            System.out.println("True, this diet is vegan");
+            return true;
+        }else if(!d.isVegan() && f.isVegan()){
+            return true;
+        }
+    }
+    System.out.println("False, this diet is not vegan");
+    return false;
+}
 }
 

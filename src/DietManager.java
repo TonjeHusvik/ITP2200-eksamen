@@ -4,7 +4,7 @@ import java.util.Random;
 public class DietManager{
 
     public boolean areCompatibleVegan(Person p, VeganDiet v) {
-        if (v.dietRestriction1a() && p.personRestriction2a() && p.personRestriction2b(p, v)
+        if (v.dietRestriction1a(v) && p.personRestriction2a() && p.personRestriction2b(p, v)
                 && p.personRestriction2c_1(v)) {
             return true;
         } else throw new IllegalArgumentException("ERROR! The Person and the Diet is not compatible.");

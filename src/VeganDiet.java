@@ -15,4 +15,16 @@ public class VeganDiet extends Diet{
         return minWeightKg;
     }
 
+    public boolean veganDietRestriction1c() throws IllegalArgumentException {
+        for (Food f : getAllowedFood()) {
+            if (!f.isVegan()) {
+                isVegan = false;
+                System.out.println("This is an illegal argument being thrown as expected, " +
+                        "because this diet contains non-vegan food.");
+                throw new IllegalArgumentException();
+            }
+        }
+        System.out.println("This diet is vegan");
+        return true;
+    }
 }

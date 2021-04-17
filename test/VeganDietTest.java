@@ -26,11 +26,11 @@ public class VeganDietTest {
         allowedInFlexitarian.add(flexitarianFood3);
 
         // VEGAN FOOD
-        Food veganFood1 = new Food("Rice", 130, true, FoodType.Carb);
+        Food veganFood1 = new Food("Rice", 130, false, FoodType.Carb);
         Food veganFood2 = new Food("Salad", 20, true, FoodType.Recipe);
         Food veganFood3 = new Food("Tofu", 200, true, FoodType.Protein);
         Food veganFood4 = new Food("Beans", 130, true, FoodType.Carb);
-        Food veganFood5 = new Food("Broccoli", 20, true, FoodType.Fiber);
+        Food veganFood5 = new Food("Broccoli", 20, false, FoodType.Fiber);
         allowedInVegan.add(veganFood1);
         allowedInVegan.add(veganFood2);
         allowedInVegan.add(veganFood3);
@@ -54,7 +54,7 @@ public class VeganDietTest {
     public void requirement1a_1 () {
         VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet", allowedInVegan, true, 50);
 
-        assertTrue(veganDiet1.dietRestriction1a());
+        assertTrue(veganDiet1.dietRestriction1a(veganDiet1));
     }
 
     // Test if the diet is non-vegan and if the food is non-vegan.
@@ -64,7 +64,7 @@ public class VeganDietTest {
         Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein); //sjekker ikke preferred meat, må bare stå her
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet", allowedInFlexitarian, false, 50, tomahawk);
 
-        assertFalse(flexitarianDiet1.dietRestriction1a());
+        assertFalse(flexitarianDiet1.dietRestriction1a(flexitarianDiet1));
     }
 
     // Test if the diet is vegan and if the food is non-vegan.
@@ -73,7 +73,7 @@ public class VeganDietTest {
     public void requirement1a_3 () {
         VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet of Rice and Chicken Filet", nonAllowedFoodVegan, true, 50);
 
-        assertFalse(veganDiet1.dietRestriction1a());
+        assertFalse(veganDiet1.dietRestriction1a(veganDiet1));
     }
 
     // Test if the diet is non-vegan and if the food is vegan.
@@ -83,7 +83,7 @@ public class VeganDietTest {
         Food tofu = new Food("Tofu", 200, true, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet", allowedInVegan, false, 50, tofu);
 
-        assertFalse(flexitarianDiet1.dietRestriction1b());
+        assertTrue(flexitarianDiet1.dietRestriction1a(flexitarianDiet1));
     }
 
     /*-------------------------------------------------------------------------------------------------------------------*/
