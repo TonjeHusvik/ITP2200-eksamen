@@ -72,6 +72,17 @@ public class Person {
         return true;
     }
 
+    public boolean personRestriction2b_2(Person p, Diet d) {
+        p.getAllergies().retainAll(d.getAllowedFood());
+        if(p.getAllergies().size() >= (d.getAllowedFood().size()/2)) {
+            System.out.println("This person is allergic to the following foods in the diet: "
+                    + p.getAllergies().toString() + "\r\n" + "An exception is thrown as expected.");
+            throw new IllegalArgumentException();
+        }
+        System.out.println("The person can follow this diet.");
+        return true;
+    }
+
     public boolean personRestriction2c_1(VeganDiet d) throws IllegalArgumentException {
 
         if(getWeight() < d.getMinWeightKg()){

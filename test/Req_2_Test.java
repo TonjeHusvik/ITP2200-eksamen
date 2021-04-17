@@ -62,7 +62,7 @@ public class Req_2_Test {
         FlexitarianDiet flexiDiet = new FlexitarianDiet("Flexi", 324, "testing",
                 foodContainerReq2.allowedInDietAndAllergiesTooMany().get(0),
                 false, 1000, (new Food("Tuna", 129, false, FoodType.PROTEIN)));
-        assertTrue(okAmountOfAllergies.personRestriction2b(okAmountOfAllergies, flexiDiet));
+        assertTrue(okAmountOfAllergies.personRestriction2b_2(okAmountOfAllergies, flexiDiet));
     }
 
     /*--------------------------------------------------------------------------------------------------------------------*/

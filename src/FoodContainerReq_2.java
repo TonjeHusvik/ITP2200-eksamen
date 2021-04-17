@@ -73,19 +73,6 @@ public class FoodContainerReq_2 {
         return allowedInDietAndAllergiesTooMany;
     }
 
-    public ArrayList<Food> allergiesTooMany() {
-        ArrayList<Food> allergiesTooMany = new ArrayList<>();
-        Food flexiFood4 = new Food("Pomegranate", 234, true, FoodType.FIBER);
-        Food flexiFood5 = new Food("Peanuts", 567, true, FoodType.FAT);
-        Food flexiFood6 = new Food("Wheat", 315, true, FoodType.CARB);
-        Food allergyFood3 = new Food("Salmon", 208, false, FoodType.PROTEIN);
-        allergiesTooMany.add(flexiFood4);
-        allergiesTooMany.add(flexiFood5);
-        allergiesTooMany.add(flexiFood6);
-        allergiesTooMany.add(allergyFood3);
-        return allergiesTooMany;
-    }
-
     public ArrayList<Food> allergiesOk() {
         ArrayList<Food> allergiesOk = new ArrayList<>();
         Food allergyFood1 = new Food("Spinach", 23, true, FoodType.FIBER);
