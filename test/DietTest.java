@@ -42,9 +42,11 @@ public class DietTest {
         Food almond = new Food("Almond", 579, true, FoodType.FAT);
         Food squid = new Food("Squid", 83, false, FoodType.PROTEIN);
         Food milk = new Food("Milk", 42, false, FoodType.PROTEIN);
+        Food Broccoli = new Food("Broccoli", 20, true, FoodType.FIBER);
         personAllergiesInException.add(almond);
         personAllergiesInException.add(squid);
         personAllergiesInException.add(milk);
+        personAllergiesInException.add(Broccoli);
 
         // LOWCARB FOOD
         Food lowCarbFood1 = new Food("Cauliflower rice", 23, true, FoodType.PROTEIN);
@@ -141,7 +143,7 @@ public class DietTest {
     }
 
     // Testing ONLY lowcarb-compatibility
-    // weight, more than 2x carbs, and more than half of the food are the person allergic against,
+    // weight, more than 2x carbs, and the person is allergic to 50% of the food in the allergic arraylist
     // PASSED✔
     @Test (expected = IllegalArgumentException.class)
     public void requirement4a_1Exception() {
@@ -168,16 +170,16 @@ public class DietTest {
     }
 
     // Testing ONLY flexitarian-compatibility
-    // todo, fix this to make sure its testing with exception and with the wrong inputs, rune
+    // preferred meat is vegan and carb, person is allergic to 50% of the food in the allergic arraylist
     // PASSED✔
-    @Test
+    @Test (expected = IllegalArgumentException.class)
     public void requirement4a_2Exception() {
-        Food flexitarianPerson3FavouriteFood = new Food("Tomahawk Beef", 295, false, FoodType.PROTEIN);
+        Food flexitarianPerson3FavouriteFood = new Food("Tomahawk Beef", 295, true, FoodType.CARB);
         FlexitarianDiet person3FlexitarianDiet = new FlexitarianDiet("Person3 FlexitarianDiet", 90, "Is this diet compatible with this Person?",
                 allowedInFlexitarianDiet, true, 5000, flexitarianPerson3FavouriteFood);
 
         DietManager dietManager = new DietManager();
-        Person person3 = new Person(flexitarianPerson3FavouriteFood, person3Allergies, person3FlexitarianDiet, 90);
+        Person person3 = new Person(flexitarianPerson3FavouriteFood, personAllergiesInException, person3FlexitarianDiet, 90);
         assertTrue(dietManager.areCompatibleFlexitarian(person3, person3FlexitarianDiet, flexitarianPerson3FavouriteFood));
     }
 
@@ -195,16 +197,16 @@ public class DietTest {
     }
 
     // Testing ONLY hypercaloric-compatibility
-    // todo, fix this to make sure its testing with exception and with the wrong inputs, rune
+    // weight is above the diet's limit, and the person is allergic to 50% of the food in the allergic arraylist
     // PASSED✔
-    @Test
+    @Test (expected = IllegalArgumentException.class)
     public void requirement4a_3Exception() {
         Food hypercaloricPerson4FavouriteFood = new Food("Bananas", 88, true, FoodType.CARB);
         HypercaloricDiet person4HypercaloricDiet = new HypercaloricDiet("Person1 VeganDiet", 90, "Is this diet compatible with this Person?",
                 allowedInHypercaloricDiet, false, 150, 2000);
 
         DietManager dietManager = new DietManager();
-        Person person4 = new Person(hypercaloricPerson4FavouriteFood, person4Allergies, person4HypercaloricDiet, 89);
+        Person person4 = new Person(hypercaloricPerson4FavouriteFood, personAllergiesInException, person4HypercaloricDiet, 160);
         assertTrue(dietManager.areCompatibleHypercaloric(person4, person4HypercaloricDiet));
     }
 }
