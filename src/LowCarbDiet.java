@@ -14,4 +14,16 @@ public class LowCarbDiet extends Diet{
         return minWeightKg;
     }
 
+    public boolean lowCarbRestriction1e() throws IllegalArgumentException {
+        int i = 0;
+        for (Food f : getAllowedFood()) {
+            if (f.getType().equals(FoodType.CARB)) {
+                i = i + 1;
+                if (i >= 3) {
+                    throw new IllegalArgumentException("You can not have more than two types of carb in a lowcarb diet");
+                }
+            }
+        }
+        return true;
+    }
 }

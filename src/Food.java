@@ -17,7 +17,6 @@ public class Food {
 
     }
 
-
     public boolean isVegan() {
         return isVegan;
     }

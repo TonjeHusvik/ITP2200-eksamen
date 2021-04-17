@@ -1,7 +1,7 @@
 public enum FoodType {
-    Recipe,
-    Protein,
-    Carb,
-    Fat,
-    Fiber
+    RECIPE,
+    PROTEIN,
+    CARB,
+    FAT,
+    FIBER
 }

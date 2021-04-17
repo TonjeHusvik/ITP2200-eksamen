@@ -4,7 +4,7 @@ import java.util.Random;
 public class DietManager{
 
     public boolean areCompatibleVegan(Person p, VeganDiet v) {
-        if (v.dietRestriction1a() && p.personRestriction2a() && p.personRestriction2b(p, v)
+        if (v.dietRestriction1a(v) && p.personRestriction2a() && p.personRestriction2b(p, v)
                 && p.personRestriction2c_1(v)) {
             return true;
         } else throw new IllegalArgumentException("ERROR! The Person and the Diet is not compatible.");
@@ -14,25 +14,19 @@ public class DietManager{
         if (l.lowCarbRestriction1e() && l.dietRestriction1b() && p.personRestriction2b(p, l)
                 && p.personRestriction2c_2(l)) {
             return true;
-        }
-        // todo make exception here as the method above has, rune
-        return false;
+        } else throw new IllegalArgumentException("ERROR! The Person and the Diet is not compatible.");
     }
 
     public boolean areCompatibleFlexitarian(Person p, FlexitarianDiet f, Food food) {
         if (p.personRestriction2b(p, f) && f.flexDietRestriction1d(f, food)) {
             return true;
-        }
-        // todo make exception here as the method above has, rune
-        return false;
+        } else throw new IllegalArgumentException("ERROR! The Person and the Diet is not compatible.");
     }
 
     public boolean areCompatibleHypercaloric(Person p, HypercaloricDiet f) {
         if (p.personRestriction2b(p, f) && p.personRestriction2_d(f)) {
             return true;
-        }
-        // todo make exception here as the method above has, rune
-        return false;
+        } else throw new IllegalArgumentException("ERROR! The Person and the Diet is not compatible.");
     }
 
 
