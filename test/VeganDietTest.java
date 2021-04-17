@@ -54,20 +54,23 @@ public class VeganDietTest {
     /*** Requirement 1. a: If a diet contains any non-vegan food, it is considered not vegan (i.e., isVegan = false).***/
 
     // Test if the diet is vegan on behalf of the food is vegan.
+    // TESTING EVERYTHING IN THE ARRAYLIST IF ITS ALL VEGAN, allowed food is determining and not the isVegan parameter on the diet.
     // PASSED✔️
-    // TESTING EVERYTHING IN THE ARRAYLIST IF ITS ALL VEGAN, allowedfood is determining and not the isVegan parameter on the diet
     @Test
     public void requirement1a_1 () {
-        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet", allowedInVegan, false, 50);
+        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet",
+                allowedInVegan, false, 50);
 
         assertTrue(veganDiet1.dietRestriction1a(veganDiet1));
     }
 
-    // TESTING EVERYTHING IN THE ARRAYLIST IF ITS ALL VEGAN, but it is not because of the imposterfood
+    // Test if the diet is vegan on behalf of the food is vegan.
+    // TESTING EVERYTHING IN THE ARRAYLIST IF ITS ALL VEGAN, but it is not because of the imposter food.
     // PASSED✔️
     @Test (expected = IllegalArgumentException.class)
     public void requirement1a_1Exception () {
-        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet", allowedInVeganImposter, true, 50);
+        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet",
+                allowedInVeganImposter, true, 50);
 
         assertTrue(veganDiet1.dietRestriction1a(veganDiet1));
     }
@@ -76,8 +79,9 @@ public class VeganDietTest {
     // PASSED✔️
     @Test
     public void requirement1a_2 () {
-        Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein); //sjekker ikke preferred meat, må bare stå her
-        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet", allowedInFlexitarian, false, 50, tomahawk);
+        Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet",
+                allowedInFlexitarian, false, 50, tomahawk);
 
         flexitarianDiet1.dietRestriction1a(flexitarianDiet1);
     }
@@ -86,8 +90,9 @@ public class VeganDietTest {
     // PASSED✔️
     @Test
     public void requirement1a_2Exception () {
-        Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein); //sjekker ikke preferred meat, må bare stå her
-        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet", allowedInFlexitarian, false, 50, tomahawk);
+        Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet",
+                allowedInFlexitarian, false, 50, tomahawk);
 
         flexitarianDiet1.dietRestriction1a(flexitarianDiet1);
     }
@@ -96,7 +101,8 @@ public class VeganDietTest {
     // PASSED✔️
     @Test
     public void requirement1a_3 () {
-        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet of Rice and Chicken Filet", nonAllowedFoodVegan, true, 50);
+        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet of Rice and Chicken Filet",
+                nonAllowedFoodVegan, true, 50);
 
         assertFalse(veganDiet1.dietRestriction1a(veganDiet1));
     }
