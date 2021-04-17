@@ -47,7 +47,7 @@ public class FlexitarianDietTest {
     // PASSED✔️
     @Test (expected = IllegalArgumentException.class)
     public void requirement1d_1() {
-        Food tomahawkSteak = new Food("Tomahawk Steak", 160, true, FoodType.Carb);
+        Food tomahawkSteak = new Food("Bread", 350, true, FoodType.Carb);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Flexitarian Diet", 23, "Stay fit",
                 allowedInFlexitarian, false, 8000, tomahawkSteak);
 
@@ -58,7 +58,7 @@ public class FlexitarianDietTest {
     // PASSED✔️
     @Test (expected = IllegalArgumentException.class)
     public void requirement1d_2() {
-        Food tomahawkSteak = new Food("Tomahawk Steak", 160, true, FoodType.Protein);
+        Food tomahawkSteak = new Food("Lentils", 160, true, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Flexitarian Diet", 23, "Stay fit",
                 allowedInFlexitarian, false, 8000, tomahawkSteak);
 
@@ -69,7 +69,7 @@ public class FlexitarianDietTest {
     // PASSED✔️
     @Test (expected = IllegalArgumentException.class)
     public void requirement1d_3() {
-        Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Carb);
+        Food tomahawkSteak = new Food("Chicken soup", 160, false, FoodType.Recipe);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Flexitarian Diet", 23, "Stay fit",
                 allowedInFlexitarian, false, 8000, tomahawkSteak);
 
