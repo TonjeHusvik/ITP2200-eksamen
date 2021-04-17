@@ -47,7 +47,7 @@ public class FoodContainerReq_2 {
 
         ArrayList<Food> allowedInDiet = new ArrayList<>();
         ArrayList<Food> allergiesTooMany = new ArrayList<>();
-        ArrayList<ArrayList<Food>> allowedInDietAndAllergiesTooMany = new ArrayList<ArrayList<Food>>();
+        ArrayList<ArrayList<Food>> allowedInDietAndAllergiesTooMany = new ArrayList<>();
 
         Food flexiFood1 = new Food("Salad", 10, true, FoodType.FIBER);
         Food flexiFood2 = new Food("Crab", 82, false, FoodType.PROTEIN);
