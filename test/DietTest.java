@@ -100,7 +100,7 @@ public class DietTest {
     // PASSED✔
     @Test (expected = IllegalArgumentException.class)
     public void requirement4aException() {
-        Food veganPerson1FavouriteFood = new Food("Beans", 150, false, FoodType.Protein);
+        Food veganPerson1FavouriteFood = new Food("Meatballs", 196, false, FoodType.Protein);
         VeganDiet person1VeganDiet = new VeganDiet("Person1 VeganDiet", 90, "Is this diet compatible with this Person?",
                 allowedInVegan, false, 50);
 
@@ -113,7 +113,7 @@ public class DietTest {
     // PASSED✔
     @Test
     public void requirement4a_1() {
-        Food lowCarbPerson2FavouriteFood = new Food("Eggs", 155, true, FoodType.Protein);
+        Food lowCarbPerson2FavouriteFood = new Food("Beans", 150, true, FoodType.Protein);
         LowCarbDiet person2LowCarbDiet = new LowCarbDiet("Person2 LowCarbDiet", 90, "Is this diet compatible with this Person?",
                 allowedLowCarbFood, true, 50);
 
@@ -167,7 +167,7 @@ public class DietTest {
     // PASSED✔
     @Test
     public void requirement4a_3() {
-        Food hypercaloricPerson4FavouriteFood = new Food("Spaghetti", 295, true, FoodType.Carb);
+        Food hypercaloricPerson4FavouriteFood = new Food("Bananas", 88, true, FoodType.Carb);
         HypercaloricDiet person4HypercaloricDiet = new HypercaloricDiet("Person1 VeganDiet", 90, "Is this diet compatible with this Person?",
                 allowedInHypercaloricDiet, false, 150, 2000);
 
@@ -181,7 +181,7 @@ public class DietTest {
     // PASSED✔
     @Test
     public void requirement4a_3Exception() {
-        Food hypercaloricPerson4FavouriteFood = new Food("Spaghetti", 295, true, FoodType.Carb);
+        Food hypercaloricPerson4FavouriteFood = new Food("Bananas", 88, true, FoodType.Carb);
         HypercaloricDiet person4HypercaloricDiet = new HypercaloricDiet("Person1 VeganDiet", 90, "Is this diet compatible with this Person?",
                 allowedInHypercaloricDiet, false, 150, 2000);
 
