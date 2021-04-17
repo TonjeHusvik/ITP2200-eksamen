@@ -1,16 +1,16 @@
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
-
 import java.util.ArrayList;
-
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.*;
+
+// PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
+// PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
+// PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
+// PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
 
 public class FlexitarianDietTest {
     ArrayList<Food> allowedInFlexitarian = new ArrayList<>();
-
 
     @Before
     public void setUp() {
@@ -35,49 +35,45 @@ public class FlexitarianDietTest {
     // Test if preferred meat is non-vegan and FoodType is of Protein
     // PASSED✔️
     @Test
-    public void requirement1_d () {
+    public void requirement1d () {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Non-vegan protein food",
                                             allowedInFlexitarian, false, 8000, tomahawkSteak);
 
-        assertFalse(Boolean.parseBoolean(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak)));
-        System.out.println(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak));
+        assertTrue(flexitarianDiet1.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak));
     }
 
     // Test if preferred meat is vegan and FoodType is not protein
     // PASSED✔️
     @Test (expected = IllegalArgumentException.class)
-    public void requirement1_d_1() {
+    public void requirement1d_1() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, true, FoodType.Carb);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try vegan and non-protein foodtype",
                 allowedInFlexitarian, false, 8000, tomahawkSteak);
 
-        System.out.println("The preferred meat in FlexitarianDiet is not of FoodType PROTEIN and is VEGAN, DO NOT EAT");
-        assertFalse(Boolean.parseBoolean(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak)));
+        flexitarianDiet1.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak);
     }
 
     // Test if preferred meat is vegan and FoodType is protein
     // PASSED✔️
     @Test (expected = IllegalArgumentException.class)
-    public void requirement1_d_2() {
+    public void requirement1d_2() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, true, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try vegan and protein foodtype",
                 allowedInFlexitarian, false, 8000, tomahawkSteak);
 
-        System.out.println("The preferred meat in FlexitarianDiet is VEGAN! DO NOT EAT");
-        assertFalse(Boolean.parseBoolean(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak)));
+        flexitarianDiet1.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak);
     }
 
     // Test if preferred meat is non-vegan and FoodType is not protein
     // PASSED✔️
     @Test (expected = IllegalArgumentException.class)
-    public void requirement1_d_3() {
+    public void requirement1d_3() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Carb);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Jonas", 23, "Want to try non-vegan and non-protein foodtype",
                 allowedInFlexitarian, false, 8000, tomahawkSteak);
 
-        System.out.println("The preferred meat in FlexitarianDiet is NOT of FoodType Protein! DO NOT EAT");
-        assertFalse(Boolean.parseBoolean(Diet.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak)));
+        flexitarianDiet1.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak);
     }
 
     /*-----------------------------------------------------------------------------------------------------------------*/
@@ -90,9 +86,10 @@ public class FlexitarianDietTest {
 
     // MAIN TASK: Write the duration of a diet in terms of years, months and days, e.g.,
     //     “This VeganDiet lasts for 2 years, 3 months and 5 days”
+    // Testing only one diet for this req, all the subclasses inherits from the Diet class (parent)
     // PASSED✔️
     @Test
-    public void requirement3_a() {
+    public void requirement3a() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 400, "What is the duration of this diet?",
                 allowedInFlexitarian, true, 3000, tomahawkSteak);
@@ -104,7 +101,7 @@ public class FlexitarianDietTest {
     // Test days only
     // PASSED✔️
     @Test
-    public void requirement3_a_1() {
+    public void requirement3a_1() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 450, "What is the duration of this diet?",
                 allowedInFlexitarian, true, 3000, tomahawkSteak);
@@ -116,7 +113,7 @@ public class FlexitarianDietTest {
     // Test months only (has to be more than 30 days, else an exception is thrown).
     // PASSED✔️
     @Test
-    public void requirement3_a_2() {
+    public void requirement3a_2() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 700, "What is the duration of this diet?",
                 allowedInFlexitarian, true, 3000, tomahawkSteak);
@@ -128,7 +125,7 @@ public class FlexitarianDietTest {
     // Test years only (has to be more than 1 years, else an exception is thrown).
     // PASSED✔️
     @Test
-    public void requirement3_a_3() {
+    public void requirement3a_3() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 400, "What is the duration of this diet?",
                 allowedInFlexitarian, true, 3000, tomahawkSteak);
@@ -144,9 +141,10 @@ public class FlexitarianDietTest {
 
     /*** Write the allowed food, e.g., "The following food is allowed in this FlexitarianDiet: Salad, Soup, Apple, Strawberry, Salmon”***/
     // MAIN TASK: Write the allowed food, e.g., "The following food is allowed in this FlexitarianDiet: Salad, Soup, Apple, Strawberry, Salmon"
+    // Testing only one diet for this req, all the subclasses inherits from the Diet class (parent)
     // PASSED✔️
     @Test
-    public void requirement3_b() {
+    public void requirement3b() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 400, "What does this diet contains?",
                 allowedInFlexitarian, true, 3000, tomahawkSteak);

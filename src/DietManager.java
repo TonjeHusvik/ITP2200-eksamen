@@ -3,19 +3,37 @@ import java.util.Random;
 
 public class DietManager{
 
-    // FIXME ikke done, rune
-    // FIXME
-    public boolean areCompatible(Person p, VeganDiet d) throws IllegalArgumentException {
-        if (true) {
+    public boolean areCompatibleVegan(Person p, VeganDiet v) {
+        if (v.dietRestriction1a() && p.personRestriction2a() && p.personRestriction2b(p, v)
+                && p.personRestriction2c_1(v)) {
             return true;
-        }
-            else
-        throw new IllegalArgumentException("The diet and the person is NOT compatible because of ");
+        } else throw new IllegalArgumentException("ERROR! The Person and the Diet is not compatible.");
     }
 
-/*
-    (p.getFavouriteFood().isVegan() && d.isVegan()) && (p.getWeight() > d.getMinWeightKg())
-*/
+    public boolean areCompatibleLowCarb(Person p, LowCarbDiet l) {
+        if (l.lowCarbRestriction1e() && l.dietRestriction1b() && p.personRestriction2b(p, l)
+                && p.personRestriction2c_2(l)) {
+            return true;
+        }
+        // todo make exception here as the method above has, rune
+        return false;
+    }
+
+    public boolean areCompatibleFlexitarian(Person p, FlexitarianDiet f, Food food) {
+        if (p.personRestriction2b(p, f) && f.flexDietRestriction1d(f, food)) {
+            return true;
+        }
+        // todo make exception here as the method above has, rune
+        return false;
+    }
+
+    public boolean areCompatibleHypercaloric(Person p, HypercaloricDiet f) {
+        if (p.personRestriction2b(p, f) && p.personRestriction2_d(f)) {
+            return true;
+        }
+        // todo make exception here as the method above has, rune
+        return false;
+    }
 
 
     public HypercaloricDiet randomDiet(Person p, ArrayList<Food> f) {

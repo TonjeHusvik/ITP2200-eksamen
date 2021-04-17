@@ -14,9 +14,4 @@ public class VeganDiet extends Diet{
     public float getMinWeightKg() {
         return minWeightKg;
     }
-
-    public void setMinWeightKg(float minWeightKg) {
-        this.minWeightKg = minWeightKg;
-    }
-
 }
