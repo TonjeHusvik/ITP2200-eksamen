@@ -144,6 +144,5 @@ public abstract class Diet {
         System.out.println("False, this diet is not vegan");
         return false;
     }
-
 }
 
