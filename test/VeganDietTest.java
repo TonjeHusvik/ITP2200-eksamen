@@ -12,6 +12,7 @@ public class VeganDietTest {
 
     ArrayList<Food> allowedInVegan = new ArrayList<>();
     ArrayList<Food> allowedInVeganImposter = new ArrayList<>();
+    ArrayList<Food> allowedInFlexitarianVeganImposter = new ArrayList<>();
     ArrayList<Food> allowedInFlexitarian = new ArrayList<>();
     ArrayList<Food> nonAllowedFoodVegan = new ArrayList<>();
 
@@ -41,6 +42,10 @@ public class VeganDietTest {
         // VEGAN IMPOSTER FOOD
         Food veganFoodImposter = new Food("Broccoli", 20, false, FoodType.Fiber);
         allowedInVeganImposter.add(veganFoodImposter);
+
+        // FLEXITARIAN VEGAN IMPOSTER FOOD
+        Food flexitarianFoodImposter = new Food("Beef", 20, true, FoodType.Protein);
+        allowedInFlexitarianVeganImposter.add(flexitarianFoodImposter);
 
         // NON VEGAN FOOD
         Food nonVeganFood1 = new Food("Ribeye", 130, false, FoodType.Protein);
@@ -75,20 +80,20 @@ public class VeganDietTest {
         assertTrue(veganDiet1.dietRestriction1a(veganDiet1));
     }
 
-    // Test if the diet is non-vegan and if the food is non-vegan.
+    // Test when the diet is non-vegan and when the food is vegan, allowed food is determinant
     // PASSED✔️
     @Test
     public void requirement1a_2 () {
         Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet",
-                allowedInFlexitarian, false, 50, tomahawk);
+                allowedInFlexitarianVeganImposter, false, 50, tomahawk);
 
-        flexitarianDiet1.dietRestriction1a(flexitarianDiet1);
+        assertTrue(flexitarianDiet1.dietRestriction1a(flexitarianDiet1));
     }
 
-    // Test if the diet is non-vegan and if the food is non-vegan.
+    // Test when the diet is non-vegan and when the food is non-vegan, expecting the exception, allowed food is determinant
     // PASSED✔️
-    @Test
+    @Test (expected = IllegalArgumentException.class)
     public void requirement1a_2Exception () {
         Food tomahawk = new Food("Tomahawk", 160, false, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet",
@@ -97,26 +102,46 @@ public class VeganDietTest {
         flexitarianDiet1.dietRestriction1a(flexitarianDiet1);
     }
 
-    // Test if the diet is vegan and if the food is non-vegan.
+    // Test when the diet is vegan and when the food is vegan, allowed food is determinant
     // PASSED✔️
     @Test
     public void requirement1a_3 () {
+        VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet of Rice and Chicken Filet",
+                allowedInVegan, true, 50);
+
+        assertTrue(veganDiet1.dietRestriction1a(veganDiet1));
+    }
+
+    // Test when the diet is vegan and when the food is non-vegan, expecting the exception, allowed food is determinant
+    // PASSED✔️
+    @Test (expected = IllegalArgumentException.class)
+    public void requirement1a_3Exception () {
         VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet of Rice and Chicken Filet",
                 nonAllowedFoodVegan, true, 50);
 
         assertFalse(veganDiet1.dietRestriction1a(veganDiet1));
     }
 
-    // Test if the diet is non-vegan and if the food is vegan.
+    // Test when the diet is non-vegan and when the food is vegan, allowed food is determinant
     // PASSED✔️
-    // FIXME ikke i orden, metode må jobbes med
     @Test
     public void requirement1a_4 () {
         Food tofu = new Food("Tofu", 200, true, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet",
                 allowedInVegan, false, 50, tofu);
 
-        assertFalse(flexitarianDiet1.dietRestriction1a(flexitarianDiet1));
+        assertTrue(flexitarianDiet1.dietRestriction1a(flexitarianDiet1));
+    }
+
+    // Test when the diet is non-vegan and when the food is non-vegan, expecting the exception, allowed food is determinant
+    // PASSED✔️
+    @Test (expected = IllegalArgumentException.class)
+    public void requirement1a_4Exception () {
+        Food tofu = new Food("Tofu", 200, true, FoodType.Protein);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet",
+                allowedInFlexitarian, false, 50, tofu);
+
+        flexitarianDiet1.dietRestriction1a(flexitarianDiet1);
     }
 
     /*-------------------------------------------------------------------------------------------------------------------*/
