@@ -16,4 +16,13 @@ public class FlexitarianDiet extends Diet{
         return preferredMeat;
     }
 
+    public boolean flexDietRestriction1d(FlexitarianDiet d, Food f) {
+        if (!d.getPreferredMeat().isVegan() && f.getType() == FoodType.Protein) {
+            System.out.println("The preferred meat in FlexitarianDiet is not vegan and is of FoodType Protein, ENJOY! =)");
+            return true;
+        } else {
+            throw new IllegalArgumentException("ERROR! The preferred meat in a FlexitarianDiet MUST be non-vegan of protein type.");
+        }
+    }
+
 }
