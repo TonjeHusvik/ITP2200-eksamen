@@ -99,43 +99,6 @@ public abstract class Diet {
         }
         return false;
     }
-/*
-    public boolean dietRestriction1a(Diet d) {
-        for (Food f : getAllowedFood()) {
-            if ((isVegan() || !isVegan()) && f.isVegan()) {
-                System.out.println("True, this diet is vegan");
-                return true;
-            }
-        }
-        System.out.println("False, this diet is not vegan");
-        return false;
-    }
-
-    */ /*
-    public boolean dietRestriction1a(Diet d) {
-        for (Food f : getAllowedFood()) {
-            if (isVegan() && f.isVegan()) {
-                System.out.println("True, this diet is vegan");
-                return true;
-            }else if(!d.isVegan() && f.isVegan()){
-                return true;
-            }
-        }
-        System.out.println("False, this diet is not vegan");
-        return false;
-    } */
-/*    public boolean dietRestriction1a(Diet d) {
-        for (Food f : getAllowedFood()) {
-        if (d.getAllowedFood().equals(f.isVegan())) {
-            System.out.println("True, this diet is vegan");
-            return true;
-        }else if(!d.isVegan() && f.isVegan()){
-            return true;
-        }
-    }
-    System.out.println("False, this diet is not vegan");
-    return false;
-    }*/
 
     public boolean dietRestriction1a(Diet d) {
         for (Food f : allowedFood) {
@@ -146,4 +109,3 @@ public abstract class Diet {
         return true;
     }
 }
-
