@@ -80,10 +80,10 @@ public class VeganDietTest {
     // PASSED✔️
     @Test
     public void requirement1a_4 () {
-        Food tofu = new Food("Tofu", 200, true, FoodType.Protein); //sjekker ikke preferred meat, må bare stå her
+        Food tofu = new Food("Tofu", 200, true, FoodType.Protein);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet", allowedInVegan, false, 50, tofu);
 
-        assertFalse(flexitarianDiet1.dietRestriction1a());
+        assertFalse(flexitarianDiet1.dietRestriction1b());
     }
 
     /*-------------------------------------------------------------------------------------------------------------------*/

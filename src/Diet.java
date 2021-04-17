@@ -88,17 +88,6 @@ public abstract class Diet {
         return result;
     }
 
-    public boolean dietRestriction1b() {
-        for (Food f : getAllowedFood()) {
-            if (f.isVegan()) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return false;
-    }
-
     public boolean veganDietRestriction1c() throws IllegalArgumentException {
         for (Food f : getAllowedFood()) {
             if (!f.isVegan()) {
@@ -112,26 +101,15 @@ public abstract class Diet {
         return true;
     }
 
-    public boolean flexDietRestriction1d(FlexitarianDiet d, Food f) {
-        if (!d.getPreferredMeat().isVegan() && f.getType() == FoodType.Protein) {
-            System.out.println("The preferred meat in FlexitarianDiet is not vegan and is of FoodType Protein, ENJOY! =)");
-            return true;
-        } else {
-            throw new IllegalArgumentException("ERROR! The preferred meat in a FlexitarianDiet MUST be non-vegan of protein type.");
-        }
-    }
-
-    public boolean lowCarbRestriction1e() throws IllegalArgumentException {
-        int i = 0;
+    public boolean dietRestriction1b() {
         for (Food f : getAllowedFood()) {
-            if (f.getType().equals(FoodType.Carb)) {
-                i = i + 1;
-                if (i >= 3) {
-                    throw new IllegalArgumentException("You can not have more than two types of carb in a lowcarb diet");
-                }
+            if (f.isVegan()) {
+                return true;
+            } else {
+                return false;
             }
         }
-        return true;
+        return false;
     }
 
     public boolean dietRestriction1a() {

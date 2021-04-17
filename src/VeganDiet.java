@@ -14,4 +14,5 @@ public class VeganDiet extends Diet{
     public float getMinWeightKg() {
         return minWeightKg;
     }
+
 }
