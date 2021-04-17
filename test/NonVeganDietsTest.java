@@ -48,7 +48,7 @@ public class NonVeganDietsTest {
     @Test
     public void requirement1b_2(){
         LowCarbDiet lowCarbDiet = new LowCarbDiet("Low carb diet", 60, "health", allowedInLowCarb, false, 40);
-        assertFalse("The food in this diet is vegan", lowCarbDiet.dietRestriction1b());
+        assertTrue("The food in this diet is vegan", lowCarbDiet.dietRestriction1b());
     }
 
     // Test a diet where nothing is vegan
