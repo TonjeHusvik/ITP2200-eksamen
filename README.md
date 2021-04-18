@@ -41,6 +41,7 @@ Imagine that you would like to start on a diet for any given reason, but you str
 We test to see if your criteria are met with a certain diet of your choosing, to see if you’re a good match to use the diet. 
 
 ## How to use the program
+We recommend to open this software with a Integrated Development Environment, IntelliJ IDEA e.g.
 Since this is a test project and there’s no user interface working, the way to use the SUT is to change the inputs in the tests and arraylists to see different outputs. 
 
 ## Built with
