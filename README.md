@@ -44,7 +44,7 @@ We test to see if your criteria are met with a certain diet of your choosing, to
 Since this is a test project and there’s no user interface working, the way to use the SUT is to change the inputs in the tests and arraylists to see different outputs. 
 
 ## Built with
-   * Intellij IDEA
+   * IntelliJ IDEA
    * JUnit
 
 ## Contributing
