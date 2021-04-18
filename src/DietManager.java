@@ -4,27 +4,27 @@ import java.util.Random;
 public class DietManager{
 
     public boolean areCompatibleVegan(Person p, VeganDiet v) {
-        if (v.foodInDietVeganAndDietVeganOrNot(v) && p.personRestriction2a() && p.personRestriction2b(p, v)
-                && p.personRestriction2c_1(v)) {
+        if (v.foodInDietVeganAndDietVeganOrNot(v) && p.favoriteFoodVeganAndDietVeganOrNot() && p.personAllergicToHalfOrMoreFoodsInDiet(p, v)
+                && p.weightLessThanVeganDietMinimumOrNot(v)) {
             return true;
         } else throw new IllegalArgumentException("ERROR! The Person and the Diet is not compatible.");
     }
 
     public boolean areCompatibleLowCarb(Person p, LowCarbDiet l) {
-        if (l.lessThanTwoCarbsOrNot() && l.foodInDietVeganOrNot() && p.personRestriction2b_2(p, l)
-                && p.personRestriction2c_2(l)) {
+        if (l.lessThanTwoCarbsOrNot() && l.foodInDietVeganOrNot() && p.checkAllergiesAgainstDietFoods(p, l)
+                && p.weightLessThanLowCarbDietMinimumOrNot(l)) {
             return true;
         } else throw new IllegalArgumentException("ERROR! The Person and the Diet is not compatible.");
     }
 
     public boolean areCompatibleFlexitarian(Person p, FlexitarianDiet f, Food food) {
-        if (p.personRestriction2b(p, f) && f.preferredMeatVeganAndFoodTypeProteinOrNot(f, food)) {
+        if (p.personAllergicToHalfOrMoreFoodsInDiet(p, f) && f.preferredMeatVeganAndFoodTypeProteinOrNot(f, food)) {
             return true;
         } else throw new IllegalArgumentException("ERROR! The Person and the Diet is not compatible.");
     }
 
     public boolean areCompatibleHypercaloric(Person p, HypercaloricDiet f) {
-        if (p.personRestriction2b(p, f) && p.personRestriction2_d(f)) {
+        if (p.personAllergicToHalfOrMoreFoodsInDiet(p, f) && p.weightMoreThanMaximumOrNot(f)) {
             return true;
         } else throw new IllegalArgumentException("ERROR! The Person and the Diet is not compatible.");
     }

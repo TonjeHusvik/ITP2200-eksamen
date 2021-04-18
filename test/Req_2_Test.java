@@ -1,4 +1,3 @@
-import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
 import static org.junit.Assert.assertTrue;
@@ -21,7 +20,7 @@ public class Req_2_Test {
         Person personNotVeganFavorite = new Person(new Food("Tuna", 400, false, FoodType.PROTEIN),
                 veganDiet);
 
-        personNotVeganFavorite.personRestriction2a();
+        personNotVeganFavorite.favoriteFoodVeganAndDietVeganOrNot();
     }
 
     // If the persons favourite food is vegan, they can follow a vegan diet
@@ -32,7 +31,7 @@ public class Req_2_Test {
         Person personVeganFavorite = new Person(new Food("Smoked tofu", 140, true, FoodType.PROTEIN),
                 veganDiet);
 
-        assertTrue(personVeganFavorite.personRestriction2a());
+        assertTrue(personVeganFavorite.favoriteFoodVeganAndDietVeganOrNot());
     }
 
 
@@ -62,7 +61,7 @@ public class Req_2_Test {
         FlexitarianDiet flexiDiet = new FlexitarianDiet("Flexi", 324, "testing",
                 foodContainerReq2.allowedInDietAndAllergiesTooMany().get(0),
                 false, 1000, (new Food("Tuna", 129, false, FoodType.PROTEIN)));
-        assertTrue(okAmountOfAllergies.personRestriction2b_2(okAmountOfAllergies, flexiDiet));
+        assertTrue(okAmountOfAllergies.checkAllergiesAgainstDietFoods(okAmountOfAllergies, flexiDiet));
     }
 
     /*--------------------------------------------------------------------------------------------------------------------*/
@@ -85,7 +84,7 @@ public class Req_2_Test {
         Person p = new Person(new Food("Tofu", 76, true, FoodType.PROTEIN), pAllergies,
                 vd , 80);
 
-        assertTrue(p.personRestriction2c_1(vd));
+        assertTrue(p.weightLessThanVeganDietMinimumOrNot(vd));
     }
 
     // Testing vegan diet
@@ -100,7 +99,7 @@ public class Req_2_Test {
         Person p = new Person(new Food("Tofu", 76, true, FoodType.PROTEIN), pAllergies,
                 vd , 45);
 
-        p.personRestriction2c_1(vd);
+        p.weightLessThanVeganDietMinimumOrNot(vd);
     }
 
     // Testing lowcarb diet
@@ -115,7 +114,7 @@ public class Req_2_Test {
         Person p = new Person(new Food("Pizza", 550, false, FoodType.RECIPE), pAllergies,
                 lcd , 63);
 
-        assertTrue(p.personRestriction2c_2(lcd));
+        assertTrue(p.weightLessThanLowCarbDietMinimumOrNot(lcd));
     }
 
     // Testing lowcarb diet
@@ -128,7 +127,7 @@ public class Req_2_Test {
         LowCarbDiet lcd = new LowCarbDiet("Lowcarb Diet", 200, "Burn fat", foodContainerReq2.allowedInLowCarb(), false, 50);
         Person p = new Person(new Food("Pizza", 550, false, FoodType.RECIPE), pAllergies, lcd , 43);
 
-        p.personRestriction2c_2(lcd);
+        p.weightLessThanLowCarbDietMinimumOrNot(lcd);
     }
 
     /*--------------------------------------------------------------------------------------------------------------------*/
@@ -146,7 +145,7 @@ public class Req_2_Test {
                 foodContainerReq2.allowedInHyperCaloric(), false, 100, 6000);
         Person highWeightPerson = new Person(hypercaloricDiet, 90);
 
-        assertTrue(highWeightPerson.personRestriction2_d(hypercaloricDiet));
+        assertTrue(highWeightPerson.weightMoreThanMaximumOrNot(hypercaloricDiet));
     }
 
     // Test if person weight more than the limit set by the diet.
@@ -157,6 +156,6 @@ public class Req_2_Test {
                 foodContainerReq2.allowedInHyperCaloric(), false, 100, 6000);
         Person highWeightPerson = new Person(hypercaloricDiet, 120);
 
-        highWeightPerson.personRestriction2_d(hypercaloricDiet);
+        highWeightPerson.weightMoreThanMaximumOrNot(hypercaloricDiet);
     }
 }
