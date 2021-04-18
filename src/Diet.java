@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public abstract class Diet {
     private int daysDuration;
