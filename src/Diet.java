@@ -89,7 +89,7 @@ public abstract class Diet {
     }
 
 
-    public boolean dietRestriction1b() {
+    public boolean foodInDietVeganOrNot() {
         for (Food f : getAllowedFood()) {
             if (f.isVegan()) {
                 return true;
@@ -98,7 +98,7 @@ public abstract class Diet {
         return false;
     }
 
-    public boolean dietRestriction1a(Diet d) {
+    public boolean foodInDietVeganAndDietVeganOrNot(Diet d) {
         for (Food f : allowedFood) {
             if ((!f.isVegan() && !d.isVegan()) || (!f.isVegan() && d.isVegan())) {
                 throw new IllegalArgumentException("NOT VEGAN");

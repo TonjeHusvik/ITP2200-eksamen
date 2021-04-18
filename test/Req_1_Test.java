@@ -21,7 +21,7 @@ public class Req_1_Test {
         VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet",
                 foodContainerReq1.allowedInVegan(), false, 50);
 
-        assertTrue(veganDiet1.dietRestriction1a(veganDiet1));
+        assertTrue(veganDiet1.foodInDietVeganAndDietVeganOrNot(veganDiet1));
         System.out.println(foodContainerReq1.allowedInVegan());
     }
 
@@ -33,7 +33,7 @@ public class Req_1_Test {
         VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet",
                 foodContainerReq1.allowedInVeganImposter(), true, 50);
 
-        assertTrue(veganDiet1.dietRestriction1a(veganDiet1));
+        assertTrue(veganDiet1.foodInDietVeganAndDietVeganOrNot(veganDiet1));
     }
 
     // Test when the diet is non-vegan and when the food is vegan, allowed food is determinant
@@ -44,7 +44,7 @@ public class Req_1_Test {
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet",
                 foodContainerReq1.allowedInFlexitarianVeganImposter(), false, 50, tomahawk);
 
-        assertTrue(flexitarianDiet1.dietRestriction1a(flexitarianDiet1));
+        assertTrue(flexitarianDiet1.foodInDietVeganAndDietVeganOrNot(flexitarianDiet1));
     }
 
     // Test when the diet is non-vegan and when the food is non-vegan, expecting the exception, allowed food is determinant
@@ -55,7 +55,7 @@ public class Req_1_Test {
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet",
                 foodContainerReq1.allowedInFlexitarian(), false, 50, tomahawk);
 
-        flexitarianDiet1.dietRestriction1a(flexitarianDiet1);
+        flexitarianDiet1.foodInDietVeganAndDietVeganOrNot(flexitarianDiet1);
     }
 
     // Test when the diet is vegan and when the food is vegan, allowed food is determinant
@@ -65,7 +65,7 @@ public class Req_1_Test {
         VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet of Rice and Chicken Filet",
                 foodContainerReq1.allowedInVegan(), true, 50);
 
-        assertTrue(veganDiet1.dietRestriction1a(veganDiet1));
+        assertTrue(veganDiet1.foodInDietVeganAndDietVeganOrNot(veganDiet1));
     }
 
     // Test when the diet is vegan and when the food is non-vegan, expecting the exception, allowed food is determinant
@@ -75,7 +75,7 @@ public class Req_1_Test {
         VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet of Rice and Chicken Filet",
                 foodContainerReq1.nonAllowedFoodVegan(), true, 50);
 
-        assertFalse(veganDiet1.dietRestriction1a(veganDiet1));
+        assertFalse(veganDiet1.foodInDietVeganAndDietVeganOrNot(veganDiet1));
     }
 
     // Test when the diet is non-vegan and when the food is vegan, allowed food is determinant
@@ -86,7 +86,7 @@ public class Req_1_Test {
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet",
                 foodContainerReq1.allowedInVegan(), false, 50, tofu);
 
-        assertTrue(flexitarianDiet1.dietRestriction1a(flexitarianDiet1));
+        assertTrue(flexitarianDiet1.foodInDietVeganAndDietVeganOrNot(flexitarianDiet1));
     }
 
     // Test when the diet is non-vegan and when the food is non-vegan, expecting the exception, allowed food is determinant
@@ -97,7 +97,7 @@ public class Req_1_Test {
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 30, "Flexitarian Diet",
                 foodContainerReq1.allowedInFlexitarian(), false, 50, tofu);
 
-        flexitarianDiet1.dietRestriction1a(flexitarianDiet1);
+        flexitarianDiet1.foodInDietVeganAndDietVeganOrNot(flexitarianDiet1);
     }
 
     /*-------------------------------------------------------------------------------------------------------------------*/
@@ -115,7 +115,7 @@ public class Req_1_Test {
     @Test
     public void requirement1b_1(){
         HypercaloricDiet hypercaloricDiet = new HypercaloricDiet("Hyper caloric diet", 60, "health", foodContainerReq1.allowedInHyperCaloric(), true, 120, 600);
-        assertTrue("The food in this diet is not vegan",hypercaloricDiet.dietRestriction1b());
+        assertTrue("The food in this diet is not vegan",hypercaloricDiet.foodInDietVeganOrNot());
     }
 
     // Test a diet where parts of it is vegan
@@ -123,7 +123,7 @@ public class Req_1_Test {
     @Test
     public void requirement1b_2(){
         LowCarbDiet lowCarbDiet = new LowCarbDiet("Low carb diet", 60, "health", foodContainerReq1.allowedInLowCarb(), false, 40);
-        assertTrue("The food in this diet is vegan", lowCarbDiet.dietRestriction1b());
+        assertTrue("The food in this diet is vegan", lowCarbDiet.foodInDietVeganOrNot());
     }
 
     // Test a diet where nothing is vegan
@@ -133,7 +133,7 @@ public class Req_1_Test {
         Food flexFood1 = new Food("Beef", 250, false, FoodType.PROTEIN);
         FlexitarianDiet flexitarianDiet = new FlexitarianDiet("Low carb diet", 60, "health",
                 foodContainerReq1.allowedInFlexiDiet(), false, 400, flexFood1);
-        assertFalse("Everything in this diet is vegan", flexitarianDiet.dietRestriction1b());
+        assertFalse("Everything in this diet is vegan", flexitarianDiet.foodInDietVeganOrNot());
     }
 
     /*-------------------------------------------------------------------------------------------------------------------*/

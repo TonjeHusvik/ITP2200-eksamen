@@ -4,14 +4,14 @@ import java.util.Random;
 public class DietManager{
 
     public boolean areCompatibleVegan(Person p, VeganDiet v) {
-        if (v.dietRestriction1a(v) && p.personRestriction2a() && p.personRestriction2b(p, v)
+        if (v.foodInDietVeganAndDietVeganOrNot(v) && p.personRestriction2a() && p.personRestriction2b(p, v)
                 && p.personRestriction2c_1(v)) {
             return true;
         } else throw new IllegalArgumentException("ERROR! The Person and the Diet is not compatible.");
     }
 
     public boolean areCompatibleLowCarb(Person p, LowCarbDiet l) {
-        if (l.lowCarbRestriction1e() && l.dietRestriction1b() && p.personRestriction2b_2(p, l)
+        if (l.lowCarbRestriction1e() && l.foodInDietVeganOrNot() && p.personRestriction2b_2(p, l)
                 && p.personRestriction2c_2(l)) {
             return true;
         } else throw new IllegalArgumentException("ERROR! The Person and the Diet is not compatible.");
