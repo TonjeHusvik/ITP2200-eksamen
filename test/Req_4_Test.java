@@ -138,7 +138,7 @@ public class Req_4_Test {
 
     // PASSED✔
     @Test
-    public void randomDiet4b() {
+    public void requirement4b() {
         DietManager randomDietManager = new DietManager();
         Person randomPerson = new Person(new Food("Salad", 10, true, FoodType.FIBER),
                 foodContainerReq_4.randomDietWithAllergiesAndFood().get(1), 80);
