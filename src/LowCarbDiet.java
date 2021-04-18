@@ -14,7 +14,7 @@ public class LowCarbDiet extends Diet{
         return minWeightKg;
     }
 
-    public boolean lowCarbRestriction1e() throws IllegalArgumentException {
+    public boolean lessThanTwoCarbsOrNot() throws IllegalArgumentException {
         int i = 0;
         for (Food f : getAllowedFood()) {
             if (f.getType().equals(FoodType.CARB)) {

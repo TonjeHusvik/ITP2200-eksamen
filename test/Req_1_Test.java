@@ -215,7 +215,7 @@ public class Req_1_Test {
     @Test
     public void requirement1_e(){
         LowCarbDiet lowCarbDiet1 = new LowCarbDiet("Lowcarb Diet", 30, "Loose weight", foodContainerReq1.allowedLowCarbFood(), false, 50);
-        assertTrue(lowCarbDiet1.lowCarbRestriction1e());
+        assertTrue(lowCarbDiet1.lessThanTwoCarbsOrNot());
     }
 
     // Testing the amount of FoodType Carb, with more than 2. Expecting an exception because it is more than 2.
@@ -223,6 +223,6 @@ public class Req_1_Test {
     @Test (expected = IllegalArgumentException.class)
     public void requirement1_e_1(){
         LowCarbDiet lowCarbDiet1 = new LowCarbDiet("Lowcarb Diet", 30, "Loose weight", foodContainerReq1.allowedLowCarbFoodCarb(), false, 50);
-        lowCarbDiet1.lowCarbRestriction1e();
+        lowCarbDiet1.lessThanTwoCarbsOrNot();
     }
 }
