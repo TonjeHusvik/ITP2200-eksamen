@@ -33,16 +33,19 @@ Our dietary program is a software solution test suite for a dietary handler, tha
         * minCaloriesPerDay: random number between 2000 and 4000.
 
 
-What the project does
+## What the project does
+
+The main task of this SUT is to fulfill the requirements set by the client.
+
 Imagine that you would like to start on a diet for any given reason, but you struggle with either allergy or you’re a person that chooses to eat vegan options only. In this project, we test different scenarios with different kinds of diets such as flexitarian diet, vegan diet, low-carb diet, and a random hypercaloric diet.
 We test to see if your criteria are met with a certain diet of your choosing, to see if you’re a good match to use the diet. 
 
-How to use the program
-Since this is a test project and there’s no user interface working, the only way to use the program is to change the information in the test and arrays to see different outcomes. 
+## How to use the program
+Since this is a test project and there’s no user interface working, the way to use the SUT is to change the inputs in the tests and arraylists to see different outputs. 
 
-Built with
-Intellij IDEA
-JUnit
+## Built with
+   * Intellij IDEA
+   * JUnit
 
 ## Contributing
 We are a group of 5 people who put together this Dietary Program for our exam.
