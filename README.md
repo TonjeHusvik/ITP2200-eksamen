@@ -32,7 +32,7 @@ Our dietary program is a software solution test suite for a dietary handler, tha
         * maxWeightKg: random number between Person.weight and Person.weight + 20.
         * minCaloriesPerDay: random number between 2000 and 4000.
 
-    
+
 What the project does
 Imagine that you would like to start on a diet for any given reason, but you struggle with either allergy or you’re a person that chooses to eat vegan options only. In this project, we test different scenarios with different kinds of diets such as flexitarian diet, vegan diet, low-carb diet, and a random hypercaloric diet.
 We test to see if your criteria are met with a certain diet of your choosing, to see if you’re a good match to use the diet. 
@@ -44,5 +44,5 @@ Built with
 Intellij IDEA
 JUnit
 
-Contributing
+## Contributing
 We are a group of 5 people who put together this Dietary Program for our exam.
