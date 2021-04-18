@@ -11,7 +11,7 @@ public class DietManager{
     }
 
     public boolean areCompatibleLowCarb(Person p, LowCarbDiet l) {
-        if (l.lowCarbRestriction1e() && l.dietRestriction1b() && p.personRestriction2b(p, l)
+        if (l.lowCarbRestriction1e() && l.dietRestriction1b() && p.personRestriction2b_2(p, l)
                 && p.personRestriction2c_2(l)) {
             return true;
         } else throw new IllegalArgumentException("ERROR! The Person and the Diet is not compatible.");
