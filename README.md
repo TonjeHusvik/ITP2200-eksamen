@@ -49,4 +49,4 @@ Since this is a test project and there’s no user interface working, the way to
    * JUnit
 
 ## Contributing
-We are a group of 5 people who put together this Dietary Program for our exam.
+We are a group of 5 students who put together this Dietary Program for our exam.
