@@ -15,7 +15,7 @@ public class VeganDiet extends Diet{
         return minWeightKg;
     }
 
-    public boolean veganDietRestriction1c() throws IllegalArgumentException {
+    public boolean onlyVeganFoodInDietOrNot() throws IllegalArgumentException {
         for (Food f : getAllowedFood()) {
             if (!f.isVegan()) {
                 isVegan = false;

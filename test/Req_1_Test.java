@@ -150,7 +150,7 @@ public class Req_1_Test {
         VeganDiet veganDiet = new VeganDiet("VeganDiet", 30, "Vegan Diet",
                 foodContainerReq1.allowedInVegan(), true, 50);
 
-        assertTrue("Diet contains one or more non-vegan foods", veganDiet.veganDietRestriction1c());
+        assertTrue("Diet contains one or more non-vegan foods", veganDiet.onlyVeganFoodInDietOrNot());
     }
 
     // Testing with one or more non-vegan foods
@@ -161,7 +161,7 @@ public class Req_1_Test {
         VeganDiet notVeganDiet = new VeganDiet("Not veganDiet", 30, "Vegan Diet",
                 foodContainerReq1.nonAllowedFoodVegan(), true, 50);
 
-        notVeganDiet.veganDietRestriction1c();
+        notVeganDiet.onlyVeganFoodInDietOrNot();
     }
 
     /*-------------------------------------------------------------------------------------------------------------------*/
