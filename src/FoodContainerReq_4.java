@@ -9,11 +9,13 @@ public class FoodContainerReq_4 {
         Food veganFood3 = new Food("Tofu", 76, true, FoodType.PROTEIN);
         Food veganFood4 = new Food("Beans", 130, true, FoodType.CARB);
         Food veganFood5 = new Food("Broccoli", 20, true, FoodType.FIBER);
+        Food veganFood6 = new Food("Seitan", 50, true, FoodType.PROTEIN);
         allowedInVegan.add(veganFood1);
         allowedInVegan.add(veganFood2);
         allowedInVegan.add(veganFood3);
         allowedInVegan.add(veganFood4);
         allowedInVegan.add(veganFood5);
+        allowedInVegan.add(veganFood6);
 
         return allowedInVegan;
     }
