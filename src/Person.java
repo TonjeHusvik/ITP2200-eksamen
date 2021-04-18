@@ -72,7 +72,7 @@ public class Person {
         return true;
     }
 
-    public boolean personAllergiesAndLowCarb(Person p, Diet d) {
+    public void personAllergiesAndLowCarb(Person p, Diet d) {
         FoodContainerReq_2 fc = new FoodContainerReq_2();
         fc.allowedInDietAndAllergiesTooMany().get(1).retainAll(fc.allowedInDietAndAllergiesTooMany().get(0));
         if(fc.allowedInDietAndAllergiesTooMany().get(1).size() >= (fc.allowedInDietAndAllergiesTooMany().get(0).size()/2)) {
@@ -81,7 +81,6 @@ public class Person {
             throw new IllegalArgumentException();
         }
         System.out.println("The person can follow this diet.");
-        return true;
     }
 
     public boolean personRestriction2b_2(Person p, Diet d) {
