@@ -18,7 +18,7 @@ public class DietManager{
     }
 
     public boolean areCompatibleFlexitarian(Person p, FlexitarianDiet f, Food food) {
-        if (p.personRestriction2b(p, f) && f.flexDietRestriction1d(f, food)) {
+        if (p.personRestriction2b(p, f) && f.preferredMeatVeganAndFoodTypeProteinOrNot(f, food)) {
             return true;
         } else throw new IllegalArgumentException("ERROR! The Person and the Diet is not compatible.");
     }

@@ -178,7 +178,7 @@ public class Req_1_Test {
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Flexitarian Diet", 23, "Stay fit",
                 foodContainerReq1.allowedInFlexitarian(), false, 8000, tomahawkSteak);
 
-        flexitarianDiet1.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak);
+        flexitarianDiet1.preferredMeatVeganAndFoodTypeProteinOrNot(flexitarianDiet1, tomahawkSteak);
     }
 
     // Test if preferred meat is vegan and FoodType is protein
@@ -189,7 +189,7 @@ public class Req_1_Test {
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Flexitarian Diet", 23, "Stay fit",
                 foodContainerReq1.allowedInFlexitarian(), false, 8000, tomahawkSteak);
 
-        flexitarianDiet1.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak);
+        flexitarianDiet1.preferredMeatVeganAndFoodTypeProteinOrNot(flexitarianDiet1, tomahawkSteak);
     }
 
     // Test if preferred meat is non-vegan and FoodType is not protein
@@ -200,7 +200,7 @@ public class Req_1_Test {
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Flexitarian Diet", 23, "Stay fit",
                 foodContainerReq1.allowedInFlexitarian(), false, 8000, tomahawkSteak);
 
-        flexitarianDiet1.flexDietRestriction1d(flexitarianDiet1, tomahawkSteak);
+        flexitarianDiet1.preferredMeatVeganAndFoodTypeProteinOrNot(flexitarianDiet1, tomahawkSteak);
     }
 
     /*-------------------------------------------------------------------------------------------------------------------*/
