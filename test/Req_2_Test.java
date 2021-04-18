@@ -51,7 +51,7 @@ public class Req_2_Test {
         FlexitarianDiet flexiDiet = new FlexitarianDiet("Flexi", 324, "testing",
                 foodContainerReq2.allowedInDietAndAllergiesTooMany().get(0),
                 false, 1000, (new Food("Tuna", 129, false, FoodType.PROTEIN)));
-        tooManyAllergies.personRestriction2b(tooManyAllergies, flexiDiet);
+        tooManyAllergies.personAllergiesAndLowCarb(tooManyAllergies, flexiDiet);
     }
 
     //Testing with less than 50% allergies
