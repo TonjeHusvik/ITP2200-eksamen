@@ -13,10 +13,6 @@ public class Food {
         this.type = type;
     }
 
-    public Food() {
-
-    }
-
     public boolean isVegan() {
         return isVegan;
     }

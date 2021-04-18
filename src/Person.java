@@ -45,9 +45,7 @@ public class Person {
         return diet;
     }
 
-    public void setDiet(Diet diet) {
-        this.diet = diet;
-    }
+    //Removed setDiet because it's not used in program or tests
 
     public float getWeight() {
         return weight;
