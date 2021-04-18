@@ -1,14 +1,5 @@
 # ITP2200-EXAM2021-GROUP3
 
-```java
-import HelloYou!
-
-HelloYou! helloyou = new HelloYou!("Hello you!");
-system.out.println(helloyou);
-```
-
-
-
 Material for the Dietary Program - ITP2200 Introduction to software testing exam for group 3.
 
 Our dietary program is a software solution test suite for a dietary handler, that mainly tests the solutions of the requirements set by the client (our lecturer Alberto Martín López).
