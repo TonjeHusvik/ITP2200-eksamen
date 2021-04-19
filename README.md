@@ -42,7 +42,7 @@ We test to see if your criteria are met with a certain diet of your choosing, to
 
 
 ## How to run and compile the program
-We recommend to open this software with a Integrated Development Environment, IntelliJ IDEA e.g.
+We recommend opening this software with a Integrated Development Environment, IntelliJ IDEA e.g.
 Since this is a test project and there’s no user interface working, the way to use the SUT is to change the inputs in the tests and arraylists to see different outputs. 
 There are pre-configured food objects within each foodcontainer class in the source folder representing each requirement set by the client (1-4).
 You will find the tests to run inside the test folder, within each test class that represents each requirement set by the client.
