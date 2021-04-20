@@ -14,7 +14,7 @@ public class Extra_Req_Test {
     public void moreThanMax() {
         FlexitarianDiet flexiDiet = new FlexitarianDiet("Too much meat", 35, "Eating lots of meat", fc.allowedInFlexitarian(),
                 false, 2000);
-        assertTrue(flexiDiet.maxMeatGramsPerWeek(flexiDiet));
+        flexiDiet.maxMeatGramsPerWeek(flexiDiet);
     }
 
     // PASSED✔️
@@ -33,7 +33,7 @@ public class Extra_Req_Test {
     @Test (expected = IllegalArgumentException.class)
     public void lessThanOneCalorie() {
         Food noEnergy = new Food("Water", 0, true, FoodType.RECIPE);
-        assertTrue(noEnergy.atLeastOneCalorie());
+        noEnergy.atLeastOneCalorie();
     }
 
     // PASSED✔️
