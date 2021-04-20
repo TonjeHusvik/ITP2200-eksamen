@@ -170,6 +170,17 @@ public class Req_1_Test {
 
     /*** Requirement 1.d: The preferred meat in a FlexitarianDiet MUST be non-vegan food of protein
      type. ***/
+
+    // Test if preferred meat is non-vegan and FoodType is protein
+    // PASSED✔️
+    @Test
+    public void requirement1d() {
+        Food tomahawkSteak = new Food("Bread", 350, false, FoodType.PROTEIN);
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Flexitarian Diet", 23, "Stay fit",
+                foodContainerReq1.allowedInFlexitarian(), false, 8000, tomahawkSteak);
+        assertTrue(flexitarianDiet1.preferredMeatVeganAndFoodTypeProteinOrNot(flexitarianDiet1, tomahawkSteak));
+    }
+
     // Test if preferred meat is vegan and FoodType is not protein
     // PASSED✔️
     @Test (expected = IllegalArgumentException.class)
