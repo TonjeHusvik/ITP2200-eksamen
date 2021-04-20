@@ -21,8 +21,22 @@ public class Food {
         return type;
     }
 
+    public float getCaloriesPer100g() {
+        return caloriesPer100g;
+    }
+
     @Override
     public String toString() {
         return name;
+    }
+
+    //Method For Extra Requirement: a food can't have 0 or a negative amount of calories per 100g
+    public boolean atLeastOneCalorie() {
+        if (getCaloriesPer100g() <= 0) {
+            System.out.println("A food must have at least 1 calorie per 100g. An exception is thrown as expected.");
+            throw new IllegalArgumentException();
+        }
+        System.out.println("This food has at least the minimum required amount of calories per 100g.");
+        return true;
     }
 }
