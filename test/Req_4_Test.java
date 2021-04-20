@@ -74,7 +74,7 @@ public class Req_4_Test {
     public void requirement4a_2() {
         Food flexitarianPerson3FavouriteFood = new Food("Tomahawk Beef", 295, false, FoodType.PROTEIN);
         FlexitarianDiet person3FlexitarianDiet = new FlexitarianDiet("Person3 FlexitarianDiet", 90, "Is this diet compatible with this Person?",
-                foodContainerReq_4.allowedInFlexitarianDiet(), true, 5000, flexitarianPerson3FavouriteFood);
+                foodContainerReq_4.allowedInFlexitarianDiet(), false, 5000, flexitarianPerson3FavouriteFood);
 
         DietManager dietManager = new DietManager();
         Person person3 = new Person(flexitarianPerson3FavouriteFood, foodContainerReq_4.person3Allergies(), person3FlexitarianDiet, 90);
