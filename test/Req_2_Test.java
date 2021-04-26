@@ -2,10 +2,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import static org.junit.Assert.assertTrue;
 
-// PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
-// PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
-// PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
-
 public class Req_2_Test {
 
     FoodContainerReq_2 foodContainerReq2 = new FoodContainerReq_2();
@@ -34,7 +30,6 @@ public class Req_2_Test {
         assertTrue(personVeganFavorite.favoriteFoodVeganAndDietVeganOrNot());
     }
 
-
     /*-----------------------------------------------------------------------------------------------------------------*/
     /*-----------------------------------------------------------------------------------------------------------------*/
     /*-----------------------------------------------------------------------------------------------------------------*/
@@ -47,7 +42,7 @@ public class Req_2_Test {
     @Test (expected = IllegalArgumentException.class)
     public void requirement2b() {
         Person tooManyAllergies = new Person(foodContainerReq2.allowedInDietAndAllergiesTooMany().get(1));
-        FlexitarianDiet flexiDiet = new FlexitarianDiet("Flexi", 324, "testing",
+        FlexitarianDiet flexiDiet = new FlexitarianDiet("Flexi", 324, "Training",
                 foodContainerReq2.allowedInDietAndAllergiesTooMany().get(0),
                 false, 1000, (new Food("Tuna", 129, false, FoodType.PROTEIN)));
         tooManyAllergies.personAllergiesAndLowCarb(tooManyAllergies, flexiDiet);
@@ -58,7 +53,7 @@ public class Req_2_Test {
     @Test
     public void requirement2b_1() {
         Person okAmountOfAllergies = new Person(foodContainerReq2.allergiesOk());
-        FlexitarianDiet flexiDiet = new FlexitarianDiet("Flexi", 324, "testing",
+        FlexitarianDiet flexiDiet = new FlexitarianDiet("Flexi", 324, "Training",
                 foodContainerReq2.allowedInDietAndAllergiesTooMany().get(0),
                 false, 1000, (new Food("Tuna", 129, false, FoodType.PROTEIN)));
         assertTrue(okAmountOfAllergies.checkAllergiesAgainstDietFoods(okAmountOfAllergies, flexiDiet));
@@ -67,7 +62,6 @@ public class Req_2_Test {
     /*--------------------------------------------------------------------------------------------------------------------*/
     /*--------------------------------------------------------------------------------------------------------------------*/
     /*--------------------------------------------------------------------------------------------------------------------*/
-
 
     /*** Requirement 2. c: If they weigh less than the limit set by the VeganDiet or the LowCarbDiet, they
      cannot be following these diets (for health reasons). ***/

@@ -94,26 +94,26 @@ public class Person {
 
     public boolean weightLessThanVeganDietMinimumOrNot(VeganDiet d) throws IllegalArgumentException {
         if(getWeight() < d.getMinWeightKg()){
-            throw new IllegalArgumentException("ERROR! You cannot follow a vegan diet if you weigh less than the minimum weight requirement");
-        }
-        else{
+            System.out.println("ERROR! You cannot follow a vegan diet if you weigh less than the minimum weight requirement");
+            throw new IllegalArgumentException();
+        }else{
             return true;
         }
     }
 
     public boolean weightLessThanLowCarbDietMinimumOrNot(LowCarbDiet d) throws IllegalArgumentException {
         if(getWeight() < d.getMinWeightKg()){
-            throw new IllegalArgumentException("ERROR! You cannot follow a lowcarb diet if you weigh less than the minimum weight requirement");
-        }
-        else{
+            System.out.println("ERROR! You cannot follow a lowcarb diet if you weigh less than the minimum weight requirement");
+            throw new IllegalArgumentException();
+        }else{
             return true;
         }
     }
 
     public boolean weightMoreThanMaximumOrNot(HypercaloricDiet h) throws IllegalArgumentException {
         if(getWeight() > h.getMaxWeightKg()){
-            throw new IllegalArgumentException("ERROR! You cannot follow a hypercaloric diet if you weigh more than the maximum weight requirement");
-
+            System.out.println("ERROR! You cannot follow a hypercaloric diet if you weigh more than the maximum weight requirement");
+            throw new IllegalArgumentException();
         }else{
             System.out.println("Can follow this diet.");
             return true;
