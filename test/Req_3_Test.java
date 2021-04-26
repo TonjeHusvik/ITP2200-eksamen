@@ -1,12 +1,5 @@
-import org.junit.Before;
 import org.junit.Test;
-import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
-
-// PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
-// PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
-// PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
-// PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
 
 public class Req_3_Test  {
 
@@ -16,13 +9,13 @@ public class Req_3_Test  {
      “This VeganDiet lasts for 2 years, 3 months and 5 days”***/
 
     // MAIN TASK: Write the duration of a diet in terms of years, months and days, e.g.,
-    //     “This VeganDiet lasts for 2 years, 3 months and 5 days”
+    // “This VeganDiet lasts for 2 years, 3 months and 5 days”
     // Testing only one diet for this req, all the subclasses inherits from the Diet class (parent)
     // PASSED✔️
     @Test
     public void requirement3a() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.PROTEIN);
-        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 400, "What is the duration of this diet?",
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 400, "Summerbody",
                 foodContainerReq_3.allowedInFlexitarian(), true, 3000, tomahawkSteak);
 
         String result = flexitarianDiet1.writeDuration(flexitarianDiet1);
@@ -34,7 +27,7 @@ public class Req_3_Test  {
     @Test
     public void requirement3a_1() {
         Food tomahawkSteak = new Food("Tomahawk Steak", 160, false, FoodType.PROTEIN);
-        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 450, "What is the duration of this diet?",
+        FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("FlexitarianDiet", 450, "Winterbody",
                 foodContainerReq_3.allowedInFlexitarian(), true, 3000, tomahawkSteak);
 
         String result = flexitarianDiet1.writeDurationInDays(flexitarianDiet1);
