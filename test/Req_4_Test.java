@@ -2,15 +2,9 @@ import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-// PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
-// PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
-// PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
-
 public class Req_4_Test {
 
     FoodContainerReq_4 foodContainerReq_4 = new FoodContainerReq_4();
-
-    //______________________________________________________________________________________________
 
     /*** Given a Person and a Diet, return true if they are compatible, false otherwise ***/
 
@@ -65,7 +59,7 @@ public class Req_4_Test {
 
         DietManager dietManager = new DietManager();
         Person person2 = new Person(lowCarbPerson2FavouriteFood, foodContainerReq_4.personAllergiesInException(), person2LowCarbDiet, 45);
-        assertFalse(dietManager.areCompatibleLowCarb(person2, person2LowCarbDiet));
+        dietManager.areCompatibleLowCarb(person2, person2LowCarbDiet);
     }
 
     // Testing ONLY flexitarian-compatibility
@@ -92,7 +86,7 @@ public class Req_4_Test {
 
         DietManager dietManager = new DietManager();
         Person person3 = new Person(flexitarianPerson3FavouriteFood, foodContainerReq_4.personAllergiesInException(), person3FlexitarianDiet, 90);
-        assertTrue(dietManager.areCompatibleFlexitarian(person3, person3FlexitarianDiet, flexitarianPerson3FavouriteFood));
+        dietManager.areCompatibleFlexitarian(person3, person3FlexitarianDiet, flexitarianPerson3FavouriteFood);
     }
 
     // Testing ONLY hypercaloric-compatibility
@@ -119,7 +113,7 @@ public class Req_4_Test {
 
         DietManager dietManager = new DietManager();
         Person person4 = new Person(hypercaloricPerson4FavouriteFood, foodContainerReq_4.personAllergiesInException(), person4HypercaloricDiet, 160);
-        assertTrue(dietManager.areCompatibleHypercaloric(person4, person4HypercaloricDiet));
+        dietManager.areCompatibleHypercaloric(person4, person4HypercaloricDiet);
     }
 
     /*-------------------------------------------------------------------------------------------------------------------*/
