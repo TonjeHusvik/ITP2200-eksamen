@@ -20,7 +20,8 @@ public class LowCarbDiet extends Diet{
             if (f.getType().equals(FoodType.CARB)) {
                 i = i + 1;
                 if (i >= 3) {
-                    throw new IllegalArgumentException("You can not have more than two types of carb in a lowcarb diet");
+                    System.out.println("You can not have more than two types of carb in a low carb diet");
+                    throw new IllegalArgumentException();
                 }
             }
         }

@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 
 public abstract class Diet {
-    private int daysDuration;
-    private String purpose;
-    private ArrayList<Food> allowedFood;
+    private final int daysDuration;
+    private final String purpose;
+    private final ArrayList<Food> allowedFood;
     public boolean isVegan;
-    private String name;
+    private final String name;
 
     public Diet(String name, int daysDuration, String purpose, ArrayList<Food> allowedFood, boolean isVegan) {
         this.daysDuration = daysDuration;
@@ -90,17 +90,17 @@ public abstract class Diet {
 
     public boolean foodInDietVeganOrNot() {
         for (Food f : getAllowedFood()) {
-            if (f.isVegan()) {
-                return true;
+            if (!f.isVegan()) {
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     public boolean foodInDietVeganAndDietVeganOrNot(Diet d) {
         for (Food f : allowedFood) {
             if ((!f.isVegan() && !d.isVegan()) || (!f.isVegan() && d.isVegan())) {
-                throw new IllegalArgumentException("NOT VEGAN");
+                throw new IllegalArgumentException("The diet is not vegan");
             }
         }
         return true;

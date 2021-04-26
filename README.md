@@ -37,7 +37,7 @@ Our dietary program is a software solution test suite for a dietary handler, tha
 
 The main task of this SUT is to fulfill the requirements set by the client.
 
-Imagine that you would like to start on a diet for any given reason, but you struggle with either allergy or you’re a person that chooses to eat vegan options only. In this project, we test different scenarios with different kinds of diets such as flexitarian diet, vegan diet, low-carb diet, and a random hypercaloric diet.
+Imagine that you would like to start on a diet for any given reason, but you struggle with either allergy, or you’re a person that chooses to eat vegan options only. In this project, we test different scenarios with different kinds of diets such as flexitarian diet, vegan diet, low-carb diet, and a random hypercaloric diet.
 We test to see if your criteria are met with a certain diet of your choosing, to see if you’re a good match to use the diet. 
 
 

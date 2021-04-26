@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class VeganDiet extends Diet{
-    private float minWeightKg;
+    private final float minWeightKg;
 
 
     public VeganDiet(String name, int daysDuration, String purpose,

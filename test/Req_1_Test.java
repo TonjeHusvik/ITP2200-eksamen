@@ -1,11 +1,5 @@
 import org.junit.Test;
-
 import static org.junit.Assert.*;
-
-// PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
-// PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
-// PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
-// PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔PASSED✔
 
 public class Req_1_Test {
 
@@ -13,7 +7,7 @@ public class Req_1_Test {
 
     /*** Requirement 1. a: If a diet contains any non-vegan food, it is considered not vegan (i.e., isVegan = false).***/
 
-    // Test if the diet is vegan on behalf of the food is vegan.
+    // Test if the diet is vegan based on the the food object is vegan.
     // TESTING EVERYTHING IN THE ARRAYLIST IF ITS ALL VEGAN, allowed food is determining and not the isVegan parameter on the diet.
     // PASSED✔️
     @Test
@@ -22,10 +16,9 @@ public class Req_1_Test {
                 foodContainerReq1.allowedInVegan(), false, 50);
 
         assertTrue(veganDiet1.foodInDietVeganAndDietVeganOrNot(veganDiet1));
-        System.out.println(foodContainerReq1.allowedInVegan());
     }
 
-    // Test if the diet is vegan on behalf of the food is vegan.
+    // Test if the diet is vegan based on the the food object is vegan.
     // TESTING EVERYTHING IN THE ARRAYLIST IF ITS ALL VEGAN, but it is not because of the imposter food.
     // PASSED✔️
     @Test(expected = IllegalArgumentException.class)
@@ -33,7 +26,7 @@ public class Req_1_Test {
         VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet",
                 foodContainerReq1.allowedInVeganImposter(), true, 50);
 
-        assertTrue(veganDiet1.foodInDietVeganAndDietVeganOrNot(veganDiet1));
+        veganDiet1.foodInDietVeganAndDietVeganOrNot(veganDiet1);
     }
 
     // Test when the diet is non-vegan and when the food is vegan, allowed food is determinant
@@ -75,7 +68,7 @@ public class Req_1_Test {
         VeganDiet veganDiet1 = new VeganDiet("VeganDiet", 30, "Vegan Diet of Rice and Chicken Filet",
                 foodContainerReq1.nonAllowedFoodVegan(), true, 50);
 
-        assertFalse(veganDiet1.foodInDietVeganAndDietVeganOrNot(veganDiet1));
+        veganDiet1.foodInDietVeganAndDietVeganOrNot(veganDiet1);
     }
 
     // Test when the diet is non-vegan and when the food is vegan, allowed food is determinant
@@ -107,9 +100,6 @@ public class Req_1_Test {
     /*** Requirement 1. b: If a diet contains only vegan food, it is considered vegan, even if it is not a
      VeganDiet (e.g., it could be a LowCarbDiet). ***/
 
-    //TODO If a diet contains only vegan food, it is considered vegan, even if it is not a VeganDiet
-    // (e.g., it could be a LowCarbDiet).
-
     // MAIN TASK: Test a diet that is not from the VeganDiet, but is fully vegan
     // PASSED✔️
     @Test
@@ -123,7 +113,7 @@ public class Req_1_Test {
     @Test
     public void requirement1b_2(){
         LowCarbDiet lowCarbDiet = new LowCarbDiet("Low carb diet", 60, "health", foodContainerReq1.allowedInLowCarb(), false, 40);
-        assertTrue("The food in this diet is vegan", lowCarbDiet.foodInDietVeganOrNot());
+        assertFalse("The food in this diet is vegan", lowCarbDiet.foodInDietVeganOrNot());
     }
 
     // Test a diet where nothing is vegan
@@ -175,7 +165,7 @@ public class Req_1_Test {
     // PASSED✔️
     @Test
     public void requirement1d() {
-        Food tomahawkSteak = new Food("Bread", 350, false, FoodType.PROTEIN);
+        Food tomahawkSteak = new Food("Tomahawk Steak", 350, false, FoodType.PROTEIN);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Flexitarian Diet", 23, "Stay fit",
                 foodContainerReq1.allowedInFlexitarian(), false, 8000, tomahawkSteak);
         assertTrue(flexitarianDiet1.preferredMeatVeganAndFoodTypeProteinOrNot(flexitarianDiet1, tomahawkSteak));
@@ -185,11 +175,11 @@ public class Req_1_Test {
     // PASSED✔️
     @Test (expected = IllegalArgumentException.class)
     public void requirement1d_1() {
-        Food tomahawkSteak = new Food("Bread", 350, true, FoodType.CARB);
+        Food bread = new Food("Bread", 350, true, FoodType.CARB);
         FlexitarianDiet flexitarianDiet1 = new FlexitarianDiet("Flexitarian Diet", 23, "Stay fit",
-                foodContainerReq1.allowedInFlexitarian(), false, 8000, tomahawkSteak);
+                foodContainerReq1.allowedInFlexitarian(), false, 8000, bread);
 
-        flexitarianDiet1.preferredMeatVeganAndFoodTypeProteinOrNot(flexitarianDiet1, tomahawkSteak);
+        flexitarianDiet1.preferredMeatVeganAndFoodTypeProteinOrNot(flexitarianDiet1, bread);
     }
 
     // Test if preferred meat is vegan and FoodType is protein

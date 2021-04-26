@@ -28,7 +28,7 @@ public class FoodContainerReq_1 {
 
     public ArrayList<Food> allowedInFlexitarianVeganImposter() {
         ArrayList<Food> allowedInFlexitarianVeganImposter = new ArrayList<>();
-        Food flexitarianFoodImposter = new Food("Beef", 20, true, FoodType.PROTEIN);
+        Food flexitarianFoodImposter = new Food("Vegan Beef", 20, true, FoodType.PROTEIN);
         allowedInFlexitarianVeganImposter.add(flexitarianFoodImposter);
         return allowedInFlexitarianVeganImposter;
     }

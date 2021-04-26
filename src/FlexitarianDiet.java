@@ -30,7 +30,8 @@ public class FlexitarianDiet extends Diet{
             System.out.println("The preferred meat in FlexitarianDiet is not vegan and is of FoodType Protein, ENJOY! =)");
             return true;
         } else {
-            throw new IllegalArgumentException("ERROR! The preferred meat in a FlexitarianDiet MUST be non-vegan of protein type.");
+            System.out.println("ERROR! The preferred meat in a FlexitarianDiet MUST be non-vegan of protein type.");
+            throw new IllegalArgumentException();
         }
     }
 
